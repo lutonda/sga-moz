@@ -16,9 +16,7 @@ class AppController extends Controller {
         $this->Auth->loginRedirect = array('controller' => 'users', 'action' => 'after_login');
         $this->Auth->loginError = "Dados Incorrectos";
         $this->Auth->actionPath = 'controllers/';
-		
-
-        
+		        
 
     }
 	
