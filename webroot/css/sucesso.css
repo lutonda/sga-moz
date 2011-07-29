@@ -1,0 +1,23 @@
+/*
+    Document   : messages
+    Created on : Aug 7, 2010, 5:16:14 PM
+    Author     : BackstageEL
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+/** Notices and Errors **/
+div.sucesso {
+	clear: both;
+	color: #25d52e;
+	font-size: 140%;
+	font-weight: bold;
+	margin: 0 0 1em 0;
+	background: #fff;
+	padding: 5px;
+}

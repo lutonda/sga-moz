@@ -1,0 +1,24 @@
+/* 
+    Document   : sms
+    Created on : Jan 31, 2011, 4:19:18 AM
+    Author     : backstageel
+    Description:
+        Personalizacao dos aspectos particulares do sistema
+*/
+
+
+
+.msgstatus2 {
+	display: block;
+	display: inline-block;
+	padding: 0 20px 0 0;
+	background:url(layout/site/tables/action3.gif) no-repeat right center;
+	color: #b86464;
+}
+.msgstatus1 {
+	display: block;
+	display: inline-block;
+	padding: 0 20px 0 0;
+	background:url(layout/site/tables/approved.gif) no-repeat right center;
+	
+}

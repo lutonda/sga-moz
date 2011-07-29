@@ -1,0 +1,59 @@
+[31-Aug-2010 12:53:59] PHP Parse error:  syntax error, unexpected ';', expecting T_FUNCTION in /home/webdev2/public_html/sistema/app/app_controller.php on line 20
+[31-Aug-2010 12:54:51] PHP Parse error:  syntax error, unexpected ';', expecting T_FUNCTION in /home/webdev2/public_html/sistema/app/app_controller.php on line 20
+[20-Sep-2010 17:47:17] PHP Fatal error:  Call to a member function find() on a non-object in /home/webdev2/public_html/sistema/app/controllers/funcionarios_controller.php on line 33
+[20-Sep-2010 18:35:18] PHP Fatal error:  Call to a member function find() on a non-object in /home/webdev2/public_html/sistema/app/controllers/Alunos_controller.php on line 59
+[21-Sep-2010 14:33:15] PHP Fatal error:  Call to a member function find() on a non-object in /home/webdev2/public_html/sistema/app/controllers/Alunos_controller.php on line 44
+[21-Sep-2010 14:33:54] PHP Fatal error:  Call to a member function find() on a non-object in /home/webdev2/public_html/sistema/app/controllers/Alunos_controller.php on line 44
+[21-Sep-2010 18:39:41] PHP Fatal error:  Call to a member function find() on a non-object in /home/webdev2/public_html/sistema/app/controllers/t0010turmas_controller.php on line 31
+[21-Oct-2010 16:08:23] PHP Warning:  Unexpected character in input:  ''' (ASCII=39) state=1 in /home/webdev2/public_html/sistema/app/views/layouts/default.ctp on line 42
+[21-Oct-2010 16:08:23] PHP Parse error:  syntax error, unexpected $end, expecting ')' in /home/webdev2/public_html/sistema/app/views/layouts/default.ctp on line 42
+[21-Oct-2010 16:08:43] PHP Warning:  Unexpected character in input:  ''' (ASCII=39) state=1 in /home/webdev2/public_html/sistema/app/views/layouts/default.ctp on line 42
+[21-Oct-2010 16:08:43] PHP Parse error:  syntax error, unexpected $end, expecting ')' in /home/webdev2/public_html/sistema/app/views/layouts/default.ctp on line 42
+[21-Oct-2010 16:19:30] PHP Warning:  Unexpected character in input:  ''' (ASCII=39) state=1 in /home/webdev2/public_html/sistema/app/views/layouts/default.ctp on line 42
+[21-Oct-2010 16:19:30] PHP Parse error:  syntax error, unexpected $end, expecting ')' in /home/webdev2/public_html/sistema/app/views/layouts/default.ctp on line 42
+[29-Oct-2010 14:06:52] PHP Parse error:  syntax error, unexpected T_DOUBLE_ARROW in /home/webdev2/public_html/sistema/app/views/Alunos/add.ctp on line 45
+[29-Oct-2010 14:12:29] PHP Warning:  Unexpected character in input:  ''' (ASCII=39) state=1 in /home/webdev2/public_html/sistema/app/views/Alunos/add.ctp on line 26
+[29-Oct-2010 14:12:29] PHP Parse error:  syntax error, unexpected $end, expecting ')' in /home/webdev2/public_html/sistema/app/views/Alunos/add.ctp on line 26
+[29-Oct-2010 14:14:40] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ')' in /home/webdev2/public_html/sistema/app/views/Alunos/add.ctp on line 71
+[29-Oct-2010 14:15:09] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ')' in /home/webdev2/public_html/sistema/app/views/Alunos/add.ctp on line 71
+[29-Oct-2010 14:18:54] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ')' in /home/webdev2/public_html/sistema/app/views/Alunos/add.ctp on line 68
+[29-Oct-2010 14:37:43] PHP Parse error:  syntax error, unexpected T_DOUBLE_ARROW in /home/webdev2/public_html/sistema/app/views/Alunos/view.ctp on line 15
+[29-Oct-2010 14:38:12] PHP Parse error:  syntax error, unexpected T_DOUBLE_ARROW in /home/webdev2/public_html/sistema/app/views/Alunos/view.ctp on line 63
+[29-Oct-2010 14:38:50] PHP Parse error:  syntax error, unexpected T_DOUBLE_ARROW in /home/webdev2/public_html/sistema/app/views/Alunos/view.ctp on line 64
+[29-Oct-2010 14:39:24] PHP Parse error:  syntax error, unexpected '<' in /home/webdev2/public_html/sistema/app/views/Alunos/view.ctp on line 73
+[29-Oct-2010 15:33:05] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home/webdev2/public_html/sistema/app/views/t0010turmas/add.ctp on line 33
+[29-Oct-2010 15:33:58] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home/webdev2/public_html/sistema/app/views/t0010turmas/add.ctp on line 33
+[05-Feb-2011 18:33:00] PHP Fatal error:  Call to a member function find() on a non-object in /home/zonalogi/public_html/sga/app/controllers/t0010turmas_controller.php on line 16
+[05-Feb-2011 18:33:06] PHP Fatal error:  Call to a member function find() on a non-object in /home/zonalogi/public_html/sga/app/controllers/t0010turmas_controller.php on line 16
+[05-Feb-2011 18:33:11] PHP Fatal error:  Call to a member function find() on a non-object in /home/zonalogi/public_html/sga/app/controllers/t0010turmas_controller.php on line 16
+[05-Feb-2011 18:33:18] PHP Fatal error:  Call to a member function find() on a non-object in /home/zonalogi/public_html/sga/app/controllers/t0010turmas_controller.php on line 16
+[03-Mar-2011 14:49:01] PHP Fatal error:  Call to a member function find() on a non-object in /home/zonalogi/public_html/sga/app/controllers/t0013inscricaos_controller.php on line 243
+[15-Mar-2011 15:59:28] PHP Fatal error:  Call to a member function find() on a non-object in /home/zonalogi/public_html/sga/app/controllers/t0013inscricaos_controller.php on line 243
+[15-Mar-2011 15:59:41] PHP Fatal error:  Call to a member function find() on a non-object in /home/zonalogi/public_html/sga/app/controllers/t0013inscricaos_controller.php on line 243
+[29-Mar-2011 22:16:09] PHP Fatal error:  Call to undefined method AlunosController::uploadFiles() in /home/zonalogi/public_html/sga/app/controllers/Alunos_controller.php on line 87
+[01-Apr-2011 11:23:11] PHP Fatal error:  Call to undefined method AlunosController::uploadFiles() in /home/zonalogi/public_html/sga/app/controllers/Alunos_controller.php on line 43
+[01-Apr-2011 11:34:10] PHP Fatal error:  Call to undefined method AlunosController::uploadFiles() in /home/zonalogi/public_html/sga/app/controllers/Alunos_controller.php on line 43
+[01-Apr-2011 11:34:19] PHP Fatal error:  Call to undefined method AlunosController::uploadFiles() in /home/zonalogi/public_html/sga/app/controllers/Alunos_controller.php on line 43
+[01-Apr-2011 13:52:26] PHP Fatal error:  Class 'Listagen' not found in /home/zonalogi/public_html/sga/app/controllers/listagens_controller.php on line 240
+[01-Apr-2011 14:22:12] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/zonalogi/public_html/sga/app/controllers/t0003cursos_controller.php on line 87
+[02-Apr-2011 11:53:12] PHP Parse error:  syntax error, unexpected $end in /home/zonalogi/public_html/sga/app/controllers/t0016avaliacaos_controller.php on line 82
+[02-Apr-2011 12:15:07] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/zonalogi/public_html/sga/app/controllers/t0016avaliacaos_controller.php on line 25
+[02-Apr-2011 13:20:27] PHP Parse error:  syntax error, unexpected $end in /home/zonalogi/public_html/sga/app/controllers/listagens_controller.php on line 543
+[02-Apr-2011 13:33:15] PHP Parse error:  syntax error, unexpected $end in /home/zonalogi/public_html/sga/app/controllers/listagens_controller.php on line 358
+[02-Apr-2011 13:33:53] PHP Parse error:  syntax error, unexpected $end in /home/zonalogi/public_html/sga/app/controllers/listagens_controller.php on line 242
+[02-Apr-2011 13:40:34] PHP Parse error:  syntax error, unexpected $end in /home/zonalogi/public_html/sga/app/controllers/listagens_controller.php on line 22
+[02-Apr-2011 17:41:47] PHP Parse error:  syntax error, unexpected T_SWITCH in /home/zonalogi/public_html/sga/app/controllers/listagens_controller.php on line 108
+[02-Apr-2011 17:42:01] PHP Parse error:  syntax error, unexpected T_SWITCH in /home/zonalogi/public_html/sga/app/controllers/listagens_controller.php on line 108
+[02-Apr-2011 17:42:43] PHP Parse error:  syntax error, unexpected T_SWITCH in /home/zonalogi/public_html/sga/app/controllers/listagens_controller.php on line 108
+[02-Apr-2011 17:42:53] PHP Parse error:  syntax error, unexpected T_SWITCH in /home/zonalogi/public_html/sga/app/controllers/listagens_controller.php on line 108
+[02-Apr-2011 17:44:20] PHP Parse error:  syntax error, unexpected T_SWITCH in /home/zonalogi/public_html/sga/app/controllers/listagens_controller.php on line 108
+[02-Apr-2011 17:44:31] PHP Parse error:  syntax error, unexpected T_SWITCH in /home/zonalogi/public_html/sga/app/controllers/listagens_controller.php on line 108
+[02-Apr-2011 17:52:03] PHP Parse error:  syntax error, unexpected T_SWITCH in /home/zonalogi/public_html/sga/app/controllers/listagens_controller.php on line 108
+[02-Apr-2011 17:52:10] PHP Parse error:  syntax error, unexpected T_SWITCH in /home/zonalogi/public_html/sga/app/controllers/listagens_controller.php on line 108
+[02-Apr-2011 17:52:44] PHP Parse error:  syntax error, unexpected T_SWITCH in /home/zonalogi/public_html/sga/app/controllers/listagens_controller.php on line 108
+[02-Apr-2011 17:53:44] PHP Parse error:  syntax error, unexpected T_SWITCH in /home/zonalogi/public_html/sga/app/controllers/listagens_controller.php on line 108
+[02-Apr-2011 17:53:51] PHP Parse error:  syntax error, unexpected T_SWITCH in /home/zonalogi/public_html/sga/app/controllers/listagens_controller.php on line 108
+[02-Apr-2011 17:53:59] PHP Parse error:  syntax error, unexpected $end in /home/zonalogi/public_html/sga/app/controllers/listagens_controller.php on line 545
+[03-Apr-2011 18:09:46] PHP Warning:  Unexpected character in input:  ''' (ASCII=39) state=1 in /home/zonalogi/public_html/sga/app/controllers/t0013inscricaos_controller.php on line 205
+[03-Apr-2011 18:09:46] PHP Parse error:  syntax error, unexpected $end, expecting ']' in /home/zonalogi/public_html/sga/app/controllers/t0013inscricaos_controller.php on line 205
+[03-Apr-2011 18:15:48] PHP Parse error:  syntax error, unexpected $end, expecting '(' in /home/zonalogi/public_html/sga/app/controllers/t0013inscricaos_controller.php on line 308

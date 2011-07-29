@@ -1,0 +1,9 @@
+div.error {
+	clear: both;
+	color: #25d52e;
+	font-size: 140%;
+	font-weight: bold;
+	margin: 0 0 1em 0;
+	background: #fff;
+	padding: 5px;
+}

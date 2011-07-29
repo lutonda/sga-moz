@@ -1,0 +1,156 @@
+<?php
+class Aluno extends AppModel {
+	var $name = 'Aluno';
+	//The Associations below have been created with all possible keys, those that are not needed can be removed
+
+	var $belongsTo = array(
+		'User' => array(
+			'className' => 'User',
+			'foreignKey' => 'user_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Paise' => array(
+			'className' => 'Paise',
+			'foreignKey' => 'paise_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Cidade' => array(
+			'className' => 'Cidade',
+			'foreignKey' => 'cidade_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'CidadeNascimento' => array(
+			'className' => 'Cidade',
+			'foreignKey' => 'natcidade',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Provincia' => array(
+			'className' => 'Provincia',
+			'foreignKey' => 'provincia_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+        'ProvenienciaCidade' => array(
+			'className' => 'Cidade',
+			'foreignKey' => 'provenienciacidade',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'ProvenienciaProvincia' => array(
+			'className' => 'Provincia',
+			'foreignKey' => 'proveniencianome',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Documento' => array(
+			'className' => 'Documento',
+			'foreignKey' => 'documento_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Areatrabalho' => array(
+			'className' => 'Areatrabalho',
+			'foreignKey' => 'areatrabalho_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Genero' => array(
+			'className' => 'Genero',
+			'foreignKey' => 'genero_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Curso' => array(
+			'className' => 'Curso',
+			'foreignKey' => 'curso_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+
+	);
+	
+	var $hasMany = array(
+		'Matricula' => array(
+			'className' => 'Matricula',
+			'foreignKey' => 'aluno_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
+	);	
+
+
+
+
+        /**
+         *Retorna o plano de estudos activo do aluno
+         * @param int $id
+         * @return int
+         */
+        function getPlanoEstudoCorrente($id){
+            App::import('Model','Matricula');
+            $matriculas = new Matricula;
+            $matriculas->recursive=-1;
+
+            $matricula = $matriculas->find('all',array('conditions'=>array('tg0021estadomatricula_id'=>1,'Aluno_id'=>$id)));
+
+            $plano_estudo = $matricula[0]['Matricula']['t0005planoestudo_id'];
+            return $plano_estudo;
+        }
+
+        function getAllTurmasByEstado($planoestudo,$aluno,$estado = 1){
+            App::import('Model','Turma');
+            App::import('Model','Inscricao');
+            $turma = new Turma;
+            $inscricao  = new Inscricao;
+            $turma->recursive=-1;
+
+            $turmas = $turma->getAllTurmasActivasByPlanoEstudo($planoestudo);
+
+            
+
+
+
+
+
+            var_dump($turmas);
+
+            
+        }
+
+       // function getAllTurmasCompletas
+
+        function geraCodigo(){
+            $id = $this->find('first', array('order' => array('Aluno.created DESC'),'fields'=>'id'));
+            $ano=date('Y');
+            $id_for=str_pad($id['Aluno']['id']+1, 5,"0",STR_PAD_LEFT);
+            $codigo = $ano.$id_for;
+			
+			return $codigo;
+        }
+
+
+
+}
+?>

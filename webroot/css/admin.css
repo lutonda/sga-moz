@@ -1,0 +1,27 @@
+@import url("general.css");
+@import url("dashboard.css");
+@import url("tables.css");
+@import url("pagination.css");
+@import url("forms.css");
+@import url("sms.css");
+
+.label, .action-buttons label {
+    color: #4C4C4C;
+    text-align: right;
+    white-space: nowrap;
+}
+.label {
+    padding: 2px 6px;
+}
+
+.search_input{
+	position: relative;
+}
+
+.img_search{
+	cursor: pointer;
+    position: absolute;
+    right: 3px;
+    top: -4px;
+    width: 22px;
+}
