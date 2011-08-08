@@ -25,7 +25,7 @@ class T0017anolectivoepocasController extends AppController {
 			} else {
 				$this->Session->setFlash('Erro ao gravar dados. Por favor tente de novo.','error');}
 		}
-		Anolectivos = $this->T0017anolectivoepoca->Anolectivo->find('list');
+		$anolectivos = $this->T0017anolectivoepoca->Anolectivo->find('list');
 		$epocaavaliacaos = $this->T0017anolectivoepoca->Epocaavaliacao->find('list');
 		$this->set(compact('t0009anolectivos', 't0014epocaavaliacaos'));
 	}

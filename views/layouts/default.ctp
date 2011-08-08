@@ -18,9 +18,10 @@
                 echo $this->Html->script('table');
                 echo $this->Html->css('messages');
                 echo $this->Html->css('sistema');
-                echo $this->Html->script(array('prototype'));
-   				echo $this->Html->script(array('jquery-1.6.2.min','date.js','jquery.datePicker.js','cake.datePicker.js'));
-   				echo $this->Html->css(array('datePicker.css'));
+
+                echo $this->Html->script(array('prototype','scriptaculous.js?load=effects','modalbox'));
+   				//echo $this->Html->script(array('jquery-1.6.2.min','jquery-ui-1.8.14.custom.min.js','date.js','jquery.datePicker.js'));
+   				echo $this->Html->css(array('datePicker.css','modalbox'));
 
                     if($grupo==null){}
                     else{

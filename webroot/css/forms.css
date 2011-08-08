@@ -1,22 +1,4 @@
 /* start forms */
-
-.button {
-	display: block;
-	color: #fff;
-	background:url(layout/submit_middle.gif) repeat-x;
-	
-	font-size: 11px;
-	overflow: hidden;
-	position: relative;
-	top: 0;
-	left: 0;
-	float: left;
-	
-	font-weight: bold;
-	text-decoration: none;
-	
-}
-
 a.button:link, a.button:visited,  a.button:active {
 	cursor: pointer;
 	color: #fff;

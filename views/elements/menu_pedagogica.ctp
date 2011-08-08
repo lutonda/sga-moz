@@ -1,10 +1,3 @@
-<?php
-/* ---------------------------------------------------------- */
-/* OP��O : Pedagogica                                         */
-/* menu lateral, incluir em todos os files                    */
-/* 2010.10.16  RA                    (c)2010 Cofimatica, Lda  */
-/* ---------------------------------------------------------- */                      
-?>
 <ul>
 						
 						<li><?php echo $this->Html->link(sprintf(__('Cursos', true)), array('controller' => 'cursos', 'action' => 'index'),array('class'=>'link')); ?></a></li>

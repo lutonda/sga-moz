@@ -3,12 +3,12 @@
 		<div id="footer_inner">
 
 		<dl class="copy">
-			<dt><strong>HyperAdmin</strong> <em>build 26122008</em></dt>
-			<dd>&copy; 2008 Yourcompany.com  All rights reserved.</dd>
+			<dt><strong>SGA-Sistema de Gestão Académica</strong> <em>build 03082011</em></dt>
+			<dd>&copy; 2011 Todos os direitos reservados.</dd>
 		</dl>
 
 		<dl class="quick_links">
-			<dt><strong>Quick Links :</strong></dt>
+			<dt><strong>Links rápidos :</strong></dt>
 			<dd>
 				<ul>
 					<li><a href="#">Dashboard </a></li>
@@ -25,12 +25,12 @@
 
 
 		<dl class="help_links">
-			<dt><strong>Need Help ?</strong></dt>
+			<dt><strong>Precisa de ajuda ?</strong></dt>
 			<dd>
 				<ul>
 					<li><a href="#">Live Help</a></li>
-					<li><a href="#">FAQ</a></li>
-					<li class="last"><a href="#">Knowledgebase</a></li>
+					<li><a href="#">PERGUNTAS FREQUENTES</a></li>
+					<li class="last"><a href="#">Base de conhecimento</a></li>
 				</ul>
 			</dd>
 		</dl>

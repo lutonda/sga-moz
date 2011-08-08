@@ -13,21 +13,21 @@ class Inscricao extends AppModel {
 		),
 		'Turma' => array(
 			'className' => 'Turma',
-			'foreignKey' => 't0010turma_id',
+			'foreignKey' => 'turma_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
 		'Estadoinscricao' => array(
 			'className' => 'Estadoinscricao',
-			'foreignKey' => 'tg0020estadoinscricao_id',
+			'foreignKey' => 'estadoinscricao_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
 		'Epocaavaliacao' => array(
 			'className' => 'Epocaavaliacao',
-			'foreignKey' => 't0014epocaavaliacao_id',
+			'foreignKey' => 'epocaavaliacao_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
@@ -37,7 +37,7 @@ class Inscricao extends AppModel {
 	var $hasMany = array(
 		'Avaliacao' => array(
 			'className' => 'Avaliacao',
-			'foreignKey' => 't0013inscricao_id',
+			'foreignKey' => 'inscricao_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
@@ -68,7 +68,7 @@ class Inscricao extends AppModel {
         }
 		// Devolve o turno da Turma
 		function getAnolectivo($turma_id){
-            $query = "SELECT tal.codigo FROM t0010turmas tt, t0009anolectivos tal WHERE tt.t0009anolectivo_id=tal.id and tt.id= {$turma_id}";
+            $query = "SELECT tal.codigo FROM turmas tt, anolectivos tal WHERE tt.anolectivo_id=tal.id and tt.id= {$turma_id}";
             //var_dump($query);
 			$resultado = $this->query($query);
 			return $resultado;				

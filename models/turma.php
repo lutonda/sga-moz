@@ -86,7 +86,11 @@ class Turma extends AppModel {
 		)
 	);
 
-
+		
+		function criarTurmas(){
+			$cursos = $this->Curso->find('list');
+		}
+		
         function getAllTurmasActivasByPlanoEstudo($plano){
 
             return $this->find('list',array('conditions'=>array('t0005planoestudo_id'=>$plano,'estado'=>1),'fields'=>array('t0004disciplina_id')));
@@ -207,9 +211,8 @@ class Turma extends AppModel {
 		}
 		
 					// Devolve o nome do curso
-	function getCursoAluno($aluno_id){
-		$query = "select tc.name from t0010turmas tt, t0013inscricaos ti, t0003cursos tc where ti.t0010turma_id = tt.id and tt.t0003curso_id = tc.id and ti.t0010turma_id = {$aluno_id}";
-		//var_dump($query);
+	function getCursoAluno($aluno_id=1){
+		$query = "select tc.name from turmas tt, inscricaos ti, cursos tc where ti.turma_id = tt.id and tt.curso_id = tc.id and ti.turma_id = {$aluno_id}";
 		$resultado = $this->query($query);
 		return $resultado;	
 			

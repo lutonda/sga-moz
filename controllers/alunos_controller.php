@@ -5,19 +5,22 @@ class AlunosController extends AppController {
 
 	function index() {
 		$this->Aluno->recursive = 0;
-		$this->set('alunos', $this->paginate());
+		$this->set('date_options_created', array_merge($this->_Form_options_datetime, array('selected'=>$this->process_datetime('Model.created'))));  
+    $this->set('date_options_modified', array_merge($this->_Form_options_datetime, array('selected'=>$this->process_datetime('Model.modified'))));  
+		$this->set('alunos', $this->paginate(null, $this->_Filter));
+		
+		$this->set('relatorio','aluno_relatorio');
+		//$this->layout='3_colunas';
+		
 	}
 
 	function view($id = null){
-	        App::Import('Model','Logmv');
-	        $logmv = new Logmv;
 		if (!$id) {
 			//$this->Session->setFlash('Invalido %s', 'error');
 			$this->redirect(array('action' => 'index'));
 		}
 			if (empty($this->data)) {
 			$this->data = $this->Aluno->read(null, $id);
-			$logmv->logview(7,$this->Session->read('Auth.User.id'),$this->data["Aluno"]["id"],$this->data["Aluno"]["name"]);
 		}
           $extras = $this->data['Aluno']['foto'];
 
@@ -33,21 +36,31 @@ class AlunosController extends AppController {
 		$generos = $this->Aluno->Genero->find('list');
         $cidadenascimentos = $this->Aluno->CidadeNascimento->find('list');
 
-		$this->set(compact('users', 'Paises', 'Cidades', 'Provincias', 'Documentos', 'tg0010areatrabalhos','generos','cidadenascimentos','proveniencianomes','provenienciacidades'));
+		$this->set(compact('users', 'paises', 'cidades', 'provincias', 'documentos', 'areatrabalhos','generos','cidadenascimentos','proveniencianomes','provenienciacidades'));
 	}
 
 
 	function add() {
-	        App::Import('Model','Logmv');
-	        $logmv = new Logmv;
+	        App::Import('Model','Matricula');
+	        $Matricula = new Matricula;
+			
+			
 		if (!empty($this->data)) {
+				//die(var_dump($this->data));
+			
+			$data_matricula = array();
+			
 			$this->Aluno->create();
                         $this->data['Aluno']['codigo'] = $this->Aluno->geraCodigo();
                         $nome_foto = WWW_ROOT."\ffotos\\".$this->data['Aluno']['foto']['name'];
 			$imagem=array($this->data['Aluno']['foto']);
 			
 			$fileOk = $this->uploadFiles('upload',$imagem);
-			$this->data['Aluno']['foto']=$fileOk['urls'][0];
+			if(isset($fileOk['urls']) and $fileOk['urls']!=null){
+			$this->data['Aluno']['foto']=$fileOk['urls'][0];}
+			else{
+				$this->data['Aluno']['foto']='';
+			}
                         
                         $this->Aluno->User->create();
                         $this->data['User']['username'] = $this->data['Aluno']['codigo'];
@@ -59,14 +72,33 @@ class AlunosController extends AppController {
                         //$this->data['Aluno']['foto'] = $this->data['Aluno']['codigo'].".jpg";
               
 			if ($this->Aluno->save($this->data)) {
-				$logmv->logInsert(7,$this->Session->read('Auth.User.id'),$this->Aluno->getLastInsertID(),$this->data["Aluno"]["name"]);
-                                
-                                $this->Session->setFlash('** Dados Cadastrados com Sucesso **','sucesso');
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash('Erro ao gravar dados. Por favor tente de novo.','error');
-			}
+				
+            					/**
+								 * Pega os dados da matricula e realiza a matricula
+								 * @TODO Mudar o ano lectivo para algo mais serio :)
+								 * @Todo O turno e o nivel tambem ainda esta weak
+								 */                    
+								 $data_matricula['aluno_id']= $this->Aluno->getInsertID();
+								 $data_matricula['curso_id'] = $this->data['Aluno']['curso_id'];
+								 $data_matricula['planoestudo_id'] = $this->data['Aluno']['planoestudo_id'];
+								 $data_matricula['estadomatricula_id'] = 1;
+								 $data_matricula['data'] = $this->data['Aluno']['dataingresso'];
+								 $data_matricula['user_id'] = $this->Session->read('Auth.User.id');
+								 $data_matricula['anolectivo_id'] = 4;
+								 
+								 $matricula_gravar=array('Matricula'=>$data_matricula);
+								
+								 if($Matricula->save($matricula_gravar)){
+									  $this->Session->setFlash('** Dados Cadastrados com Sucesso **','sucesso');
+									  $this->redirect(array('action' => 'index'));
+								} else {
+									  $this->Session->setFlash('Erro ao gravar dados. Por favor tente de novo.','error');
+								}
+					}
 		}
+		$cursos = $this->Aluno->Curso->find('list');
+		
+		$planoestudos = $Matricula->Planoestudo->find('list');
 		$users = $this->Aluno->User->find('list');
 		$paises = $this->Aluno->Paise->find('list');
 		$cidades = $this->Aluno->Cidade->find('list');
@@ -77,7 +109,7 @@ class AlunosController extends AppController {
 		$areatrabalhos = $this->Aluno->Areatrabalho->find('list');
 		$generos = $this->Aluno->Genero->find('list');
 		$cidadenascimentos = $this->Aluno->CidadeNascimento->find('list');
-		$this->set(compact('users', 'paises', 'cidades', 'provincias', 'documentos', 'areatrabalhos','generos','cidadenascimentos','proveniencianomes','provenienciacidades'));
+		$this->set(compact('cursos','planoestudos','users', 'paises', 'cidades', 'provincias', 'documentos', 'areatrabalhos','generos','cidadenascimentos','proveniencianomes','provenienciacidades'));
 	}
 
 	function edit($id = null) {

@@ -1,11 +1,11 @@
-﻿<?php include('menu.ctp'); 
+﻿<?php  
 $grupo = $session->read('Auth.User.group_id');
 ?>
 
 <div class="projectos index" id="center-column">
     <div class="top-bar">
        
-        <?php echo $this->Html->link(sprintf(__('Imprimir PDF', true)), array('action' => 'pdf_index',$this->data['T0008aluno']['id']),array('class'=>'button','target'=>'_blank')); ?>
+        <?php echo $this->Html->link(sprintf(__('Imprimir PDF', true)), array('action' => 'pdf_index',$this->data['Aluno']['id']),array('class'=>'button','target'=>'_blank')); ?>
 		<?php //echo $this->Html->link(sprintf(__('Novo Estudante', true)), array('action' => 'add'),array('class'=>'button')); ?>
 		<?php if ($grupo!=3) echo $this->Html->link(sprintf(__('Lista de Estudantes', true)), array('action' => 'index'),array('class'=>'button')); ?>
 
@@ -17,7 +17,7 @@ $grupo = $session->read('Auth.User.group_id');
 			
 <?php
     //O
-    echo $form->create('T0008aluno');?>
+    echo $form->create('Aluno');?>
         <table class="listingform" cellpadding="0" cellspacing="0">
 				 <tr>
             <th class="full" colspan="2">Ficha do Estudante</th>

@@ -1,12 +1,32 @@
 <?php
 class AppController extends Controller {
    //var $components = array( 'Auth', 'Session');
-   var $components = array( 'Auth', 'Session','DebugKit.Toolbar');
-   var $helpers = array('Html','Form','Session','DatePicker');
+   
+   var $_Filter = array();
+   var $components = array( 'Auth', 'Session','RequestHandler','Filter','DebugKit.Toolbar');
+   var $helpers = array('Html','Form','Session','DatePicker','Js');
 
-
+	 // default datetime filter  
+    var $_Form_options_datetime = array();  
 
     function beforeFilter() {
+        
+                // for index actions  
+        if($this->action == 'index') {  
+            // setup filter component  
+            $this->_Filter = $this->Filter->process($this);  
+            $url = $this->Filter->url;  
+            if(empty($url)) {  
+                $url = '/';  
+            }  
+            $this->set('filter_options',array('url'=>array($url)));  
+            // setup default datetime filter option  
+            $this->_Form_options_datetime = array('type'=>'date','dateFormat'=>'DMY','empty'=>'-','minYear'=>date("Y")-2,'maxYear'=>date("Y"));  
+            // reset filters  
+            if(isset($this->data['reset']) || isset($this->data['cancel'])) {  
+                $this->redirect(array('action'=>'index'));  
+            }  
+        } 
         //Configure AuthComponent
         Security::setHash('md5');
         //$this->Auth->allow('*');
@@ -19,6 +39,31 @@ class AppController extends Controller {
 		        
 
     }
+
+
+  /** 
+     * Builds up a selected datetime for the form helper 
+     * @param string $fieldname 
+     * @return null|string 
+     */  
+    function process_datetime($fieldname) {  
+        $selected = null;  
+        if(isset($this->params['named'][$fieldname])) {  
+            $exploded = explode('-',$this->params['named'][$fieldname]);  
+            if(!empty($exploded)) {  
+                $selected = '';  
+                foreach($exploded as $k=>$e) {  
+                    if(empty($e)) {  
+                        $selected .= (($k==0) ? '0000' : '00');  
+                    } else {  
+                        $selected .= $e;  
+                    }  
+                    if($k!=2) {$selected.='-';}  
+                }  
+            }  
+        }  
+    return $selected;  
+    } 
 	
 	/**
  * uploads files to the server

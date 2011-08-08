@@ -7,18 +7,19 @@ class InscricaosController extends AppController {
 		App::Import('Model','Inscricao');
 	    $inscricao = new Inscricao;
 			
-		$t0013inscricoes1 = $inscricao->find('all');
+		$inscricoes1 = $inscricao->find('all');
+		$codigo = array();
 
-		for($i=0; $i<count($t0013inscricoes1); $i++){
-			$t0009anolectivo = $inscricao->getAnolectivo($t0013inscricoes1[$i]['Inscricao']['t0010turma_id']);			
+		for($i=0; $i<count($inscricoes1); $i++){
+			$anolectivo = $inscricao->getAnolectivo($nscricoes1[$i]['Inscricao']['turma_id']);			
 			
-			$codigo[$i] = $t0009anolectivo[0]['tal']['codigo'];
+			$codigo[$i] = $anolectivo[0]['tal']['codigo'];
 		}	
 
 		
 		$this->set('codigo',$codigo);		
 		$this->Inscricao->recursive = 0;			
-		$this->set('t0013inscricaos', $this->paginate());
+		$this->set('inscricaos', $this->paginate());
 		
 
 }
@@ -85,8 +86,6 @@ class InscricaosController extends AppController {
 	}
 
 	function add() {
-	        App::Import('Model','Logmv');
-	        $logmv = new Logmv;
 	        App::Import('Model','Turma');
             $turma = new Turma;
 			 App::Import('Model','Matricula');
@@ -95,7 +94,7 @@ class InscricaosController extends AppController {
 		   // $ano = $this->data['Inscricao']['anocurricular'];
 			//var_dump($ano);
 		if (!empty($this->data)) {
-		    $this->data["Inscricao"]['tg0020estadoinscricao_id'] = '1';
+		    $this->data["Inscricao"]['estadoinscricao_id'] = '1';
 			$this->Inscricao->create();
 			if ($this->Inscricao->save($this->data)) {
 			//$logmv->logInsert(11,$this->Session->read('Auth.User.id'),$this->Inscricao->getLastInsertID(),$this->data["Inscricao"]["Aluno_id"]);
@@ -110,13 +109,13 @@ class InscricaosController extends AppController {
 		$turmas = $this->Inscricao->Turma->find('list',array('order'=> array ('name ASC')));
         $disciplinas = $this->Inscricao->Turma->Disciplina->find('list',array('order'=> array ('name ASC')));
 		$epocaavaliacaos = $this->Inscricao->Epocaavaliacao->find('list');
-		Anolectivos = $turma->Anolectivo->find('list');
+		$anolectivos = $turma->Anolectivo->find('list');
 		// Anolectivos = $turma->find('all',array('id'=>$this->data['Inscricao']['t0010turma_id']));
 
-		$curso = $turma->getCursoAluno($this->data['Inscricao']['t0010turma_id']);
+		$curso = $turma->getCursoAluno($this->data['Inscricao']['turma_id']);
 		$curso1 = $curso[0]['tc']['name'];
 		
-		$this->set(compact('Alunos', 't0010turmas', '$disciplinas','t0014epocaavaliacaos','t0009anolectivos','curso1'));
+		$this->set(compact('Alunos', 'turmas', '$disciplinas','epocaavaliacaos','anolectivos','curso1'));
 	}
 	
 
@@ -229,7 +228,9 @@ class InscricaosController extends AppController {
 	}
 
 	
-	
+	function inscrever_aluno($aluno_id){
+		var_dump($aluno_id);
+	}
 	function delete($id = null) {
 	    App::Import('Model','Logmv');
 	    $logmv = new Logmv;
@@ -308,9 +309,9 @@ class InscricaosController extends AppController {
                 {
 			App::Import('Model','Turma');
                         $turma = new Turma;
-                        Anolectivos = $turma->find('all',array('id'=>$this->data['Inscricao']['t0010turma_id']));
+                        $anolectivos = $turma->find('all',array('id'=>$this->data['Inscricao']['t0010turma_id']));
                         //$ano = $turma->getAnoCurricular($this->data['Inscricao']['t0010turma_id']);
-			$ano = Anolectivos[0]['Turma']['anocurricular'];
+			$ano = $anolectivos[0]['Turma']['anocurricular'];
 			//var_dump($ano);
 			$this->set('$t0009anolectivo',$ano);
 			$this->layout = 'ajax';

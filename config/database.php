@@ -81,7 +81,7 @@ class DATABASE_CONFIG {
 		'password' => '',
 		'database' => 'moasis_sga',
 		'prefix' => '',
-                'encoding'=> 'utf8',
+        'encoding'=> 'utf8',
 	);
 
 	

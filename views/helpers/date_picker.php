@@ -1,5 +1,4 @@
 <?php 
-
 class DatePickerHelper extends FormHelper {
    
     var $helpers = array('Html','Javascript'); 
@@ -34,5 +33,3 @@ class DatePickerHelper extends FormHelper {
     }
    
 }
-
-?> 

@@ -81,6 +81,13 @@ class Aluno extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
+		'Escola' => array(
+			'className' => 'Escola',
+			'foreignKey' => 'escola_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),		
 
 	);
 	
@@ -142,9 +149,10 @@ class Aluno extends AppModel {
        // function getAllTurmasCompletas
 
         function geraCodigo(){
-            $id = $this->find('first', array('order' => array('Aluno.created DESC'),'fields'=>'id'));
-            $ano=date('Y');
-            $id_for=str_pad($id['Aluno']['id']+1, 5,"0",STR_PAD_LEFT);
+            	$ano=date('Y');
+				$this->recursive=-1;
+            	$id = $this->find('count', array('conditions'=>array('Aluno.codigo LIKE'=>'%'.$ano.'%'),'order' => array('Aluno.created DESC'),'fields'=>'id'));
+            $id_for=str_pad($id+1, 4,"0",STR_PAD_LEFT);
             $codigo = $ano.$id_for;
 			
 			return $codigo;
