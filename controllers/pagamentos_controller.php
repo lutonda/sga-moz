@@ -16,6 +16,41 @@ class PagamentosController extends AppController {
 		$this->set('pagamento', $this->Pagamento->read(null, $id));
 	}
 
+	
+	/**
+	 * Gera Todos os pagamentos referente aos estudantes matriculados para um determinado semsestre
+	 */
+	function gerar_pagamentos(){
+			
+		if(!empty($this->data)){
+			$this->Pagamento->gerarPagamentos($this->data['Pagamento']['ano_lectivo']);	
+		}	
+		
+		$anolectivos = $this->Pagamento->Anolectivo->find('list');
+		$this->set(compact('anolectivos'));
+	}
+	
+	function imprimir_facturas($aluno_id){
+		$pagamentos = $this->Pagamento->find('all',array('conditions'=>array('Pagamento.aluno_id'=>$aluno_id)));
+		
+		$listas=array();
+		foreach($pagamentos as $pagamento){
+			$lista=array();
+			
+			$lista['codigo']=	$pagamento['Pagamento']['codigo'];
+			$lista['codigo_aluno']=$pagamento['Aluno']['codigo'];
+			$lista['aluno']=$pagamento['Aluno']['name'];
+			$lista['pagamento']=$pagamento['Tipopagamento']['name'];
+			$lista['data_limite']=$pagamento['Pagamento']['data_limite'];
+			$listas[]=$lista;
+		}
+		
+		$this->set('lista',$listas);
+		$this->layout = 'pdf'; //this will use the pdf.ctp layout
+        $this->render();
+	}
+	
+	
 	function add() {
 		if (!empty($this->data)) {
 			$this->Pagamento->create();
@@ -64,4 +99,9 @@ class PagamentosController extends AppController {
 		$this->Session->setFlash(__('Pagamento was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
+	
+	
+    	function beforeRender(){
+            $this->set('current_section','contabilidade');
+        }
 }

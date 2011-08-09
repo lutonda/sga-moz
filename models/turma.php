@@ -7,35 +7,35 @@ class Turma extends AppModel {
 	var $belongsTo = array(
 		'Anolectivo' => array(
 			'className' => 'Anolectivo',
-			'foreignKey' => 't0009anolectivo_id',
+			'foreignKey' => 'anolectivo_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
 		'Curso' => array(
 			'className' => 'Curso',
-			'foreignKey' => 't0003curso_id',
+			'foreignKey' => 'curso_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
 		'Planoestudo' => array(
 			'className' => 'Planoestudo',
-			'foreignKey' => 't0005planoestudo_id',
+			'foreignKey' => 'planoestudo_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
 		'Turno' => array(
 			'className' => 'Turno',
-			'foreignKey' => 'tg0012turno_id',
+			'foreignKey' => 'turno_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
 		'Disciplina' => array(
 			'className' => 'Disciplina',
-			'foreignKey' => 't0004disciplina_id',
+			'foreignKey' => 'disciplina_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
@@ -49,21 +49,21 @@ class Turma extends AppModel {
 		),
 		'Escola' => array(
 			'className' => 'Escola',
-			'foreignKey' => 'tg0016escola_id',
+			'foreignKey' => 'escola_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
                 'Anolectivo' => array(
 			'className' => 'Anolectivo',
-			'foreignKey' => 't0009anolectivo_id',
+			'foreignKey' => 'anolectivo_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
                 'Planoestudo' => array(
 			'className' => 'Planoestudo',
-			'foreignKey' => 't0005planoestudo_id',
+			'foreignKey' => 'planoestudo_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
@@ -73,7 +73,7 @@ class Turma extends AppModel {
 	var $hasMany = array(
 		'Inscricao' => array(
 			'className' => 'Inscricao',
-			'foreignKey' => 't0010turma_id',
+			'foreignKey' => 'turma_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
@@ -86,15 +86,54 @@ class Turma extends AppModel {
 		)
 	);
 
-		
-		function criarTurmas(){
-			$cursos = $this->Curso->find('list');
+		/**
+		 * Cria todas as turmas referentes a aquele ano lectivo e aquele semestre
+		 * @Todo Testar essa funcao
+		 * @Todo Para facilitar vamos considerar so um plano de estudos activo
+		 */
+		function criarTurmas($ano_lectivo=null){
+			$plano_estudos = $this->Planoestudo->find('list');
+			$escolas = $this->Escola->find('list');
+			$turnos = $this->Turno->find('list');
+			$anolectivo = $this->Anolectivo->findById($ano_lectivo);
+			$semestre_lectivo = $anolectivo['Anolectivo']['num_semestre'];
+			foreach($plano_estudos as $p_k=>$p_v){
+				$disciplinas = $this->Planoestudo->getAllDisciplinasByPlanoestudo($p_k);
+				foreach($disciplinas as $disciplina){
+					foreach($escolas as $e_k=>$e_v){
+						foreach($turnos as $t_k=>$t_v){
+						$turma = array();
+						$turma['anolectivo_id']=$ano_lectivo;
+						$turma['anosemestrecurr']=$semestre_lectivo;
+						$turma['curso_id']=$disciplina['pe']['curso_id'];
+						$turma['escola_id']=$e_k;
+						$turma['planoestudo_id']=$disciplina['p']['planoestudo_id'];
+						$turma['turno_id']=$t_k;
+						$turma['disciplina_id']=$disciplina['d']['id'];
+						$turma['estado']=1;
+						$nome = $disciplina['d']['name']." - ".$disciplina['pe']['name'];
+						$turma['name']=$nome;
+						
+						$turmas=array('Turma'=>$turma);
+						$this->create();
+						$this->save($turmas);
+						}	
+						
+					}	
+						
+				}
+				
+			}
+			
+			
 		}
 		
         function getAllTurmasActivasByPlanoEstudo($plano){
-
-            return $this->find('list',array('conditions'=>array('t0005planoestudo_id'=>$plano,'estado'=>1),'fields'=>array('t0004disciplina_id')));
-
+			$this->recursive=0;
+			$turmas = $this->find('all',array('conditions'=>array('planoestudo_id'=>$plano,'estado'=>1),'fields'=>array('Turma.id','Disciplina.name')));
+    
+			
+			return $turmas;
             
         }
 
@@ -230,7 +269,7 @@ class Turma extends AppModel {
 	
 	// Devolve a turma de um determinado aluno
 	function getTurmaAluno($t0009anolectivo_id, $curso_id, $planoestudo_id, $aluno_id){
-	$query = "select tt.name from t0010turmas tt, t0013inscricaos ti where tt.id=ti.t0010turma_id and tt.t0009anolectivo_id = {$t0009anolectivo_id} and tt.t0003curso_id ={$curso_id} and tt.t0005planoestudo_id = {$planoestudo_id} and ti.Aluno_id = {$aluno_id}";
+	$query = "select tt.name from turmas tt, inscricaos ti where tt.id=ti.t0010turma_id and tt.t0009anolectivo_id = {$t0009anolectivo_id} and tt.t0003curso_id ={$curso_id} and tt.t0005planoestudo_id = {$planoestudo_id} and ti.Aluno_id = {$aluno_id}";
 	//var_dump($query);
 	$resultado = $this->query($query);
 	//var_dump($resultado);

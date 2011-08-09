@@ -21,13 +21,15 @@ $username = $session->read('Auth.User.username');
 												<td class="tc">Foto</td>
 												<td class="filterable"><?php echo $this->Paginator->sort('Codigo','codigo');?></td>
 							                    <td class="filterable" ><?php echo $this->Paginator->sort('Nome','name');?></td>
+							                    <td class="filterable" ><?php echo $this->Paginator->sort('Curso','curso_id');?></td>
                     							<td class="tc last"><?php __('Acção');?></td>
 											</tr>
 											<tr>
 												<td></td>
 												<td></td>  
             								<td><?php echo $form->input('codigo'); ?></td>  
-            								<td><?php echo $form->input('name'); ?></td>  
+            								<td><?php echo $form->input('name'); ?></td>
+            								<td><?php echo $form->input('curso_id'); ?></td>  
             								  
             								<td>  
                 								<button type="submit" name="data[filter]" value="filter">Filtrar</button>  
@@ -67,6 +69,7 @@ $username = $session->read('Auth.User.username');
 												<td class="tc"><span class="tag tag-gray">jpeg</span></td>
 												<td><?php echo $aluno['Aluno']['codigo']; ?>&nbsp;</td>
 												<td><?php echo $aluno['Aluno']['name']; ?>&nbsp;</td>
+												<td><?php echo $aluno['Curso']['name']; ?>&nbsp;</td>
 											
 												
 												
@@ -78,13 +81,14 @@ $username = $session->read('Auth.User.username');
 											        <?php  echo $html->link($html->image("/img/page_new.gif"),
   array('controller'=>'inscricaos', 'action'=>'inscrever_aluno',$aluno['Aluno']['id']),
   array('title'=>'Fazer Inscricao', 'escape'=>false,'onclick'=>'Modalbox.show(this.href, {
-    title: this.title, width: 700, overlayClose: false,
+    title: this.title, width: 900, overlayClose: false,
     afterHide: function(element, value) {new Ajax.Updater(\'PeopleContainer\',\'/people/display\')}}); return false;')); ?>
 													<?php  echo $html->link($html->image("/img/dollar.png"),
-  array('controller'=>'alunos', 'action'=>'index'),
+  array('controller'=>'pagamentos', 'action'=>'gerar_facturas',$aluno['Aluno']['id']),
   array('title'=>'Efectuar Pagamento', 'escape'=>false,'onclick'=>'Modalbox.show(this.href, {
-    title: this.title, width: 700, overlayClose: false,
+    title: this.title, width: 900, overlayClose: false,
     afterHide: function(element, value) {new Ajax.Updater(\'PeopleContainer\',\'/people/display\')}}); return false;')); ?>
+    <?php  echo $html->link($html->image("/img/dollar.png"),  array('controller'=>'pagamentos','action' => 'imprimir_facturas', $aluno['Aluno']['id']),array('target'=>'_blank','escape'=>false)); ?>
 												</td>
 												
 											</tr>

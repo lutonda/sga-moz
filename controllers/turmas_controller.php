@@ -4,19 +4,8 @@ class TurmasController extends AppController {
 	var $name = 'Turmas';
 
 	function index() {
-	
-	     App::Import('Model','funcionario');
-        $funcionario = new funcionario;
-		
-		
-		$this->Turma->recursive = 0;
-		
-		//$funcionarios = $funcionario->find('all');
-		
-		//var_dump($funcionarios[0]["funcionario"]['id']);
-		
-		
-		$this->set('t0010turmas', $this->paginate());
+		$this->Turma->recursive = 0;	
+		$this->set('turmas', $this->paginate());
 	}
 
 	function view($id = null) {
@@ -66,7 +55,6 @@ class TurmasController extends AppController {
 		    $this->data["Turma"]["estado"] ='1';
 
 			if ($this->Turma->save($this->data)) {
-				//$logmv->logInsert(8,$this->Session->read('Auth.User.id'),$this->Turma->getLastInsertID(),$this->data["Turma"]["name"]);
                 $this->Session->setFlash('** Dados Cadastrados com Sucesso **','sucesso');
 				$this->redirect(array('action' => 'add_disciplinas',$this->Turma->getLastInsertID()));
 			} else {
@@ -88,6 +76,21 @@ class TurmasController extends AppController {
         $disciplinas = array();
         $this->set('disciplinas',$disciplinas);
 		$this->set(compact('t0009anolectivos','estados','anosemestrecurr', 't0003cursos', 't0005planoestudos', 'tg0012turnos', 't0004disciplinas', 'funcionarios'));
+	}
+
+	function gerar_turmas(){
+		if(!empty($this->data)){
+			$this->Turma->criarTurmas($this->data['Turma']['ano_lectivo']);
+			
+			$this->Session->setFlash('As Turmas foram Geradas com Sucesso','sucesso');
+			$this->redirect(array('action' => 'index'));	
+		}
+		
+		
+		$anolectivos = $this->Turma->Anolectivo->find('list');
+		
+		$this->set(compact('anolectivos'));
+		
 	}
 
     function add_disciplinas($turma_id=null){

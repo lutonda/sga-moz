@@ -126,23 +126,27 @@ class Aluno extends AppModel {
             return $plano_estudo;
         }
 
-        function getAllTurmasByEstado($planoestudo,$aluno,$estado = 1){
+
+		/**
+		 * Funcao generica para retornar todas as turmas de um aluno com base no estado da turma
+		 * @Todo Testar :-)
+		 */	
+        function getAllTurmasByEstado($aluno,$estado = 1){
             App::import('Model','Turma');
             App::import('Model','Inscricao');
+			App::import('Model','Matricula');
+			
             $turma = new Turma;
             $inscricao  = new Inscricao;
+			$Matricula = new Matricula;
+			
+			
+			$plano_estudo = $this->query("Select planoestudo_id from matriculas where aluno_id = {$aluno}");
             $turma->recursive=-1;
-
-            $turmas = $turma->getAllTurmasActivasByPlanoEstudo($planoestudo);
-
+			
+            $turmas = $turma->getAllTurmasActivasByPlanoEstudo($plano_estudo[0]['matriculas']['planoestudo_id']);
             
-
-
-
-
-
-            var_dump($turmas);
-
+			return $turmas;
             
         }
 
@@ -157,6 +161,14 @@ class Aluno extends AppModel {
 			
 			return $codigo;
         }
+		
+		/**
+		 * Devolve todas as turmas que o aluno pode se inscrever, baseado nas cadeiras feitas e precedencias
+		 * @Todo por enquanto as precedencias e cadeiras feitas nao sao processadas
+		 */
+		function getAllTurmasForInscricao(){
+			
+		}
 
 
 

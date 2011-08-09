@@ -229,7 +229,12 @@ class InscricaosController extends AppController {
 
 	
 	function inscrever_aluno($aluno_id){
-		var_dump($aluno_id);
+		
+		$this->loadModel('Aluno');
+		$turmas = $this->Aluno->getAllTurmasByEstado($aluno_id);	
+		
+		$this->set(compact('turmas'));
+		
 	}
 	function delete($id = null) {
 	    App::Import('Model','Logmv');

@@ -48,6 +48,14 @@ class Matricula extends AppModel {
         )
     );
 
+
+	/**
+	 * Retorna todos os alunos matriculados num dado plano de estudos
+	 */
+	function getAllAlunosMatriculados($anolectivo_id){
+		$alunos = $this->find('all',array('conditions'=>array('anolectivo_id'=>$anolectivo_id),'fields'=>array('aluno_id','Aluno.codigo')));
+		return $alunos;
+	}
     function validaMatricula($check){
         $aluno = $check['aluno_id'];
         $alunos = $this->find('all',array('conditions'=>array('aluno_id'=>$aluno,'estadomatricula_id'=>4)));

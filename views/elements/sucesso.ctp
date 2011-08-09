@@ -1,3 +1,3 @@
 <?php
-echo "<div class=\"flash sucesso\">** {$message} **</div>";
+echo "<div class=\"flash msg msg-ok\">** {$message} **</div>";
 ?>

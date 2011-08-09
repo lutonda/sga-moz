@@ -16,9 +16,9 @@ class Planoestudo extends AppModel {
         function getAllDisciplinasByPlanoEstudo($plano_id){
             App::import('Model','planoestudoano');
             $planoestudoano = new Planoestudoano;
-            $query = "Select p.id,planoestudo_id,ano,semestre,cargahorariateoricas,cargahorariapraticas,d.id,d.name,d.codigo ";
-            $query .="from planoestudoanos p,disciplinas d ";
-            $query .="where p.disciplina_id = d.id and p.planoestudo_id = {$plano_id} ";
+            $query = "Select p.id,planoestudo_id,ano,semestre,cargahorariateoricas,cargahorariapraticas,d.id,d.name,d.codigo,pe.curso_id,pe.name ";
+            $query .="from planoestudoanos p,disciplinas d,planoestudos pe ";
+            $query .="where p.disciplina_id = d.id and p.planoestudo_id = {$plano_id} and p.planoestudo_id=pe.id ";
             $query .="order by ano, semestre, d.name ";
             $disciplinas = $this->query($query);
             for($i=0;$i<count($disciplinas);$i++){
