@@ -25,3 +25,14 @@
     top: -4px;
     width: 22px;
 }
+
+.tab-data-desc{
+	background-color: #EBF3F7;
+	text-align: left;
+	height: 25px;
+	border:2px solid #FFF;
+}
+
+.tab-data-index{
+	text-align: right;
+}

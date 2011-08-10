@@ -1,79 +1,190 @@
-﻿<?php  
-$grupo = $session->read('Auth.User.group_id');
-?>
+﻿
+<div  class="box box-100">
+	<div class="boxin">
+		<div class="header">
+			<h3>Cadastro de Novo Estudante</h3>
+			<a href="#" class="button">Lista de Estudantes&nbsp;»</a>
+		</div>
+		<?php echo $form->create('Aluno',array('enctype' => 'multipart/form-data','class'=>'fields'));?>
+		<fieldset class="last">
+			<legend>Informação Pessoal</legend>
+			<table>
+				<tr>
+					<td class="label"><label>Nomes:</label></td>
+					<td>
+						
+						<span class="search_input">
+			<?php echo $this->Form->input('name',array('label'=>false,'div'=>false,'size'=>'25','class'=>'txt'));?>
+						<?php echo $this->Html->image('search.png',array('class'=>'img_search'))?>
+						</span>
+					</td>
+			<?php echo $this->Form->input('foto',array('type'=>'file','label'=>'Fotografia:','before'=>'<td class="label">','between'=>'</td><td>','after'=>'</td>','div'=>false,'size'=>2));?>
+			<?php echo $this->Form->input('datanascimento',array('minYear'=>date('Y')-70,'maxYear' => date('Y')-10,'monthNames'=>array('Janeiro','Fevereiro','Marco','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'),'dateFormat'=>'DMY','label'=>'Data Nascimento:','before'=>'<td class="label">','between'=>'</td><td>','after'=>'</td>','div'=>false));?>
+			</tr>
+			<tr>
 
-<div class="projectos index" id="center-column">
-    <div class="top-bar">
-       
-        <?php echo $this->Html->link(sprintf(__('Imprimir PDF', true)), array('action' => 'pdf_index',$this->data['Aluno']['id']),array('class'=>'button','target'=>'_blank')); ?>
-		<?php //echo $this->Html->link(sprintf(__('Novo Estudante', true)), array('action' => 'add'),array('class'=>'button')); ?>
-		<?php if ($grupo!=3) echo $this->Html->link(sprintf(__('Lista de Estudantes', true)), array('action' => 'index'),array('class'=>'button')); ?>
-
-	<h1><?php __('Estudante - visualizar');?></h1>
-        
-    </div>
-<div class="table">
-
+			<?php echo $this->Form->input('nomepai',array('label'=>'Nome do Pai:','before'=>'<td class="label">','between'=>'</td><td>','after'=>'</td>','div'=>false,'size'=>'25','class'=>'txt'));?>
+		<?php echo $this->Form->input('nomemae',array('label'=>'Nome da Mae:','before'=>'<td class="label">','between'=>'</td><td>','after'=>'</td>','div'=>false,'size'=>'25','class'=>'txt'));?>
+			<?php echo $this->Form->input('genero_id',array('label'=>'Genero:','before'=>'<td class="label">','between'=>'</td><td>','after'=>'</td>','div'=>false));?>			
+				
+			</tr>
+			<tr>
+			<?php echo $this->Form->input('paise_id',array('label'=>'Nacionalidade:','before'=>'<td class="label">','between'=>'</td><td>','after'=>'</td>','div'=>false));?>
+			<?php echo $this->Form->input('provincia_id',array('label'=>'Província:','before'=>'<td class="label">','between'=>'</td><td>','after'=>'</td>','div'=>false));?>
+        	<?php echo $this->Form->input('cidadenascimento_id',array('label'=>'Cidade:','before'=>'<td class="label">','between'=>'</td><td>','after'=>'</td>','div'=>false));?>
+						
+			</tr>
 			
-<?php
-    //O
-    echo $form->create('Aluno');?>
-        <table class="listingform" cellpadding="0" cellspacing="0">
-				 <tr>
-            <th class="full" colspan="2">Ficha do Estudante</th>
-         </tr>
-         <tr>
-            <th class="full" colspan="2">Informação Pessoal</th>
-            <?php
-			echo $this->Form->input('codigo',array('disabled'=>'true','label'=>'Codigo','size'=>'70','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false,'size'=>'10'));
-		echo $this->Form->input('name',array('disabled'=>'true','label'=>'Nome do Estudante','size'=>'70','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-		echo $this->Form->input('tg0019genero_id',array('disabled'=>'true','label'=>'Género','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-		echo $this->Form->input('nomepai',array('disabled'=>'true','label'=>'Nome do Pai','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false,'size'=>'50'));
-		echo $this->Form->input('nomemae',array('disabled'=>'true','label'=>'Nome da Mae','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false,'size'=>'50'));
-		echo $this->Form->input('tg0002paise_id',array('disabled'=>'true','label'=>'Nacionalidade','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-		echo $this->Form->input('tg0003provincia_id',array('disabled'=>'true','label'=>'Província de Nascimento','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-                echo $this->Form->input('cidadenascimento_id',array('disabled'=>'true','label'=>'Cidade de Nascimento','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-		echo $this->Form->input('datanascimento',array('minYear'=>'1970','monthNames'=>array('Janeiro','Fevereiro','Marco','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'),'dateFormat'=>'DMY','disabled'=>'true','label'=>'Data de Nascimento','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-		echo $this->Form->input('dataingresso',array('monthNames'=>array('Janeiro','Fevereiro','Marco','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'),'dateFormat'=>'DMY','disabled'=>'true','label'=>'Data de Ingresso','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-		echo $this->Form->input('proveniencianome',array('disabled'=>'true','label'=>'Provincia de Origem','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-		echo $this->Form->input('provenienciacidade',array('disabled'=>'true','label'=>'Cidade Origem','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-		?>
-        </tr>
-        <tr>
-	<th class="full" colspan="2">Detalhes de Documento</th>
-        <?php
-        echo $this->Form->input('tg0009documento_id',array('disabled'=>'true','label'=>'Tipo de Identificação','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-	echo $this->Form->input('numdocumento',array('disabled'=>'true','label'=>'Numero do Documento','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-        echo $this->Form->input('docdataemissao',array('disabled'=>'true','monthNames'=>array('Janeiro','Fevereiro','Marco','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'),'dateFormat'=>'DMY','label'=>'Data de Emissão','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-        echo $this->Form->input('doclocalemissao',array('disabled'=>'true','label'=>'Local de Emissão','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
+			<?php //echo $datePicker->picker('start_date')?>
+			</table>
+			
+		</fieldset>
+		<fieldset>
+			<legend>Detalhes de Identificação</legend>
+			<table>
+				<tr>
+			<?php echo $this->Form->input('documento_id',array('label'=>'Tipo de Identificação','before'=>'<td class="label">','between'=>'</td><td>','after'=>'</td>','div'=>false));
+	      echo $this->Form->input('numdocumento',array('label'=>'Numero do Documento','before'=>'<td class="label">','between'=>'</td><td>','after'=>'</td>','div'=>false));
         ?>
         </tr>
         <tr>
-	<th class="full" colspan="2">Detalhes de Domícilio</th>
-        <?php
-        echo $this->Form->input('moradarua',array('disabled'=>'true','label'=>'Rua','size'=>'65','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-		echo $this->Form->input('moradalocal',array('disabled'=>'true','label'=>'Local','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-		echo $this->Form->input('moradacpostal',array('disabled'=>'true','label'=>'Caixa Postal','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-		echo $this->Form->input('tg0004cidade_id',array('disabled'=>'true','label'=>'Cidade','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-		echo $this->Form->input('email',array('disabled'=>'true','label'=>'Email Pessoal','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-		echo $this->Form->input('telefone',array('disabled'=>'true','label'=>'Telefone','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-		 ?>
+        	<?php echo $this->Form->input('docdataemissao',array('dateFormat'=>'DMY','monthNames'=>array('Janeiro','Fevereiro','Marco','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'),'label'=>'Data de Emissão','before'=>'<td class="label">','between'=>'</td><td>','after'=>'</td>','div'=>false));
+        echo $this->Form->input('doclocalemissao',array('label'=>'Local de Emissão','before'=>'<td class="label">','between'=>'</td><td>','after'=>'</td>','div'=>false));
+        ?>
         </tr>
-         <tr>
-	<th class="full" colspan="2">Detalhes De Domicílio Profissional</th>
-        <?php
-        echo $this->Form->input('etrabalhador',array('disabled'=>'true','label'=>'Trabalhador','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-		echo $this->Form->input('tg0010areatrabalho_id',array('disabled'=>'true','label'=>'Área de Trabalho','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-		echo $this->Form->input('empresanome',array('disabled'=>'true','size'=>'65','label'=>'Nome da Empresa','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-		echo $this->Form->input('empresamorada',array('disabled'=>'true','label'=>'Endereço','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-		echo $this->Form->input('empresacontacto',array('disabled'=>'true','label'=>'Contacto','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-		echo $this->Form->input('empresatelefone',array('disabled'=>'true','label'=>'Telefone','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-		echo $this->Form->input('empresaemail',array('disabled'=>'true','label'=>'Email','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-		echo $this->Form->input('empresasite',array('disabled'=>'true','label'=>'Site','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-                echo $this->Form->input('detalhes',array('disabled'=>'true','label'=>'Detalhes','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-                ?>
-        </tr>
-    <tr><td></td><td><?php //echo $this->Form->end(__('Carregar', true));?></td></tr>
         </table>
+		</fieldset>
+		<fieldset>
+			<legend>Detalhes de domicilio</legend>
+			<table>
+				<tr>
+				<?php
+        echo $this->Form->input('cidade_id',array('label'=>'Cidade','before'=>'<td class="label">','between'=>'</td><td>','after'=>'</td>','div'=>false));
+		echo $this->Form->input('moradalocal',array('label'=>'Bairro','before'=>'<td class="label">','between'=>'</td><td>','after'=>'</td>','div'=>false));
+        echo $this->Form->input('moradarua',array('label'=>'Rua','before'=>'<td class="label">','between'=>'</td><td>','after'=>'</td>','div'=>false));
+		?>
+		</tr>
+		<tr>
+		<?php
+		echo $this->Form->input('telefone',array('label'=>'Telefone','before'=>'<td class="label">','between'=>'</td><td>','after'=>'</td>','div'=>false));
+        echo $this->Form->input('telemovel',array('label'=>'Telemovel','before'=>'<td class="label">','between'=>'</td><td>','after'=>'</td>','div'=>false));
+        echo $this->Form->input('moradacpostal',array('label'=>'Caixa Postal','before'=>'<td class="label">','between'=>'</td><td>','after'=>'</td>','div'=>false));
+		
+		echo $this->Form->input('email',array('label'=>'Email Pessoal','before'=>'<td class="label">','between'=>'</td><td>','after'=>'</td>','div'=>false));
+		
+		 ?>			
+				</tr>
+				</table>
+		</fieldset>
+		<fieldset>
+			<legend>Detalhes de domicilio Profissional</legend>
+			<table>
+				<tr>
+				<?php
+        echo $this->Form->input('etrabalhador',array('label'=>'','before'=>'<td>Trabalhador</td><td>','between'=>'</td>','after'=>'','div'=>false));
+		?>
+		</tr>
+		<tr>
+		<?php
+		echo $this->Form->input('areatrabalho_id',array('label'=>'Area de Trabalho','before'=>'<td>','between'=>'</td><td>','after'=>'</td>','div'=>false));
+		echo $this->Form->input('empresanome',array('label'=>'Nome da Empresa','before'=>'<td>','between'=>'</td><td>','after'=>'</td>','div'=>false));
+		echo $this->Form->input('empresamorada',array('label'=>'Endereco','before'=>'<td>','between'=>'</td><td>','after'=>'</td>','div'=>false));
+		?>
+		</tr>
+		<tr>
+		<?php
+		echo $this->Form->input('empresacontacto',array('label'=>'Responsavel(Nome)','before'=>'<td>','between'=>'</td><td>','after'=>'</td>','div'=>false));
+		echo $this->Form->input('empresatelefone',array('label'=>'Telefone','before'=>'<td>','between'=>'</td><td>','after'=>'</td>','div'=>false));
+		echo $this->Form->input('empresaemail',array('label'=>'Email','before'=>'<td>','between'=>'</td><td>','after'=>'</td>','div'=>false));
+		?>
+		</tr>
+		<tr>
+		<?php
+		echo $this->Form->input('empresasite',array('label'=>'Site','before'=>'<td>','between'=>'</td><td>','after'=>'</td>','div'=>false));	
+					?>
+				</tr>
+			</table>
+			
+		</fieldset>
+			<script>
+				$j(function() {
+					$j( "#tabs" ).tabs();
+				});
+			</script>
+			<div id="tabs">
+			<ul>
+				<li><a href="#tabs-1">Ingresso</a></li>
+				<li><a href="#tabs-2">Identificação</a></li>
+				<li><a href="#tabs-3">Domicilio</a></li>
+				<li><a href="#tabs-4">Profissão</a></li>
+				<li><a href="#tabs-5">Inscrições</a></li>
+				<li><a href="#tabs-8">Requisições</a></li>
+				<li><a href="#tabs-6">Pagamentos</a></li>
+				<li><a href="#tabs-9">Avaliações</a></li>
+				<li><a href="#tabs-7">Notas</a></li>
+			</ul>
+			<div id="tabs-1">
+				<table>
+					<tr>
+						<td width="45%">
+							<table>
+								<tr>
+									<td class="tab-data-index">Curso:</td><td class="tab-data-desc"><?php echo $aluno['Curso']['name'];?></td>			
+								</tr>
+								<tr>
+									<?php /**
+									 * @Todo Corrigir o plano de estudos aqui
+									 */?>
+									<td class="tab-data-index">Plano de Estudos:</td><td class="tab-data-desc"><?php echo $aluno['Curso']['name'];?></td>			
+								</tr>							
+							</table>
+						</td>
+						<td width="45%">
+							<table>
+								<tr>
+									<td class="tab-data-index">Data de Ingresso:</td><td class="tab-data-desc"><?php echo $aluno['Aluno']['dataingresso'];?></td>			
+								</tr>
+								<tr>
+									<td class="tab-data-index">Cidade de Origem:</td><td class="tab-data-desc"><?php echo $aluno['Aluno']['provenienciacidade'];?></td>			
+								</tr>
+								<tr>
+									<td class="tab-data-index">Provincia de Origem:</td><td class="tab-data-desc"><?php echo $aluno['Aluno']['proveniencianome'];?></td>			
+								</tr>															
+							</table>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div id="tabs-2">
+				
+			</div>
+			<div id="tabs-3">
+
+			</div>
+			<div id="tabs-4">
+
+			</div>
+			<div id="tabs-5">
+
+			</div>
+			<div id="tabs-6">
+
+			</div>
+			<div id="tabs-7">
+				<table>
+					<tr>
+						<?php  echo $this->Form->input('detalhes',array('label'=>'Detalhes','before'=>'<td>','between'=>'</td><td>','after'=>'</td>','div'=>false));
+                ?>
+					</tr>	
+				</table>
+			</div>
+			<div id="tabs-8">
+
+			</div>
+			<div id="tabs-9">
+
+			</div>
+		</div>
+	</div>
 </div>
-</div>
+	

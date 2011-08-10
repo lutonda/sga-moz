@@ -42,6 +42,7 @@ class PagamentosController extends AppController {
 			$lista['aluno']=$pagamento['Aluno']['name'];
 			$lista['pagamento']=$pagamento['Tipopagamento']['name'];
 			$lista['data_limite']=$pagamento['Pagamento']['data_limite'];
+			$lista['estado']=$pagamento['Estadopagamento']['name'];
 			$listas[]=$lista;
 		}
 		

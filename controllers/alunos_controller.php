@@ -9,12 +9,18 @@ class AlunosController extends AppController {
     $this->set('date_options_modified', array_merge($this->_Form_options_datetime, array('selected'=>$this->process_datetime('Model.modified'))));  
 		$this->set('alunos', $this->paginate(null, $this->_Filter));
 		
+		$escolas = $this->Aluno->Escola->find('list');
+		$cursos = $this->Aluno->Curso->find('list');
+		
+		$this->set(compact('escolas','cursos'));
 		$this->set('relatorio','aluno_relatorio');
 		//$this->layout='3_colunas';
 		
 	}
 
 	function view($id = null){
+	        App::Import('Model','Matricula');
+	        $Matricula = new Matricula;			
 		if (!$id) {
 			//$this->Session->setFlash('Invalido %s', 'error');
 			$this->redirect(array('action' => 'index'));
@@ -25,6 +31,7 @@ class AlunosController extends AppController {
           $extras = $this->data['Aluno']['foto'];
 
         $this->set('fotoaluno',$extras);
+		$this->set('aluno',$this->data);
 		$users = $this->Aluno->User->find('list');
 		$paises = $this->Aluno->Paise->find('list');
 		$cidades = $this->Aluno->Cidade->find('list');
@@ -35,8 +42,10 @@ class AlunosController extends AppController {
 		$areatrabalhos = $this->Aluno->Areatrabalho->find('list');
 		$generos = $this->Aluno->Genero->find('list');
         $cidadenascimentos = $this->Aluno->CidadeNascimento->find('list');
-
-		$this->set(compact('users', 'paises', 'cidades', 'provincias', 'documentos', 'areatrabalhos','generos','cidadenascimentos','proveniencianomes','provenienciacidades'));
+		$cursos = $this->Aluno->Curso->find('list');
+		$planoestudos = $Matricula->Planoestudo->find('list');
+		
+		$this->set(compact('cursos','planoestudos','users', 'paises', 'cidades', 'provincias', 'documentos', 'areatrabalhos','generos','cidadenascimentos','proveniencianomes','provenienciacidades'));
 	}
 
 

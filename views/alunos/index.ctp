@@ -18,18 +18,20 @@ $username = $session->read('Auth.User.username');
 										<thead><!-- universal table heading -->
 											<tr>
 												<td class="tc first"><input type="checkbox" value="true" name="data-1-check-all" id="data-1-check-all"></td>
-												<td class="tc">Foto</td>
+											
 												<td class="filterable"><?php echo $this->Paginator->sort('Codigo','codigo');?></td>
 							                    <td class="filterable" ><?php echo $this->Paginator->sort('Nome','name');?></td>
 							                    <td class="filterable" ><?php echo $this->Paginator->sort('Curso','curso_id');?></td>
+							                    <td class="filterable" ><?php echo $this->Paginator->sort('Escola','escola_id');?></td>
                     							<td class="tc last"><?php __('Acção');?></td>
 											</tr>
 											<tr>
 												<td></td>
-												<td></td>  
-            								<td><?php echo $form->input('codigo'); ?></td>  
-            								<td><?php echo $form->input('name'); ?></td>
-            								<td><?php echo $form->input('curso_id'); ?></td>  
+											  
+            								<td><?php echo $form->input('codigo',array('label'=>false,'size'=>8)); ?></td>  
+            								<td><?php echo $form->input('name',array('label'=>false,'size'=>10)); ?></td>
+            								<td><?php echo $form->input('curso_id',array('label'=>false,'empty'=>true)); ?></td>
+            								<td><?php echo $form->input('escola_id',array('label'=>false,'empty'=>true)); ?></td>  
             								  
             								<td>  
                 								<button type="submit" name="data[filter]" value="filter">Filtrar</button>  
@@ -66,10 +68,11 @@ $username = $session->read('Auth.User.username');
 											?>
 											<tr<?php echo $class;?>>
 												<td class="tc first"><input type="checkbox" value="true" name="data-1-check-1" id="data-1-check-1"></td>
-												<td class="tc"><span class="tag tag-gray">jpeg</span></td>
+											
 												<td><?php echo $aluno['Aluno']['codigo']; ?>&nbsp;</td>
 												<td><?php echo $aluno['Aluno']['name']; ?>&nbsp;</td>
 												<td><?php echo $aluno['Curso']['name']; ?>&nbsp;</td>
+												<td><?php echo $aluno['Escola']['name']; ?>&nbsp;</td>
 											
 												
 												
@@ -100,6 +103,13 @@ $username = $session->read('Auth.User.username');
 								</fieldset>
 							</form>
 							<div class="pagination">
+								<ul class="left">
+									<li><?php
+	echo $this->Paginator->counter(array(
+	'format' => __('showing %current% records out of %count% total', true)
+	));
+	?>	</li>
+								</ul>
 								<ul class="pag_list">
 									<li><?php echo $paginator->prev('<< '.__('ANTERIOR', true), array(), null, array('class'=>'disabled'));?> </li>
 									<?php echo $paginator->numbers(array('tag'=>'li','separator'=>null,'class'=>'pagination'));?>
