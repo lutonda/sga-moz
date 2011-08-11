@@ -33,9 +33,10 @@
   * Todas as funções para a manipulação da tabela turmas devem ser definidas aqui
  * 
  *
- * @package       cake
- * @subpackage    cake.cake.libs.model
+ * @package       opensga
+ * @subpackage    opensga.core.modelo
  * @link          http://book.cakephp.org/view/1000/Models
+  * @Todo Colocar o link para a documentação aqui
  */
 class Turma extends AppModel {
 	var $name = 'Turma';
@@ -166,11 +167,19 @@ class Turma extends AppModel {
 			
 		}
 		
-		/**
-		 * Retorna Todas as turmas activas de um determinado aluno
-		 * Inclui tambem as turmas que ja foram frequentadas pelo aluno, mesmo que tenha sido aprovado
-		 * 
-		 */
+/**
+ * Esta função retorna todas as turmas do plano curricular do aluno
+ *
+ * A função filtra as turmas existentes no sistema de acordo com as condições da
+ * matricula do aluno.
+ * Retorna um array contendo o ID da turma e o nome da disciplina correspondente a turma
+ *
+ * @param int $aluno_id o ID do aluno em questão
+ * @return array Um array contendo todas as turmas do plano curricular do aluno
+ * @access public
+ * @link http://book.cakephp.org/view/1031/Saving-Your-Data
+ * @Todo Colocar o link para a documentação aqui
+ */
         function getAllByAluno($aluno_id){
         	App::import('Model','Matricula');
 			App::import('Model','Aluno');

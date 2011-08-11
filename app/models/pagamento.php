@@ -45,7 +45,7 @@ class Pagamento extends AppModel {
 	 * Gera todos os pagamentos de todos os alunos matriculados
 	 * Nao duplica pagamentos para o mesmo plano de estudos
 	 */
-	function gerarPagamentos($anolectivo_id){
+	function gerarPagamentos($anolectivo_id,$aluno_id=null){
 			
 		$this->Tipopagamento->recursive = -1;
 		
@@ -57,14 +57,20 @@ class Pagamento extends AppModel {
 		$num_semestre = $semestre['Anolectivo']['num_semestre'];
 		
 		if($num_semestre==1){
-			$tipos = array(1,2,3,4,5,6,7);
+			$tipos = array(2,3,4,5,6,7);
 		}
 		else{
-			$tipos = array(1,2,8,9,10,11,12);	
+			$tipos = array(2,8,9,10,11,12);	
 		}
 		$tipopagamentos = $this->Tipopagamento->find('all',array('conditions'=>array('Tipopagamento.id'=>$tipos)));
-		$alunos = $this->Aluno->Matricula->getAllAlunosMatriculados($anolectivo_id);
-		
+		if($aluno_id!=null){
+			$this->Aluno->Matricula->recursive = 0;	
+			$alunos = $this->Aluno->Matricula->find('all',array('conditions'=>array('Matricula.aluno_id'=>$aluno_id,'Matricula.anolectivo_id'=>$aluno_id)));
+		}
+		else{
+			$alunos = $this->Aluno->Matricula->getAllAlunosMatriculados($anolectivo_id);			
+		}
+			
 		
 		foreach($alunos as $aluno){
 			$aluno_id = $aluno['Matricula']['aluno_id'];
@@ -88,6 +94,7 @@ class Pagamento extends AppModel {
 				$codigo_pagamento = $aluno['Aluno']['codigo'].$tp['Tipopagamento']['codigo']."01";
 				
 				$pagamento['codigo'] = $codigo_pagamento;
+				$pagamento['estadopagamento_id']=1;
 				$pagamentos = array('Pagamento'=>$pagamento);
 				
 				if(!$this->evitaDuplicados($pagamento)){

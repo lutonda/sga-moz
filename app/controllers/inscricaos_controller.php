@@ -1,4 +1,43 @@
 <?php
+/**
+ * Classe Controller para as Inscrições
+ *
+ * Classe que faz o processamento dos detalhes relacionados ás inscrições dos alunos
+ *
+ * PHP versions 5
+ *
+ * OpenSGA - Sistema de Gestão Académica
+ * Copyright 2010-2011, INFOmoz.net
+ *
+ * Licenciado sob Licença AGPL
+ * Redistribuições deste arquivo devem manter a mesma licença que o original
+ *
+ * @copyright     Copyright 2010-2011, INFOmoz-Informática Moçambique (http://infomoz.net)
+ * @link          http://infomoz.net/opensga Projecto de Desenvolvimento do OpenSGA
+ * @package       opensga
+ * @subpackage    opensga.core.controller
+ * @since         OpenSGA v 0.1.0.0
+ * @license       AGPL
+ */
+
+/**
+ * Modelos incluidos
+ * @Todo Incluir os modelos comuns aqui
+ */
+
+ /**
+ *Controller inscrições
+ *
+ * Controller para o processamento das inscrições dos alunos
+ * Executa todos os detalhes relacionados ás inscrições dos alunos no sistema
+  * A maior parte das validações e filtragens de dados ocorrem aqui
+ * 
+ *
+ * @package       opensga
+ * @subpackage    opensga.core.controller
+ * @link          http://book.cakephp.org/view/1000/Models
+  * @Todo Colocar o link para a documentação aqui
+ */ 
 class InscricaosController extends AppController {
 
 	var $name = 'Inscricaos';
@@ -227,12 +266,52 @@ class InscricaosController extends AppController {
 		$this->set(compact('Alunos', 't0010turmas', 't0014epocaavaliacaos', 'tg0020estadoinscricao','funcionarios','curso1','docente1','assistente1', 'plano1','turma1', 'turno1','anoCurricular1','semestreCurricular1','anoLectivo1'));
 	}
 
-	
+	/**
+	 * Inscreve os alunos nas turmas que ira frequentar
+	 * O diferencial desta funcao é que ela é usada no Modal na tabela dos alunos
+	 * Isso torna a aplicação mais eficiente, além de ser relativamente mais charmoso :-)
+	 *
+	 * @param int $aluno_id o ID do aluno a ser inscrito
+	 * @return void
+	 * @access public
+	 * @link http://book.cakephp.org/view/1031/Saving-Your-Data
+	 * @Todo colocar o link para a documentação aqui
+	 */	
 	function inscrever_aluno($aluno_id){
 		
 		$this->loadModel('Turma');
-		$turmas = $this->Turma->getAllByAluno($aluno_id);	
+		$this->loadModel('Aluno');
+		$this->loadModel('Pagamento');
+		$this->loadModel('Matricula');
 		
+		$aluno = $this->Aluno->findById($aluno_id);
+		if(!empty($this->data)){
+			
+			//Primeiro Devemos actualizar a matricula
+			$this->Matricula->recursive = -1;
+			$matricula = $this->Matricula->findByAlunoId($aluno_id);
+			$matricula_nova=array('Matricula'=>array('aluno_id' =>$matricula['Matricula']['aluno_id'],'curso_id'=>$matricula['Matricula']['curso_id'],'planoestudo_id'=>$matricula['Matricula']['planoestudo_id'],'data'=>date('Y-m-d'),'estadomatricula_id'=>1,'user_id'=>$this->Session->read('Auth.User.id'),'anolectivo_id'=>4,'turno_id'=>$matricula['Matricula']['turno_id']));
+			$this->Matricula->create();
+			$this->Matricula->save($matricula_nova);
+				
+			if($this->Inscricao->saveAll($this->data['Inscricao'])){
+				$this->Session->setFlash(sprintf(__('O Aluno %s Foi inscrito com sucesso',true),$aluno['Aluno']['codigo']."-".$aluno['Aluno']['name']),'sucesso');
+				$this->Pagamento->recursive = -1;
+				$this->Pagamento->gerarPagamentos(4,$aluno_id);
+				
+				$pagamento_inscricao = $this->Pagamento->find('first',array('conditions'=>array('Pagamento.aluno_id'=>$aluno_id,'Pagamento.tipopagamento_id'=>2)));
+				
+				$pagamento_inscricao['Pagamento']['estadopagamento_id']=2;
+				$this->Pagamento->save($pagamento_inscricao);
+				var_dump($pagamento_inscricao);
+				
+				//$this->redirect(array('controller'=>'alunos','action' => 'index'));				
+			}
+			
+		}
+		
+		$turmas = $this->Turma->getAllByAluno($aluno_id);
+		$this->set('aluno_id',$aluno_id);	
 		$this->set(compact('turmas'));
 		
 	}
