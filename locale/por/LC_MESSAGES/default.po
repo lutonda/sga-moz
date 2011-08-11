@@ -1,18 +1,20 @@
 # LANGUAGE translation of CakePHP Application
 # Copyright YEAR NAME <EMAIL@ADDRESS>
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PROJECT VERSION\n"
+"Project-Id-Version: OpenSGA 0.8\n"
 "POT-Creation-Date: 2011-08-11 00:26+0000\n"
-"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
-"Last-Translator: NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2011-08-11 03:18+0200\n"
+"Last-Translator: Elisio Leonardo <elisio.leonardo@gmail.com>\n"
+"Language-Team: Elisio Leonardo <desenvolvimento@infomoz.net>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Plural-Forms: plural=EXPRESSION;\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: MOZAMBIQUE\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 #: \cake\console\cake.php:329
 msgid "Error: Class %s could not be loaded."
@@ -636,7 +638,9 @@ msgid "Adding %s methods"
 msgstr ""
 
 #: \cake\console\libs\tasks\controller.php:134
-msgid "Bake Controller\nPath: %s"
+msgid ""
+"Bake Controller\n"
+"Path: %s"
 msgstr ""
 
 #: \cake\console\libs\tasks\controller.php:143
@@ -672,7 +676,9 @@ msgid "The following controller will be created:"
 msgstr ""
 
 #: \cake\console\libs\tasks\controller.php:222
-msgid "Controller Name:\n\t%s"
+msgid ""
+"Controller Name:\n"
+"\t%s"
 msgstr ""
 
 #: \cake\console\libs\tasks\controller.php:229
@@ -684,7 +690,9 @@ msgid "Components:"
 msgstr ""
 
 #: \cake\console\libs\tasks\controller.php:257
-msgid "Would you like to create some basic class methods \n(index(), add(), view(), edit())?"
+msgid ""
+"Would you like to create some basic class methods \n"
+"(index(), add(), view(), edit())?"
 msgstr ""
 
 #: \cake\console\libs\tasks\controller.php:261
@@ -696,11 +704,16 @@ msgid "You must have a model for this class to build basic methods. Please try a
 msgstr ""
 
 #: \cake\console\libs\tasks\controller.php:347
-msgid "Would you like this controller to use other helpers\nbesides HtmlHelper and FormHelper?"
+msgid ""
+"Would you like this controller to use other helpers\n"
+"besides HtmlHelper and FormHelper?"
 msgstr ""
 
 #: \cake\console\libs\tasks\controller.php:348
-msgid "Please provide a comma separated list of the other\nhelper names you'd like to use.\nExample: 'Ajax, Javascript, Time'"
+msgid ""
+"Please provide a comma separated list of the other\n"
+"helper names you'd like to use.\n"
+"Example: 'Ajax, Javascript, Time'"
 msgstr ""
 
 #: \cake\console\libs\tasks\controller.php:359
@@ -708,7 +721,9 @@ msgid "Would you like this controller to use any components?"
 msgstr ""
 
 #: \cake\console\libs\tasks\controller.php:360
-msgid "Please provide a comma separated list of the component names you'd like to use.\nExample: 'Acl, Security, RequestHandler'"
+msgid ""
+"Please provide a comma separated list of the component names you'd like to use.\n"
+"Example: 'Acl, Security, RequestHandler'"
 msgstr ""
 
 #: \cake\console\libs\tasks\controller.php:397
@@ -716,7 +731,9 @@ msgid "Possible Controllers based on your current database:"
 msgstr ""
 
 #: \cake\console\libs\tasks\controller.php:421
-msgid "Enter a number from the list above,\ntype in the name of another controller, or 'q' to exit"
+msgid ""
+"Enter a number from the list above,\n"
+"type in the name of another controller, or 'q' to exit"
 msgstr ""
 
 #: \cake\console\libs\tasks\controller.php:424
@@ -725,7 +742,9 @@ msgid "Exit"
 msgstr ""
 
 #: \cake\console\libs\tasks\controller.php:429
-msgid "The Controller name you supplied was empty,\nor the number you selected was not an option. Please try again."
+msgid ""
+"The Controller name you supplied was empty,\n"
+"or the number you selected was not an option. Please try again."
 msgstr ""
 
 #: \cake\console\libs\tasks\db_config.php:364
@@ -733,7 +752,10 @@ msgid "Use Database Config"
 msgstr ""
 
 #: \cake\console\libs\tasks\extract.php:107
-msgid "What is the full path you would like to extract?\nExample: %s\n[Q]uit [D]one"
+msgid ""
+"What is the full path you would like to extract?\n"
+"Example: %s\n"
+"[Q]uit [D]one"
 msgstr ""
 
 #: \cake\console\libs\tasks\extract.php:111;133
@@ -745,7 +767,10 @@ msgid "The directory path you supplied was not found. Please try again."
 msgstr ""
 
 #: \cake\console\libs\tasks\extract.php:129
-msgid "What is the full path you would like to output?\nExample: %s\n[Q]uit"
+msgid ""
+"What is the full path you would like to output?\n"
+"Example: %s\n"
+"[Q]uit"
 msgstr ""
 
 #: \cake\console\libs\tasks\extract.php:149
@@ -833,11 +858,15 @@ msgid "Error: %s already exists in this location. Overwrite? [Y]es, [N]o, [A]ll"
 msgstr ""
 
 #: \cake\console\libs\tasks\extract.php:390
-msgid "What would you like to name this file?\nExample: %s"
+msgid ""
+"What would you like to name this file?\n"
+"Example: %s"
 msgstr ""
 
 #: \cake\console\libs\tasks\extract.php:458
-msgid "Invalid marker content in %s:%s\n* %s("
+msgid ""
+"Invalid marker content in %s:%s\n"
+"* %s("
 msgstr ""
 
 #: \cake\console\libs\tasks\fixture.php:133
@@ -853,7 +882,9 @@ msgid "Would you like to build this fixture with data from %s's table?"
 msgstr ""
 
 #: \cake\console\libs\tasks\fixture.php:371
-msgid "Please provide a SQL fragment to use as conditions\nExample: WHERE 1=1 LIMIT 10"
+msgid ""
+"Please provide a SQL fragment to use as conditions\n"
+"Example: WHERE 1=1 LIMIT 10"
 msgstr ""
 
 #: \cake\console\libs\tasks\model.php:115
@@ -869,11 +900,15 @@ msgid "Table %s does not exist, cannot bake a model without a table."
 msgstr ""
 
 #: \cake\console\libs\tasks\model.php:202
-msgid "Would you like to supply validation criteria \nfor the fields in your model?"
+msgid ""
+"Would you like to supply validation criteria \n"
+"for the fields in your model?"
 msgstr ""
 
 #: \cake\console\libs\tasks\model.php:208
-msgid "Would you like to define model associations\n(hasMany, hasOne, belongsTo, etc.)?"
+msgid ""
+"Would you like to define model associations\n"
+"(hasMany, hasOne, belongsTo, etc.)?"
 msgstr ""
 
 #: \cake\console\libs\tasks\model.php:216
@@ -905,7 +940,9 @@ msgid "What is the primaryKey?"
 msgstr ""
 
 #: \cake\console\libs\tasks\model.php:299
-msgid "A displayField could not be automatically detected\nwould you like to choose one?"
+msgid ""
+"A displayField could not be automatically detected\n"
+"would you like to choose one?"
 msgstr ""
 
 #: \cake\console\libs\tasks\model.php:304
@@ -933,7 +970,9 @@ msgid "... or enter in a valid regex validation string.\n"
 msgstr ""
 
 #: \cake\console\libs\tasks\model.php:413
-msgid "You have already chosen that validation rule,\nplease choose again"
+msgid ""
+"You have already chosen that validation rule,\n"
+"please choose again"
 msgstr ""
 
 #: \cake\console\libs\tasks\model.php:417
@@ -969,7 +1008,9 @@ msgid "Enter a number"
 msgstr ""
 
 #: \cake\console\libs\tasks\model.php:654
-msgid "For the following options be very careful to match your setup exactly.\nAny spelling mistakes will cause errors."
+msgid ""
+"For the following options be very careful to match your setup exactly.\n"
+"Any spelling mistakes will cause errors."
 msgstr ""
 
 #: \cake\console\libs\tasks\model.php:657
@@ -1013,7 +1054,9 @@ msgid "Possible Models based on your current database:"
 msgstr ""
 
 #: \cake\console\libs\tasks\model.php:815
-msgid "Given your model named '%s',\nCake would expect a database table named '%s'"
+msgid ""
+"Given your model named '%s',\n"
+"Cake would expect a database table named '%s'"
 msgstr ""
 
 #: \cake\console\libs\tasks\model.php:816
@@ -1029,11 +1072,15 @@ msgid "Your database does not have any tables."
 msgstr ""
 
 #: \cake\console\libs\tasks\model.php:869
-msgid "Enter a number from the list above,\ntype in the name of another model, or 'q' to exit"
+msgid ""
+"Enter a number from the list above,\n"
+"type in the name of another model, or 'q' to exit"
 msgstr ""
 
 #: \cake\console\libs\tasks\model.php:877
-msgid "The model name you supplied was empty,\nor the number you selected was not an option. Please try again."
+msgid ""
+"The model name you supplied was empty,\n"
+"or the number you selected was not an option. Please try again."
 msgstr ""
 
 #: \cake\console\libs\tasks\plugin.php:71
@@ -1050,7 +1097,9 @@ msgid "%s in path %s not found."
 msgstr ""
 
 #: \cake\console\libs\tasks\plugin.php:91
-msgid "%s directory could not be found.\nBe sure you have created %s"
+msgid ""
+"%s directory could not be found.\n"
+"Be sure you have created %s"
 msgstr ""
 
 #: \cake\console\libs\tasks\plugin.php:107
@@ -1084,7 +1133,9 @@ msgid "Choose a plugin path from the paths above."
 msgstr ""
 
 #: \cake\console\libs\tasks\project.php:63
-msgid "What is the full path for this app including the app directory name?\n Example:"
+msgid ""
+"What is the full path for this app including the app directory name?\n"
+" Example:"
 msgstr ""
 
 #: \cake\console\libs\tasks\project.php:71
@@ -1140,7 +1191,9 @@ msgid "chmod -R 0777 %s"
 msgstr ""
 
 #: \cake\console\libs\tasks\project.php:135
-msgid "What is the path to the directory layout you wish to copy?\nExample: %s"
+msgid ""
+"What is the path to the directory layout you wish to copy?\n"
+"Example: %s"
 msgstr ""
 
 #: \cake\console\libs\tasks\project.php:137
@@ -1241,15 +1294,23 @@ msgid "Bake could not detect fixtures, would you like to add some?"
 msgstr ""
 
 #: \cake\console\libs\tasks\test.php:385
-msgid "Please provide a comma separated list of the fixtures names you'd like to use.\nExample: 'app.comment, app.post, plugin.forums.post'"
+msgid ""
+"Please provide a comma separated list of the fixtures names you'd like to use.\n"
+"Example: 'app.comment, app.post, plugin.forums.post'"
 msgstr ""
 
 #: \cake\console\libs\tasks\view.php:226
-msgid "Would you like bake to build your views interactively?\nWarning: Choosing no will overwrite %s views if it exist."
+msgid ""
+"Would you like bake to build your views interactively?\n"
+"Warning: Choosing no will overwrite %s views if it exist."
 msgstr ""
 
 #: \cake\console\libs\tasks\view.php:233
-msgid "Would you like to create some CRUD views\n(index, add, view, edit) for this controller?\nNOTE: Before doing so, you'll need to create your controller\nand model classes (including associated models)."
+msgid ""
+"Would you like to create some CRUD views\n"
+"(index, add, view, edit) for this controller?\n"
+"NOTE: Before doing so, you'll need to create your controller\n"
+"and model classes (including associated models)."
 msgstr ""
 
 #: \cake\console\libs\tasks\view.php:236
@@ -1265,7 +1326,9 @@ msgid "Controller not found"
 msgstr ""
 
 #: \cake\console\libs\tasks\view.php:283
-msgid "The file '%s' could not be found.\nIn order to bake a view, you'll need to first create the controller."
+msgid ""
+"The file '%s' could not be found.\n"
+"In order to bake a view, you'll need to first create the controller."
 msgstr ""
 
 #: \cake\console\libs\tasks\view.php:335
@@ -1640,11 +1703,15 @@ msgid "[acl_base] The AclBase class constructor has been called, or the class wa
 msgstr ""
 
 #: \cake\libs\controller\components\acl.php:273
-msgid "DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:\nAro: "
+msgid ""
+"DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:\n"
+"Aro: "
 msgstr ""
 
 #: \cake\libs\controller\components\acl.php:278
-msgid "DbAcl::check() - Failed ACO node lookup in permissions check.  Node references:\nAro: "
+msgid ""
+"DbAcl::check() - Failed ACO node lookup in permissions check.  Node references:\n"
+"Aro: "
 msgstr ""
 
 #: \cake\libs\controller\components\acl.php:286
@@ -2398,7 +2465,10 @@ msgid "Editing this Page"
 msgstr ""
 
 #: \cake\libs\view\pages\home.ctp:124
-msgid "To change the content of this page, create: APP/views/pages/home.ctp.<br />\nTo change its layout, create: APP/views/layouts/default.ctp.<br />\nYou can also add some CSS styles for your pages at: APP/webroot/css."
+msgid ""
+"To change the content of this page, create: APP/views/pages/home.ctp.<br />\n"
+"To change its layout, create: APP/views/layouts/default.ctp.<br />\n"
+"You can also add some CSS styles for your pages at: APP/webroot/css."
 msgstr ""
 
 #: \cake\libs\view\pages\home.ctp:130
@@ -4489,7 +4559,7 @@ msgstr ""
 
 #: \views\elements\header.ctp:106
 msgid "ACCOUNTING"
-msgstr ""
+msgstr "CONTABILIDADE"
 
 #: \views\elements\menu_administracao.ctp:4
 #: \views\funcionarios\index.ctp:11

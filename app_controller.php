@@ -28,7 +28,7 @@ class AppController extends Controller {
     var $_Form_options_datetime = array();  
 
     function beforeFilter() {
-        
+        Configure::write('Config.language', 'por');
                 // for index actions  
         if($this->action == 'index') {  
             // setup filter component  

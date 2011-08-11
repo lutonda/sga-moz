@@ -6,6 +6,11 @@ class PagamentosController extends AppController {
 	function index() {
 		$this->Pagamento->recursive = 0;
 		$this->set('pagamentos', $this->paginate());
+		
+		$tipopagamentos = $this->Pagamento->Tipopagamento->find('list');
+		$estadopagamentos = $this->Pagamento->Estadopagamento->find('list');
+		
+		$this->set(compact('tipopagamentos','estadopagamentos'));
 	}
 
 	function view($id = null) {

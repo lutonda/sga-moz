@@ -4,3 +4,5 @@ tmp
 nbproject
 config/core.php
 config/database.php
+tmp
+config

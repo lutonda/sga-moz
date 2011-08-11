@@ -30,12 +30,15 @@ $username = $session->read('Auth.User.username');
 												<td class="tc last"><?php __('Acção');?></td>
 											</tr>
 											<tr>
-												<td></td>
+												
 												<td></td>  
-            								<td><?php echo $form->input('codigo'); ?></td>  
-            								<td><?php echo $form->input('name'); ?></td>
-            								<td></td>
-            								<td><?php echo $form->input('data_pagamento'); ?></td>  
+            								<td><?php echo $form->input('codigo',array('label'=>false,'size'=>10)); ?></td>  
+            								<td><?php echo $form->input('name',array('label'=>false,'size'=>8)); ?></td>
+            								<td><?php echo $form->input('tipopagamento_id', array('label'=>false,'class'=>'filtro_select')); ?></td>
+            								<td><?php echo $form->input('valor',array('label'=>false,'size'=>4)); ?></td>
+            								<td><?php echo $form->input('data_pagamento',array('label'=>false)); ?></td> 
+            								<td><?php echo $form->input('data_limite',array('label'=>false)); ?></td>
+            								<td><?php echo $form->input('estadopagamento_id',array('label'=>false,'class'=>'filtro_select')); ?></td> 
             								  
             								<td>  
                 								<button type="submit" name="data[filter]" value="filter">Filtrar</button>  
@@ -79,11 +82,12 @@ $username = $session->read('Auth.User.username');
 		<td><?php echo $pagamento['Pagamento']['data_pagamento']; ?>&nbsp;</td>
 		<td><?php echo $pagamento['Pagamento']['data_limite']; ?>&nbsp;</td>
 		<td><?php echo $pagamento['Estadopagamento']['name']; ?>&nbsp;</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $pagamento['Pagamento']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $pagamento['Pagamento']['id'])); ?>
-			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $pagamento['Pagamento']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $pagamento['Pagamento']['id'])); ?>
+		<td class="accoes">
+	            <?php echo $this->Html->image("/img/login-icon.gif", array("alt" => "Visualizar","title"=>"Visualizar",'url' => array('action' => 'view', $pagamento['Pagamento']['id']))); ?>
+                <?php echo $this->Html->image("/img/edit-icon.gif", array("alt" => "Editar","title"=>"Editar",'url' => array('action' => 'edit', $pagamento['Pagamento']['id']))); ?>
+                    
 		</td>
+
 	</tr>
 <?php endforeach; ?>
 										</tbody>
