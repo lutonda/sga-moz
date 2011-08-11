@@ -71,6 +71,7 @@
 <?php echo $this->element('footer');?>
 
 <?php } ?>
+<?php echo $this->Html->script(array('jquery.tooltip'));?>
 <?php echo $this->Js->writeBuffer(); // Write cached scripts?>
 </body>
 </html>

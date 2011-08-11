@@ -209,7 +209,9 @@ h3 {
 .input_wrapper select {
 	width: 100%;
 }
-
+.input_wrapper input{
+	width: 100%;
+}
 .general_form  .blank {
 	border: 0;
 	background: transparent;

@@ -39,3 +39,41 @@
 .filtro_select{
 	width:80px;
 }
+
+/************************************************************/
+/*********************Formularios***************************/
+
+.input_full_width{
+	width:100%;
+}
+
+/*Para o tooltip*/
+#text {margin:50px auto; width:500px}
+.hotspot {color:#8AAD00; padding-bottom:1px; border-bottom:1px dotted #8AAD00; cursor:pointer}
+
+#tt {
+ position:absolute;
+ display:block;
+ background:url(images/tt_left.gif) top left no-repeat;
+ }
+ #tttop {
+ display:block;
+ height:5px;
+ margin-left:5px;
+ background:url(images/tt_top.gif) top right no-repeat;
+ overflow:hidden;
+ }
+ #ttcont {
+ display:block;
+ padding:2px 12px 3px 7px;
+ margin-left:5px;
+ background:#666;
+ color:#fff;
+ }
+#ttbot {
+display:block;
+height:5px;
+margin-left:5px;
+background:url(images/tt_bottom.gif) top right no-repeat;
+overflow:hidden;
+}
