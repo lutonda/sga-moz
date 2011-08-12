@@ -1,11 +1,12 @@
 <div class="configs form">
 <?php echo $this->Form->create('Config');?>
 	<fieldset>
- 		<legend><?php printf(__('Edit %s', true), __('Config', true)); ?></legend>
+		<legend><?php __('Edit Config'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('name');
 		echo $this->Form->input('value');
+		echo $this->Form->input('autoload');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
@@ -15,6 +16,6 @@
 	<ul>
 
 		<li><?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('Config.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('Config.id'))); ?></li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Configs', true)), array('action' => 'index'));?></li>
+		<li><?php echo $this->Html->link(__('List Configs', true), array('action' => 'index'));?></li>
 	</ul>
 </div>

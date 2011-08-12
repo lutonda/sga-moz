@@ -16,14 +16,19 @@
 			<?php echo $config['Config']['value']; ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Autoload'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $config['Config']['autoload']; ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('Config', true)), array('action' => 'edit', $config['Config']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('Config', true)), array('action' => 'delete', $config['Config']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $config['Config']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Configs', true)), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Config', true)), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Edit Config', true), array('action' => 'edit', $config['Config']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Delete Config', true), array('action' => 'delete', $config['Config']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $config['Config']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('List Configs', true), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Config', true), array('action' => 'add')); ?> </li>
 	</ul>
 </div>

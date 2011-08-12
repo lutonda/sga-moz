@@ -33,7 +33,7 @@ class CursosController extends AppController {
 		$grauacademicos = $this->Curso->Grauacademico->find('list');
 		$tipocursos = $this->Curso->Tipocurso->find('list');
         $escolas = $this->Curso->Escola->find('list');
-		$this->set(compact('Grauacademicos', 'tg0007tipocursos','tg0016escolas'));
+		$this->set(compact('grauacademicos', 'tipocursos','escolas'));
 	}
 
 	function add() 
@@ -41,11 +41,11 @@ class CursosController extends AppController {
 	App::Import('Model','Logmv');
 	$logmv = new Logmv;
 		if (!empty($this->data)) {
-		//var_dump($this->data);
+		
 			$this->Curso->create();
 			if ($this->Curso->save($this->data)) {
 				$this->Session->setFlash('** Dados Cadastrados com Sucesso **','sucesso');
-				//$logmv->logInsert(3,$this->Session->read('Auth.User.id'),$this->Curso->getLastInsertID(),$this->data["Curso"]["name"]);
+				
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash('Erro ao gravar dados. Por favor tente de novo.','error');
@@ -54,7 +54,7 @@ class CursosController extends AppController {
 		$escolas = $this->Curso->Escola->find('list');
 		$grauacademicos = $this->Curso->Grauacademico->find('list');
 		$tipocursos = $this->Curso->Tipocurso->find('list');
-		$this->set(compact('Grauacademicos', 'tg0007tipocursos','tg0016escolas'));
+		$this->set(compact('grauacademicos', 'tipocursos','escolas'));
 	}
 
 	function edit($id = null) {

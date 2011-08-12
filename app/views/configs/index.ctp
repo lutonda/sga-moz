@@ -5,6 +5,7 @@
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
 			<th><?php echo $this->Paginator->sort('value');?></th>
+			<th><?php echo $this->Paginator->sort('autoload');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -19,6 +20,7 @@
 		<td><?php echo $config['Config']['id']; ?>&nbsp;</td>
 		<td><?php echo $config['Config']['name']; ?>&nbsp;</td>
 		<td><?php echo $config['Config']['value']; ?>&nbsp;</td>
+		<td><?php echo $config['Config']['autoload']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $config['Config']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $config['Config']['id'])); ?>
@@ -35,15 +37,15 @@
 	?>	</p>
 
 	<div class="paging">
-		<?php echo $this->Paginator->prev('<< '.__('previous', true), array(), null, array('class'=>'disabled'));?>
+		<?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'));?>
 	 | 	<?php echo $this->Paginator->numbers();?>
  |
-		<?php echo $this->Paginator->next(__('next', true).' >>', array(), null, array('class' => 'disabled'));?>
+		<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
 </div>
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Config', true)), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('New Config', true), array('action' => 'add')); ?></li>
 	</ul>
 </div>

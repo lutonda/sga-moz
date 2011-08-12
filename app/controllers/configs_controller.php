@@ -10,7 +10,7 @@ class ConfigsController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'config'));
+			$this->Session->setFlash(__('Invalid config', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('config', $this->Config->read(null, $id));
@@ -20,25 +20,25 @@ class ConfigsController extends AppController {
 		if (!empty($this->data)) {
 			$this->Config->create();
 			if ($this->Config->save($this->data)) {
-				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'config'));
+				$this->Session->setFlash(__('The config has been saved', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'config'));
+				$this->Session->setFlash(__('The config could not be saved. Please, try again.', true));
 			}
 		}
 	}
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'config'));
+			$this->Session->setFlash(__('Invalid config', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Config->save($this->data)) {
-				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'config'));
+				$this->Session->setFlash(__('The config has been saved', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'config'));
+				$this->Session->setFlash(__('The config could not be saved. Please, try again.', true));
 			}
 		}
 		if (empty($this->data)) {
@@ -48,15 +48,14 @@ class ConfigsController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'config'));
+			$this->Session->setFlash(__('Invalid id for config', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Config->delete($id)) {
-			$this->Session->setFlash(sprintf(__('%s deleted', true), 'Config'));
+			$this->Session->setFlash(__('Config deleted', true));
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'Config'));
+		$this->Session->setFlash(__('Config was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
 }
-?>
