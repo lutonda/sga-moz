@@ -3,7 +3,7 @@
 		<div id="footer_inner">
 
 		<dl class="copy">
-			<dt><strong>SGA-Sistema de Gestão Académica</strong> <em>build 03082011</em></dt>
+			<dt><strong>OpenSGA-Sistema de Gestão Académica</strong> <em>build 14082011</em></dt>
 			<dd>&copy; 2011 Todos os direitos reservados.</dd>
 		</dl>
 
@@ -11,14 +11,12 @@
 			<dt><strong>Links rápidos :</strong></dt>
 			<dd>
 				<ul>
-					<li><a href="#">Dashboard </a></li>
-					<li><a href="#">My Account</a></li>
-					<li><a href="#">General Settings</a></li>
-					<li><a href="#">Static Pages</a></li>
-					<li><a href="#">Users</a></li>
-					<li><a href="#">Products</a></li>
-					<li><a href="#">Marketing</a></li>
-					<li class="last"><a href="#">Log out</a></li>
+					<li><a href="#">Painel </a></li>
+					<li><a href="#">Minha Conta</a></li>
+					<li><a href="#">Configurações</a></li>
+					<li><a href="#">Manual do Utilizador</a></li>
+					<li><a href="#">Documentação Técnica</a></li>
+					<li class="last"><a href="#">Sair</a></li>
 				</ul>
 			</dd>
 		</dl>

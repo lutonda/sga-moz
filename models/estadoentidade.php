@@ -1,12 +1,12 @@
 <?php
-class Tg0013estadoentidade extends AppModel {
-	var $name = 'Tg0013estadoentidade';
+class Estadoentidade extends AppModel {
+	var $name = 'Estadoentidade';
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $hasMany = array(
 		'funcionario' => array(
 			'className' => 'funcionario',
-			'foreignKey' => 'tg0013estadoentidade_id',
+			'foreignKey' => 'estadoentidade_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
@@ -19,7 +19,7 @@ class Tg0013estadoentidade extends AppModel {
 		),
 		'Aluno' => array(
 			'className' => 'Aluno',
-			'foreignKey' => 'tg0013estadoentidade_id',
+			'foreignKey' => 'estadoentidade_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
