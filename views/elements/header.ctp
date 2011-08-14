@@ -9,7 +9,7 @@
 
 			<!--[if !IE]>start logo and user details<![endif]-->
 			<div id="logo_user_details">
-				<h1 id="logo"><a href="#">websitename Administration Panel</a></h1>
+				<h1 id="logo"><a href="#">OpenSGA - Sistema de Gestão Académica</a></h1>
 				<!--[if !IE]>start user details<![endif]-->
 				<div id="user_details">
 					<ul id="user_details_menu">
@@ -17,37 +17,13 @@
 						<li>
 							<ul id="user_access">
 								<li class="first"><?php echo $this->Html->link('Minha Conta',array('controller'=>'users','action'=>'view',$userid))?></li>
+								<li><span id="portuguese"><?php echo $this->Html->link('Português',array('controller'=>'configs','action'=>'language',1),array('class'=>'portuguese'))?></span></li>
+								<li><span id="english"><?php echo $this->Html->link('English',array('controller'=>'configs','action'=>'language',2),array('class'=>'english'))?></span></li>
 								<li class="last"><?php echo $this->Html->link('Sair',array('controller'=>'users','action'=>'logout'))?></li>
 							</ul>
 						</li>
 						<li><a class="new_messages" href="#">4 new messages</a></li>
 					</ul>
-					<div id="server_details">
-						<dl>
-							<dt>Server time :</dt>
-							<dd>6:45 AM</dd>
-						</dl>
-						<dl>
-							<dt>Last login ip :</dt>
-							<dd>192.168.0.15</dd>
-						</dl>
-					</div>
-					<!--[if !IE]>start search<![endif]-->
-					<div id="search_wrapper">
-						<form action="#">
-							<fieldset>
-								<label>
-									<input class="text" name="" type="text" />
-								</label>
-								<span class="go"><input name="" type="submit" /></span>
-							</fieldset>
-						</form>
-						<ul id="search_wrapper_menu">
-							<li class="first"><a href="#">Advanced Search</a></li>
-							<li class="last"><a href="#">Admin Map</a></li>
-						</ul>
-					</div>
-				<!--[if !IE]>end search<![endif]-->
 				</div>
 
 				<!--[if !IE]>end user details<![endif]-->
@@ -95,7 +71,7 @@
 
 <li><?php 
       if($grupo == 1 || $grupo == 2 || $grupo == 4) { 
-        echo $this->Html->link(sprintf('<span><span>AVALIAÇÕES</span></span>'), array('controller'=>'avaliacaos','action' => 'registo_de_notas'),array('id'=>'avaliacao','escape'=>false));
+        echo $this->Html->link(sprintf('<span><span>AVALIAÇÕES</span></span>'), array('controller'=>'avaliacaos','action' => 'index'),array('id'=>'avaliacao','escape'=>false));
       }
       else
       if($grupo == 3) { echo $this->Html->link(sprintf('<span><span>NOTAS DAS AVALIAÇÕES</span></span>'), array('controller'=>'avaliacaos','action' => 'index'),array('id'=>'avaliacao'));}
@@ -106,6 +82,8 @@
     if(in_array($grupo,array(1,5,6))) {echo $this->Html->link(sprintf('<span><span>'.__('CONTABILIDADE',true).'</span></span>'), array('controller'=>'pagamentos','action' => 'index'),array('id'=>'contabilidade','escape'=>false));}
 	?>
 </li>
+<li><?php  if($grupo == 1 || $grupo == 2) {echo $this->Html->link(sprintf('<span><span>RELATÓRIOS</span></span>'), array('controller'=>'listagens','action' => 'listagens'),array('id'=>'listagens','escape'=>false));}?></li>
+
 <li>
 <?php
     if($grupo == 1 || $grupo == 2) {echo $this->Html->link(sprintf('<span><span>ADMINISTRAÇÃO</span></span>'), array('controller'=>'funcionarios','action' => 'index'),array('id'=>'administracao','escape'=>false));}
@@ -113,7 +91,6 @@
     if($grupo == 4) {echo $this->Html->link(sprintf('<span><span>CONSULTAR FICHA</span></span>'), array('controller'=>'funcionarios','action' => 'view',$idFunc),array('id'=>'administracao','escape'=>false));}
 ?></li>
 
-<li><?php  if($grupo == 1 || $grupo == 2) {echo $this->Html->link(sprintf('<span><span>LISTAGENS</span></span>'), array('controller'=>'listagens','action' => 'listagens'),array('id'=>'listagens','escape'=>false));}?></li>
 
 <li></li>		
 					</ul>

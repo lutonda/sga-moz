@@ -1,7 +1,8 @@
 
 table {border-collapse: separate; border-spacing: 0;}
-caption, th, td {text-align: left; font-weight: normal;}
-
+caption, th, td {text-align: left; font-weight: normal;vertical-align: top;}
+td.formulario{text-align: left; font-weight: normal;vertical-align: top;padding-right: 10px;}
+.date{width: 100%}
 blockquote:before, blockquote:after,
 q:before, q:after {content: "";}
 blockquote, q {quotes: "" "";}
@@ -201,7 +202,7 @@ form small {color: #999;}
 input.txt,
 textarea {
 	border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px;
-	border: 1px solid #999; background: url("img/txt.gif") repeat-x; padding: 5px 2px;
+	border: 1px solid #999; background: url("img/txt.gif") repeat-x; padding: 3px 2px;
 }
 form.basic input.txt,
 form.basic textarea {width: 100%;}
@@ -229,7 +230,7 @@ ul.actions li {display: inline; margin-right: 5px;}
 	.box-25 {width: 250px;} /* 25% box */
 	.box-50 {width: 470px;} /* 50% box */
 	.box-75 {width: 715px;} /* 75% box */
-	.box-100 {width: 960px;} /* 100% box */
+	.box-100 {width: 760px;} /* 100% box */
 	.altbox {} /* class for alternative (emphasized) boxes (blue headings and colors) */
 	/* wrap of box's content */
 	.boxin {box-shadow: #aaa 0 0 10px; -webkit-box-shadow: #aaa 0 0 10px; -moz-box-shadow: #aaa 0 0 10px; border: 1px solid #999; border-radius: 6px; -webkit-border-radius: 6px; -moz-border-radius: 6px; background: #fff;}

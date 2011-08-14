@@ -7,25 +7,14 @@
 			<dd>&copy; 2011 Todos os direitos reservados.</dd>
 		</dl>
 
-		<dl class="quick_links">
-			<dt><strong>Links rápidos :</strong></dt>
-			<dd>
-				<ul>
-					<li><a href="#">Painel </a></li>
-					<li><a href="#">Minha Conta</a></li>
-					<li><a href="#">Configurações</a></li>
-					<li><a href="#">Manual do Utilizador</a></li>
-					<li><a href="#">Documentação Técnica</a></li>
-					<li class="last"><a href="#">Sair</a></li>
-				</ul>
-			</dd>
-		</dl>
 
 
 		<dl class="help_links">
-			<dt><strong>Precisa de ajuda ?</strong></dt>
+			<dt><strong>Links rápidos</strong></dt>
 			<dd>
 				<ul>
+					<li><a href="#">Manual do Utilizador</a></li>
+					<li><a href="#">Documentação Técnica</a></li>
 					<li><a href="#">Live Help</a></li>
 					<li><a href="#">PERGUNTAS FREQUENTES</a></li>
 					<li class="last"><a href="#">Base de conhecimento</a></li>

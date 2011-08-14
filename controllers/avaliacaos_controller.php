@@ -8,29 +8,12 @@ class AvaliacaosController extends AppController {
 
    
 	function index() {
-	 App::Import('Model','Inscricao');
-	 $inscricao = new Inscricao;
-	 App::Import('Model','Aluno');
-	 $aluno = new Aluno;
-	 
-		$this->Avaliacao->recursive = 0;
+	 		
+		$this->set('avaliacaos', $this->paginate());
+	}
+	
+	function docente_index(){
 		
-		//var_dump($this->Avaliacao->Inscricao.'.............................');
-		
-		
-		$t0013inscricoes = $inscricao->find('all');
-		//$aluno_id = $t0013inscricoes[0]['Inscricao']['Aluno_id'];
-		
-		
-		$resultado = $this->Avaliacao->getCodigoName($t0013inscricoes[0]['Inscricao']['Aluno_id']);
-		$codigo = $resultado[0]['ta']['codigo'];
-		$name = $resultado[0]['ta']['name'];
-		
-		//var_dump($codigo);var_dump($name);
-		
-		$this->set('codigo',$codigo);
-		$this->set('name',$name);		
-		$this->set('t0016avaliacaos', $this->paginate());
 	}
 
 	function view($id = null) {

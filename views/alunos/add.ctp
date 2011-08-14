@@ -7,35 +7,106 @@
 		<?php echo $form->create('Aluno',array('enctype' => 'multipart/form-data','class'=>'fields'));?>
 		<fieldset class="last">
 			<legend>Informação Pessoal</legend>
-			<table>
+			<table width="100%">
 				<tr>
-					<td class="label"><label>Nomes:</label></td>
-					<td>
-						
-						<span class="search_input">
-			<?php echo $this->Form->input('name',array('label'=>false,'div'=>false,'size'=>'25','class'=>'txt'));?>
-						<?php echo $this->Html->image('search.png',array('class'=>'img_search'))?>
-						</span>
+				<td width="30%" class="formulario">
+								<div class="row">
+									<label>Nome Completo:</label>
+									<div class="inputs">
+										<span class="input_wrapper"><?php echo $this->Form->input('name',array('label'=>false,'div'=>false,'class'=>'txt'));?>
+											
+										</span>
+										<?php //echo $this->Html->image('search.png',array('class'=>'img_search'))?>
+									</div>
+								</div>
+								<!--[if !IE]>end row<![endif]-->
+								<div class="row">
+									<label>Data de Nascimento:</label>
+									<div class="inputs">
+										<span class="input_wrapper_data"><?php echo $datePicker->picker('datanascimento',array('minYear'=>date('Y')-70,'maxYear' => date('Y')-10,'monthNames'=>array('Janeiro','Fevereiro','Marco','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'),'dateFormat'=>'DMY','label'=>false,'div'=>false));?></span>
+										
+									</div>
+								</div>
+								<!--[if !IE]>end row<![endif]-->
+								<div class="row">
+									<label>Sexo:</label>
+									<div class="inputs">
+										<span class="input_wrapper">
+								<?php echo $this->Form->input('genero_id',array('label'=>false,'div'=>false));?></span>
+										
+									</div>
+								</div>
+								<!--[if !IE]>end row<![endif]-->								
+                                										
 					</td>
-			<?php echo $this->Form->input('foto',array('type'=>'file','label'=>'Fotografia:','before'=>'<td class="label">','between'=>'</td><td>','after'=>'</td>','div'=>false,'size'=>2));?>
-			<?php echo $datePicker->picker('datanascimento',array('minYear'=>date('Y')-70,'maxYear' => date('Y')-10,'monthNames'=>array('Janeiro','Fevereiro','Marco','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'),'dateFormat'=>'DMY','label'=>'Data Nascimento:','before'=>'<td class="label">','between'=>'</td><td>','after'=>'</td>','div'=>false));?>
-			</tr>
-			<tr>
+					<td width="30%" class="formulario">
 
-			<?php echo $this->Form->input('nomepai',array('label'=>'Nome do Pai:','before'=>'<td class="label">','between'=>'</td><td>','after'=>'</td>','div'=>false,'size'=>'25','class'=>'txt'));?>
-		<?php echo $this->Form->input('nomemae',array('label'=>'Nome da Mae:','before'=>'<td class="label">','between'=>'</td><td>','after'=>'</td>','div'=>false,'size'=>'25','class'=>'txt'));?>
-			<?php echo $this->Form->input('genero_id',array('label'=>'Genero:','before'=>'<td class="label">','between'=>'</td><td>','after'=>'</td>','div'=>false));?>			
-				
-			</tr>
-			<tr>
-			<?php echo $this->Form->input('paise_id',array('label'=>'Nacionalidade:','before'=>'<td class="label">','between'=>'</td><td>','after'=>'</td>','div'=>false));?>
-			<?php echo $this->Form->input('provincia_id',array('label'=>'Província:','before'=>'<td class="label">','between'=>'</td><td>','after'=>'</td>','div'=>false));?>
-        	<?php echo $this->Form->input('cidadenascimento_id',array('label'=>'Cidade:','before'=>'<td class="label">','between'=>'</td><td>','after'=>'</td>','div'=>false));?>
+								<div class="row">
+									<label>Fotografia:</label>
+									<div class="inputs">
+										<span class="input_wrapper">
+									<?php echo $this->Form->input('foto',array('type'=>'file','label'=>false,'div'=>false,'size'=>9));?></span>
+										
+									</div>
+								</div>
+								<!--[if !IE]>end row<![endif]-->
+								<div class="row">
+									<label>Nome do Pai:</label>
+									<div class="inputs">
+										<span class="input_wrapper">
+									<?php echo $this->Form->input('nomepai',array('label'=>false,'div'=>false,'class'=>'txt'));?></span>
+										
+									</div>
+								</div>
+								<!--[if !IE]>end row<![endif]-->
+								<div class="row">
+									<label>Nome da Mae:</label>
+									<div class="inputs">
+										<span class="input_wrapper">
+									<?php echo $this->Form->input('nomemae',array('label'=>false,'div'=>false,'class'=>'txt'));?></span>
+										
+									</div>
+								</div>
+								<!--[if !IE]>end row<![endif]-->																								
 						
-			</tr>
+					</td>
+					<td width="30%" class="formulario">
+
+								<div class="row">
+									<label>Nacionalidade:</label>
+									<div class="inputs">
+										<span class="input_wrapper">
+												<?php echo $this->Form->input('paise_id',array('label'=>false,'div'=>false));?>
 			
-			<?php //echo $datePicker->picker('start_date')?>
-			</table>
+        	</span>
+										
+									</div>
+								</div>
+								<!--[if !IE]>end row<![endif]-->
+								<div class="row">
+									<label>Provincia:</label>
+									<div class="inputs">
+										<span class="input_wrapper">
+									<?php echo $this->Form->input('provincia_id',array('label'=>false,'div'=>false));?></span>
+										
+									</div>
+								</div>
+								<!--[if !IE]>end row<![endif]-->
+								<div class="row">
+									<label>Cidade:</label>
+									<div class="inputs">
+										<span class="input_wrapper">
+									<?php echo $this->Form->input('cidadenascimento_id',array('label'=>false,'div'=>false));?></span>
+										
+									</div>
+								</div>
+								<!--[if !IE]>end row<![endif]-->																								
+						
+					</td>
+				</tr>
+			</table>	
+
+
 			
 		</fieldset>
 			

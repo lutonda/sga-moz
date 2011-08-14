@@ -28,9 +28,9 @@ $username = $session->read('Auth.User.username');
 											<tr>
 												<td></td>
 											  
-            								<td><?php echo $form->input('codigo',array('label'=>false,'size'=>8)); ?></td>  
+            								<td><?php echo $form->input('codigo',array('label'=>false,'size'=>5)); ?></td>  
             								<td><?php echo $form->input('name',array('label'=>false,'size'=>10)); ?></td>
-            								<td><?php echo $form->input('curso_id',array('label'=>false,'empty'=>true)); ?></td>
+            								<td><?php echo $form->input('curso_id',array('label'=>false,'empty'=>true,'class'=>'filtro_select')); ?></td>
             								<td><?php echo $form->input('escola_id',array('label'=>false,'empty'=>true)); ?></td>  
             								  
             								<td>  

@@ -58,4 +58,16 @@ class ConfigsController extends AppController {
 		$this->Session->setFlash(__('Config was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
+	
+	function language($language_id){
+		if($language_id==1)
+		$this->Session->write('Config.language', 'por');
+		
+		else{
+			$this->Session->write('Config.language', 'eng');
+		}
+		Configure::write('Config.language', $this->Session->read('Config.language'));
+		//$this->Session->setFlash(__('O idioma do Sistema foi alterado com sucesso', true));
+		$this->redirect(array('action' => 'index'));
+	}
 }

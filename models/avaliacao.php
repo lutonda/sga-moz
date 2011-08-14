@@ -6,14 +6,14 @@ class Avaliacao extends AppModel {
 	var $belongsTo = array(
 		'Tipoavaliacao' => array(
 			'className' => 'Tipoavaliacao',
-			'foreignKey' => 't0015tipoavaliacao_id',
+			'foreignKey' => 'tipoavaliacao_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
 		'Inscricao' => array(
 			'className' => 'Inscricao',
-			'foreignKey' => 't0013inscricao_id',
+			'foreignKey' => 'inscricao_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
@@ -23,8 +23,8 @@ class Avaliacao extends AppModel {
 	
 	
 		//Devolve o ano lectivo
-        function getAnoLectivo($t0009anolectivo_id){
-            $query = "select codigo from t0009anolectivos where id = {$t0009anolectivo_id}";
+        function getAnoLectivo($anolectivo_id){
+            $query = "select codigo from anolectivos where id = {$anolectivo_id}";
 		//var_dump($query);
             $resultado = $this->query($query);
 			return $resultado;				
@@ -33,7 +33,7 @@ class Avaliacao extends AppModel {
 		
 		//Devolve o Curso
         function getCurso($curso_id){
-            $query = "select name from t0003cursos where id = {$curso_id}";		
+            $query = "select name from cursos where id = {$curso_id}";		
             $resultado = $this->query($query);
 			//var_dump($resultado);
 			return $resultado;				
@@ -48,21 +48,21 @@ class Avaliacao extends AppModel {
 		}
 		
 		function getTurma($turma_id){
-            $query = "select name from t0010turmas where id = {$turma_id}";		
+            $query = "select name from turmas where id = {$turma_id}";		
             $resultado = $this->query($query);
 			//var_dump($resultado);
 			return $resultado;				
 		}
 		
 		function getEpocaAvaliacaos($epocaavaliacao_id){
-            $query = "select name from t0014epocaavaliacaos where id = {$epocaavaliacao_id}";		
+            $query = "select name from epocaavaliacaos where id = {$epocaavaliacao_id}";		
             $resultado = $this->query($query);
 			//var_dump($resultado);
 			return $resultado;				
 		}		
 		
 		function getTipoAvaliacaos($tipoavaliacao_id){
-            $query = "select name from t0015tipoavaliacaos where id = {$tipoavaliacao_id}";		
+            $query = "select name from tipoavaliacaos where id = {$tipoavaliacao_id}";		
             $resultado = $this->query($query);
 			//var_dump($resultado);
 			return $resultado;				
@@ -74,15 +74,15 @@ class Avaliacao extends AppModel {
 		{
 		    if($epocadeavaliacao == 1)
 			{
-            $query = "select ti.id,ta.codigo, ta.name, ti.id,ti.notafinal,ti.notafrequencia,ti.tg0020estadoinscricao_id FROM Alunos ta, t0013inscricaos ti          where ti.Aluno_id = ta.id and ti.tg0020estadoinscricao_id = 1 and ti.t0010turma_id = {$turma_id}";	
+            $query = "select ti.id,ta.codigo, ta.name, ti.id,ti.notafinal,ti.notafrequencia,ti.estadoinscricao_id FROM Alunos ta, inscricaos ti          where ti.Aluno_id = ta.id and ti.estadoinscricao_id = 1 and ti.turma_id = {$turma_id}";	
 			}
 			if($epocadeavaliacao == 2)
 			{
-            $query = "select ti.id,ta.codigo, ta.name, ti.id,ti.notafinal,ti.notafrequencia,ti.tg0020estadoinscricao_id FROM Alunos ta, t0013inscricaos ti          where ti.Aluno_id = ta.id and (ti.tg0020estadoinscricao_id = 7 ) and ti.t0010turma_id = {$turma_id}";	
+            $query = "select ti.id,ta.codigo, ta.name, ti.id,ti.notafinal,ti.notafrequencia,ti.estadoinscricao_id FROM Alunos ta, inscricaos ti          where ti.Aluno_id = ta.id and (ti.estadoinscricao_id = 7 ) and ti.turma_id = {$turma_id}";	
 			}
 			if($epocadeavaliacao == 3)
 			{
-            $query = "select ti.id,ta.codigo, ta.name, ti.id,ti.notafinal,ti.notafrequencia,ti.tg0020estadoinscricao_id FROM Alunos ta, t0013inscricaos ti          where ti.Aluno_id = ta.id and (ti.tg0020estadoinscricao_id = 3) and ti.t0010turma_id = {$turma_id}";	
+            $query = "select ti.id,ta.codigo, ta.name, ti.id,ti.notafinal,ti.notafrequencia,ti.estadoinscricao_id FROM Alunos ta, inscricaos ti          where ti.Aluno_id = ta.id and (ti.estadoinscricao_id = 3) and ti.turma_id = {$turma_id}";	
 			}
             $resultado = $this->query($query);
 			//var_dump($query);
@@ -91,7 +91,7 @@ class Avaliacao extends AppModel {
 		
 		function ifExist($inscricao_id)
 		{
-		    $query = "select t0013inscricao_id from t0016avaliacaos where  t0013inscricao_id = {$inscricao_id}";
+		    $query = "select inscricao_id from avaliacaos where  inscricao_id = {$inscricao_id}";
 			$resultado = $this->query($query);
 			//var_dump($query);
 			return $resultado;	

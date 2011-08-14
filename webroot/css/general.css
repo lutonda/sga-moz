@@ -25,7 +25,7 @@ p {
 }
 
 #wrapper {
-	min-width: 1024px;
+	min-width: 1000px;
 	min-height: 100%;
 	background:url(layout/site/content_bottom.gif) repeat-x left bottom;
    
@@ -57,7 +57,7 @@ p {
 #logo_user_details {
 	width: 100%;
 	float: left;
-	height: 127px;
+	height: 80px;
 }
 
 
@@ -66,25 +66,25 @@ p {
 	margin: 0;
 	padding: 13px 0 0 12px;
 	width: 341px;
-	height: 114px;
+	height: 65px;
 	float: left;
 	
 	
 }
 #logo a {
 	display: block;
-	width: 308px;
-	height: 99px;
+	width: 332px;
+	height: 65px;
 	text-indent: -3000px;
 	overflow: hidden;
 	background:url(layout/site/logo.gif) no-repeat;
 }
 #user_details {
 	float: right;
-	width: 190px;
+	width: 260px;
 	background: url(layout/site/user_details_bg.gif) no-repeat;
 	padding: 15px 0 0 12px;
-	height: 112px;
+	height: 65px;
 	position: relative;
 	top: 0;
 	left: 0;
@@ -370,6 +370,24 @@ p {
 	background-image:url(layout/site/sm_lk8.gif);
 }
 
+#portuguese {
+	background-image:url(img/mz.png);
+	background-repeat: no-repeat;
+}
+
+#english {
+	background-image:url(img/gb.png);
+	background-repeat: no-repeat;	
+}
+
+#portuguese a{
+	padding-left: 20px;
+}
+
+#english a{
+	padding-left: 20px;	
+}
+
 .drop {
 	display: block;
 	float: left;
@@ -553,7 +571,7 @@ p {
 }
 
 #page .inner {
-	margin-left: 263px;
+	margin-left: 215px;
 	padding: 0 11px 0 0;
 	
 }
@@ -757,7 +775,7 @@ p {
 
 /* start sidebar */
 #sidebar {
-	width: 260px;
+	width: 200px;
 	float: left;
 }
 
@@ -1102,8 +1120,8 @@ p {
 
 
 .calendar {
-	width: 235px;
-	padding: 146px 0 17px;
+	width: 200px;
+	padding: 90px 0 17px;
 	position: relative;
 	top: 0;
 	left: 0;
@@ -1120,6 +1138,7 @@ p {
 	position: absolute;
 	top: 0;
 	left: 0;
+	font-weight: bold;
 }
 
 .calendar_top strong {
@@ -1375,7 +1394,7 @@ p {
 	float: right;
 	margin: 0;
 	padding: 0 15px 0 0;
-	width: 350px;
+	width: 560px;
 }
 
 .help_links dt, .help_links dd {

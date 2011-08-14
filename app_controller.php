@@ -22,13 +22,14 @@ class AppController extends Controller {
    
    var $_Filter = array();
    var $components = array( 'Acl','Auth', 'Session','RequestHandler','Filter','DebugKit.Toolbar');
-   var $helpers = array('Html','Form','Session','DatePicker','Js');
+   var $helpers = array('Html','Form','Session','DatePicker','Js','EventsCalendar');
 
 	 // default datetime filter  
     var $_Form_options_datetime = array();  
 
     function beforeFilter() {
-        Configure::write('Config.language', 'por');
+        Configure::write('Config.language', $this->Session->read('Config.language'));
+       // var_dump(Configure::read('Config.language'));
                 // for index actions  
         if($this->action == 'index') {  
             // setup filter component  

@@ -5,7 +5,7 @@ App::import('Vendor', 'jpgraph/jpgraph_bar');
 $ydata = $numero_alunos['numeros'];
 $xdata = $numero_alunos['provincia'];
 // Create the graph. 
-$graph = new Graph(240,300);    
+$graph = new Graph(200,300);    
 $graph->SetScale("textlin");
 $graph->img->SetMargin(30,10,40,70);
 $graph->xaxis->SetFont(FF_FONT1,FS_BOLD);
