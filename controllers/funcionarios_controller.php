@@ -5,8 +5,11 @@ class FuncionariosController extends AppController {
 
 	function index() {
 	
-		$this->Funcionario->recursive = 0;
+		$this->Funcionario->recursive = 2;
 		$this->set('funcionarios', $this->paginate());
+		$groups = $this->Funcionario->User->Group->find('list');
+		
+		$this->set(compact('groups'));
 	}
 
 	function view($id = null) {
@@ -19,7 +22,7 @@ class FuncionariosController extends AppController {
 		$this->set('funcionario', $this->Funcionario->read(null, $id));
 		if (empty($this->data)) {
 			$this->data = $this->Funcionario->read(null, $id);
-			//$logmv->logview(16,$this->Session->read('Auth.User.id'),$this->data["funcionario"]["id"],$this->data["funcionario"]["name"]);
+			
 		}
                 $users = $this->Funcionario->User->find('list');
 		$grauacademicos = $this->Funcionario->Grauacademico->find('list');

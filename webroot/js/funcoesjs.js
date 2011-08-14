@@ -5,5 +5,8 @@
 
 function getCurrentPage(current_section){
    var elemento = document.getElementById(current_section);
-   elemento.className = "selected";
+   if(elemento!=null){
+   	
+ 		elemento.className = "selected";  }
+   
 }

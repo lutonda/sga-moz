@@ -16,8 +16,8 @@
 						<li>Bem Vindo <strong><?php echo __($this->Session->read('Auth.User.name'));?></strong></li>
 						<li>
 							<ul id="user_access">
-								<li class="first"><a href="#">My account</a></li>
-								<li class="last"><a href="#">Log out</a></li>
+								<li class="first"><?php echo $this->Html->link('Minha Conta',array('controller'=>'users','action'=>'view',$userid))?></li>
+								<li class="last"><?php echo $this->Html->link('Sair',array('controller'=>'users','action'=>'logout'))?></li>
 							</ul>
 						</li>
 						<li><a class="new_messages" href="#">4 new messages</a></li>
@@ -103,7 +103,11 @@
 ?></li>
 
 <li><?php 
-    if($grupo == 1 || $grupo == 2) {echo $this->Html->link(sprintf('<span><span>'.__('ACCOUNTING',true).'</span></span>'), array('controller'=>'pagamentos','action' => 'index'),array('id'=>'contabilidade','escape'=>false));}
+    if(in_array($grupo,array(1,5,6))) {echo $this->Html->link(sprintf('<span><span>'.__('CONTABILIDADE',true).'</span></span>'), array('controller'=>'pagamentos','action' => 'index'),array('id'=>'contabilidade','escape'=>false));}
+	?>
+</li>
+<li>
+<?php
     if($grupo == 1 || $grupo == 2) {echo $this->Html->link(sprintf('<span><span>ADMINISTRAÇÃO</span></span>'), array('controller'=>'funcionarios','action' => 'index'),array('id'=>'administracao','escape'=>false));}
     else
     if($grupo == 4) {echo $this->Html->link(sprintf('<span><span>CONSULTAR FICHA</span></span>'), array('controller'=>'funcionarios','action' => 'view',$idFunc),array('id'=>'administracao','escape'=>false));}
@@ -111,10 +115,7 @@
 
 <li><?php  if($grupo == 1 || $grupo == 2) {echo $this->Html->link(sprintf('<span><span>LISTAGENS</span></span>'), array('controller'=>'listagens','action' => 'listagens'),array('id'=>'listagens','escape'=>false));}?></li>
 
-<li></li>
-
-						
-					
+<li></li>		
 					</ul>
 				</div>
 

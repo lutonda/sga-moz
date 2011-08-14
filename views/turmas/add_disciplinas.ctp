@@ -32,8 +32,8 @@
 		//var_dump($disciplina['T0004disciplina']['name']);           
             echo $this->Form->input($disciplina['T0004disciplina']['id'].'.T0010turma.t0004disciplina_id',array('hiddenField' => false,'value'=>$disciplina['T0004disciplina']['id'],'type'=>'checkbox','label'=>$disciplina['T0004disciplina']['name'],'before'=>'<tr><td>','between'=>'','after'=>'</td>','div'=>false));
             echo $this->Form->input($disciplina['T0004disciplina']['id'].'.T0010turma.nummaximo.',array('label'=>false,'before'=>'<td>','between'=>'','after'=>'</td>','div'=>false));
-            echo $this->Form->input($disciplina['T0004disciplina']['id'].'.T0010turma.docente.',array('empty'=>'--seleccione--','options'=>$t0002funcionarios,'label'=>false,'before'=>'<td>','between'=>'','after'=>'</td>','div'=>false));
-            echo $this->Form->input('t0002funcionario_ass_id',array('empty'=>'--seleccione--','options'=>$t0002funcionarios,'label'=>false,'before'=>'<td>','between'=>'','after'=>'</td></tr>','div'=>false));
+            echo $this->Form->input($disciplina['T0004disciplina']['id'].'.T0010turma.docente.',array('empty'=>'--seleccione--','options'=>$funcionarios,'label'=>false,'before'=>'<td>','between'=>'','after'=>'</td>','div'=>false));
+            echo $this->Form->input('t0002funcionario_ass_id',array('empty'=>'--seleccione--','options'=>$funcionarios,'label'=>false,'before'=>'<td>','between'=>'','after'=>'</td></tr>','div'=>false));
             echo $this->Form->input('disc_id.'.$disciplina['T0004disciplina']['id'],array('value'=>$disciplina['T0004disciplina']['id'],'type'=>'hidden','div'=>false));
         }
         //echo $this->Form->input('plano_id',array('value'=>$plano_id,'type'=>'hidden','div'=>false));

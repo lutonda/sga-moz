@@ -55,7 +55,7 @@ class AvaliacaosController extends AppController {
             $cursos = $curso->find('list');
            $turmas = $turma->find('list');
 			$epocaavaliacaos = $epocaavaliacao->find('list');
-            Anolectivos = $turma->Anolectivo->find('list');
+            $anolectivos = $turma->Anolectivo->find('list');
 			$planoestudos = $turma->Planoestudo->find('list');
 			
 		if (!empty($this->data)) {
@@ -142,7 +142,7 @@ class AvaliacaosController extends AppController {
             $turmas = $turma->find('list');	
 			$epocaavaliacaos = $epocaavaliacao->find('list');				
 			$tipoavaliacaos = $this->Avaliacao->Tipoavaliacao->find('list');
-			Anolectivos = $turma->Anolectivo->find('list');
+			$anolectivos = $turma->Anolectivo->find('list');
 			$planoestudos = $turma->Planoestudo->find('list');    
 
 			$this->set(compact('t0015tipoavaliacaos','t0003cursos','t0010turmas','t0009anolectivos','t0005planoestudos','t0014epocaavaliacaos'));

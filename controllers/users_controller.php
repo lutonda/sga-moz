@@ -165,6 +165,10 @@ class UsersController extends AppController {
             $this->set('current_section','administracao');
         }
 
+	function beforeFilter(){
+		parent::beforeFilter();
+		$this->Auth->allow(array('login','logout'));
+	}
 
 }
 ?>

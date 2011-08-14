@@ -18,7 +18,7 @@ class T0019semestrelectivosController extends AppController {
 
 	function add() {
 		if (!empty($this->data)) {
-                   Anolectivos = $this->T0019semestrelectivo->Anolectivo->create();
+                   $anolectivos = $this->T0019semestrelectivo->Anolectivo->create();
                    
                    if($this->T0019semestrelectivo->Anolectivo->save($this->data)){
                    foreach($this->data['T0019semestrelectivo'] as $semestre){
@@ -36,7 +36,7 @@ class T0019semestrelectivosController extends AppController {
 			}
 		}
                   
-		Anolectivos = $this->T0019semestrelectivo->Anolectivo->find('list');
+		$anolectivos = $this->T0019semestrelectivo->Anolectivo->find('list');
 		$this->set(compact('t0009anolectivos'));
 	}
 
@@ -55,7 +55,7 @@ class T0019semestrelectivosController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->T0019semestrelectivo->read(null, $id);
 		}
-		Anolectivos = $this->T0019semestrelectivo->Anolectivo->find('list');
+		$anolectivos = $this->T0019semestrelectivo->Anolectivo->find('list');
 		$this->set(compact('t0009anolectivos'));
 	}
 

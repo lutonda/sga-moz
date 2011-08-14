@@ -12,7 +12,7 @@ $grupo = $session->read('Auth.User.group_id');
 
 <?php
     //O
-    echo $form->create('T0002funcionario');?>
+    echo $form->create('Funcionario');?>
        <table class="listingform" cellpadding="0" cellspacing="0">
          <tr>
             <th class="full" colspan="2">Ficha do Funcionario</th>

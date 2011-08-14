@@ -93,6 +93,11 @@ class PagesController extends AppController {
         $this->set('alertas',$alertas);
         
     }
+	
+		function beforeFilter(){
+		parent::beforeFilter();
+		$this->Auth->allow(array('display','homepage'));
+	}
 }
 
 ?>

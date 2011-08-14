@@ -18,6 +18,12 @@ class Group extends AppModel {
 			'counterQuery' => ''
 		)
 	);
+	
+	var $actsAs = array('Acl' => array('type' => 'requester'));
+	
+	function parentNode() {
+		return null;
+	}
 
 }
 ?>
