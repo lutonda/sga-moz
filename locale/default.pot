@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2011-08-14 16:03+0000\n"
+"POT-Creation-Date: 2011-08-15 00:08+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -18,7 +18,7 @@ msgstr ""
 #: \controllers\anolectivos_controller.php:79
 #: \controllers\areatrabalhos_controller.php:59
 #: \controllers\aros_controller.php:64
-#: \controllers\avaliacaos_controller.php:110
+#: \controllers\avaliacaos_controller.php:93
 #: \controllers\cargos_controller.php:60
 #: \controllers\cidades_controller.php:67
 #: \controllers\departamentos_controller.php:59
@@ -34,7 +34,7 @@ msgstr ""
 #: \controllers\groups_controller.php:58
 #: \controllers\grupodisciplinars_controller.php:59
 #: \controllers\grupodisciplinas_controller.php:62
-#: \controllers\inscricaos_controller.php:330
+#: \controllers\inscricaos_controller.php:315
 #: \controllers\matricularevisaos_controller.php:64
 #: \controllers\matriculas_controller.php:89
 #: \controllers\messages_controller.php:70
@@ -57,7 +57,7 @@ msgstr ""
 #: \controllers\anolectivos_controller.php:71
 #: \controllers\areatrabalhos_controller.php:52
 #: \controllers\aros_controller.php:57
-#: \controllers\avaliacaos_controller.php:103
+#: \controllers\avaliacaos_controller.php:86
 #: \controllers\cargos_controller.php:53
 #: \controllers\cidades_controller.php:60
 #: \controllers\departamentos_controller.php:52
@@ -73,7 +73,7 @@ msgstr ""
 #: \controllers\groups_controller.php:51
 #: \controllers\grupodisciplinars_controller.php:52
 #: \controllers\grupodisciplinas_controller.php:55
-#: \controllers\inscricaos_controller.php:322
+#: \controllers\inscricaos_controller.php:307
 #: \controllers\matricularevisaos_controller.php:57
 #: \controllers\matriculas_controller.php:81
 #: \controllers\messages_controller.php:63
@@ -130,7 +130,7 @@ msgstr ""
 #: \controllers\aros_controller.php:26;44
 #: \controllers\groups_controller.php:26;41
 #: \controllers\grupodisciplinas_controller.php:26;43
-#: \controllers\inscricaos_controller.php:183
+#: \controllers\inscricaos_controller.php:168
 #: \controllers\planoestudoanos_controller.php:26;41
 #: \controllers\turmas_controller.php:61;144
 #: \controllers\users_controller.php:142
@@ -269,7 +269,7 @@ msgstr ""
 msgid "Dado Registado com Sucesso"
 msgstr ""
 
-#: \controllers\inscricaos_controller.php:298
+#: \controllers\inscricaos_controller.php:283
 msgid "O Aluno %s Foi inscrito com sucesso"
 msgstr ""
 
@@ -473,7 +473,7 @@ msgstr ""
 msgid "DbAcl::allow() - Invalid node"
 msgstr ""
 
-#: \views\alunos\add.ctp:136
+#: \views\alunos\add.ctp:207
 #: \views\alunos\edit.ctp:136
 #: \views\anolectivoepocas\edit.ctp:21
 #: \views\anolectivoepocas\tempo_limite.ctp:25
@@ -550,6 +550,7 @@ msgstr ""
 #: \views\cursos\index.ctp:10
 #: \views\disciplinas\index.ctp:10
 #: \views\funcionarios\index.ctp:10
+#: \views\inscricaos\index.ctp:10
 #: \views\planoestudos\index.ctp:10
 #: \views\turmas\index.ctp:10
 msgid "Registrar novo"
@@ -559,6 +560,7 @@ msgstr ""
 #: \views\cursos\index.ctp:24
 #: \views\disciplinas\index.ctp:25
 #: \views\funcionarios\index.ctp:25
+#: \views\inscricaos\index.ctp:30
 #: \views\pagamentos\index.ctp:30
 #: \views\planoestudos\add_grupodisciplinas.ctp:202
 #: \views\planoestudos\index.ctp:27
@@ -585,7 +587,7 @@ msgstr ""
 #: \views\grauacademicos\index.ctp:34
 #: \views\grupodisciplinars\index.ctp:32
 #: \views\grupodisciplinas\index.ctp:47
-#: \views\inscricaos\index.ctp:112
+#: \views\inscricaos\index.ctp:111
 #: \views\matriculas\index.ctp:62
 #: \views\messages\index.ctp:43
 #: \views\paises\index.ctp:33
@@ -604,14 +606,16 @@ msgstr ""
 #: \views\cursos\index.ctp:82
 #: \views\disciplinas\index.ctp:87
 #: \views\funcionarios\index.ctp:90
+#: \views\inscricaos\index.ctp:126
 #: \views\planoestudos\index.ctp:90
-msgid "showing %current% records out of %count% total"
+msgid "Mostrando %current% linhas. Total: %count% linhas retornadas"
 msgstr ""
 
 #: \views\alunos\index.ctp:114
 #: \views\cursos\index.ctp:87
 #: \views\disciplinas\index.ctp:92
 #: \views\funcionarios\index.ctp:95
+#: \views\inscricaos\index.ctp:131
 #: \views\matriculas\index.ctp:82
 #: \views\pagamentos\index.ctp:99
 #: \views\planoestudos\index.ctp:95
@@ -623,6 +627,7 @@ msgstr ""
 #: \views\cursos\index.ctp:90
 #: \views\disciplinas\index.ctp:95
 #: \views\funcionarios\index.ctp:98
+#: \views\inscricaos\index.ctp:134
 #: \views\matriculas\index.ctp:85
 #: \views\pagamentos\index.ctp:102
 #: \views\planoestudos\index.ctp:98
@@ -641,7 +646,6 @@ msgstr ""
 #: \views\departamentos\menu.ctp:10
 #: \views\disciplinas\menu.ctp:10
 #: \views\documentos\menu.ctp:10
-#: \views\elements\menu_avaliacao.ctp:9
 #: \views\epocaavaliacaos\menu.ctp:11
 #: \views\escolas\menu.ctp:10
 #: \views\estadoinscricaos\menu.ctp:10
@@ -953,7 +957,6 @@ msgstr ""
 #: \views\estadomessages\index.ctp:15
 #: \views\generos\index.ctp:30
 #: \views\grauacademicos\index.ctp:16
-#: \views\inscricaos\index.ctp:21
 #: \views\paises\index.ctp:16
 #: \views\provincias\index.ctp:17
 #: \views\tipocursos\index.ctp:15
@@ -977,7 +980,6 @@ msgstr ""
 #: \views\grauacademicos\index.ctp:50
 #: \views\grupodisciplinars\index.ctp:48
 #: \views\grupodisciplinas\index.ctp:63
-#: \views\inscricaos\index.ctp:138
 #: \views\messages\index.ctp:58
 #: \views\paises\index.ctp:49
 #: \views\provincias\index.ctp:53
@@ -1006,7 +1008,6 @@ msgstr ""
 #: \views\grauacademicos\index.ctp:52
 #: \views\grupodisciplinars\index.ctp:50
 #: \views\grupodisciplinas\index.ctp:65
-#: \views\inscricaos\index.ctp:140
 #: \views\messages\index.ctp:60
 #: \views\paises\index.ctp:51
 #: \views\provincias\index.ctp:55
@@ -1024,7 +1025,6 @@ msgstr ""
 #: \views\avaliacaos\edit.ctp:4
 #: \views\avaliacaos\menu.ctp:15;17
 #: \views\avaliacaos\view.ctp:16;48;49;51
-#: \views\elements\menu_avaliacao.ctp:11
 #: \views\epocaavaliacaos\menu.ctp:13
 #: \views\tipoavaliacaos\menu.ctp:13
 #: \views\turmatipoavaliacaos\index.ctp:9
@@ -1034,7 +1034,6 @@ msgstr ""
 
 #: \views\anolectivoepocas\menu.ctp:12
 #: \views\avaliacaos\menu.ctp:19
-#: \views\elements\menu_avaliacao.ctp:12
 #: \views\epocaavaliacaos\menu.ctp:14
 #: \views\tipoavaliacaos\menu.ctp:14
 #: \views\turmatipoavaliacaos\menu.ctp:12
@@ -1043,7 +1042,6 @@ msgstr ""
 
 #: \views\anolectivoepocas\menu.ctp:13
 #: \views\avaliacaos\menu.ctp:21
-#: \views\elements\menu_avaliacao.ctp:13
 #: \views\epocaavaliacaos\menu.ctp:15
 #: \views\tipoavaliacaos\menu.ctp:15
 #: \views\turmatipoavaliacaos\menu.ctp:13
@@ -1312,7 +1310,7 @@ msgstr ""
 #: \views\cidades\menu.ctp:13
 #: \views\departamentos\menu.ctp:13
 #: \views\documentos\menu.ctp:13
-#: \views\elements\menu_administracao.ctp:11
+#: \views\elements\menu_administracao.ctp:12;33
 #: \views\escolas\menu.ctp:13
 #: \views\estadoinscricaos\menu.ctp:13
 #: \views\estadomatriculas\menu.ctp:13
@@ -1334,7 +1332,7 @@ msgstr ""
 #: \views\cidades\menu.ctp:14
 #: \views\departamentos\menu.ctp:14
 #: \views\documentos\menu.ctp:14
-#: \views\elements\menu_administracao.ctp:12
+#: \views\elements\menu_administracao.ctp:13;34
 #: \views\escolas\menu.ctp:14
 #: \views\estadoinscricaos\menu.ctp:14
 #: \views\estadomatriculas\menu.ctp:14
@@ -1356,7 +1354,7 @@ msgstr ""
 #: \views\cidades\menu.ctp:15
 #: \views\departamentos\menu.ctp:15
 #: \views\documentos\menu.ctp:15
-#: \views\elements\menu_administracao.ctp:13
+#: \views\elements\menu_administracao.ctp:14;35
 #: \views\escolas\menu.ctp:15
 #: \views\estadoinscricaos\menu.ctp:15
 #: \views\estadomatriculas\menu.ctp:15
@@ -1379,7 +1377,7 @@ msgstr ""
 #: \views\cidades\menu.ctp:16
 #: \views\departamentos\menu.ctp:16
 #: \views\documentos\menu.ctp:16
-#: \views\elements\menu_administracao.ctp:14
+#: \views\elements\menu_administracao.ctp:15;36
 #: \views\escolas\menu.ctp:16
 #: \views\estadoinscricaos\menu.ctp:16
 #: \views\estadomatriculas\menu.ctp:16
@@ -1401,7 +1399,7 @@ msgstr ""
 #: \views\cidades\menu.ctp:17
 #: \views\departamentos\menu.ctp:17
 #: \views\documentos\menu.ctp:17
-#: \views\elements\menu_administracao.ctp:15
+#: \views\elements\menu_administracao.ctp:16;37
 #: \views\escolas\menu.ctp:17
 #: \views\estadoinscricaos\menu.ctp:17
 #: \views\estadomatriculas\menu.ctp:17
@@ -1423,7 +1421,7 @@ msgstr ""
 #: \views\cidades\menu.ctp:18
 #: \views\departamentos\menu.ctp:18
 #: \views\documentos\menu.ctp:18
-#: \views\elements\menu_administracao.ctp:16
+#: \views\elements\menu_administracao.ctp:17;38
 #: \views\escolas\menu.ctp:18
 #: \views\estadoinscricaos\menu.ctp:18
 #: \views\estadomatriculas\menu.ctp:18
@@ -1445,7 +1443,7 @@ msgstr ""
 #: \views\cidades\menu.ctp:19
 #: \views\departamentos\menu.ctp:19
 #: \views\documentos\menu.ctp:19
-#: \views\elements\menu_administracao.ctp:17
+#: \views\elements\menu_administracao.ctp:18;39
 #: \views\escolas\menu.ctp:19
 #: \views\estadoinscricaos\menu.ctp:19
 #: \views\estadomatriculas\menu.ctp:19
@@ -1468,7 +1466,7 @@ msgstr ""
 #: \views\cidades\menu.ctp:20
 #: \views\departamentos\menu.ctp:20
 #: \views\documentos\menu.ctp:20
-#: \views\elements\menu_administracao.ctp:18
+#: \views\elements\menu_administracao.ctp:19;40
 #: \views\escolas\menu.ctp:20
 #: \views\estadoinscricaos\menu.ctp:20
 #: \views\estadomatriculas\menu.ctp:20
@@ -1491,7 +1489,7 @@ msgstr ""
 #: \views\cidades\menu.ctp:21
 #: \views\departamentos\menu.ctp:21
 #: \views\documentos\menu.ctp:21
-#: \views\elements\menu_administracao.ctp:19
+#: \views\elements\menu_administracao.ctp:20;41
 #: \views\escolas\menu.ctp:21
 #: \views\estadoinscricaos\menu.ctp:21
 #: \views\estadomatriculas\menu.ctp:21
@@ -1513,7 +1511,7 @@ msgstr ""
 #: \views\cidades\menu.ctp:22
 #: \views\departamentos\menu.ctp:22
 #: \views\documentos\menu.ctp:22
-#: \views\elements\menu_administracao.ctp:20
+#: \views\elements\menu_administracao.ctp:21;42
 #: \views\escolas\menu.ctp:22
 #: \views\estadoinscricaos\menu.ctp:22
 #: \views\estadomatriculas\menu.ctp:22
@@ -1535,7 +1533,7 @@ msgstr ""
 #: \views\cidades\menu.ctp:23
 #: \views\departamentos\menu.ctp:23
 #: \views\documentos\menu.ctp:23
-#: \views\elements\menu_administracao.ctp:21
+#: \views\elements\menu_administracao.ctp:22;43
 #: \views\escolas\menu.ctp:23
 #: \views\estadoinscricaos\menu.ctp:24
 #: \views\estadomatriculas\menu.ctp:24
@@ -1557,7 +1555,7 @@ msgstr ""
 #: \views\cidades\menu.ctp:24
 #: \views\departamentos\menu.ctp:24
 #: \views\documentos\menu.ctp:24
-#: \views\elements\menu_administracao.ctp:22
+#: \views\elements\menu_administracao.ctp:23;44
 #: \views\escolas\index.ctp:6
 #: \views\escolas\menu.ctp:24
 #: \views\estadoinscricaos\menu.ctp:26
@@ -1580,7 +1578,7 @@ msgstr ""
 #: \views\cidades\menu.ctp:25
 #: \views\departamentos\menu.ctp:25
 #: \views\documentos\menu.ctp:25
-#: \views\elements\menu_administracao.ctp:23
+#: \views\elements\menu_administracao.ctp:24;45
 #: \views\escolas\menu.ctp:25
 #: \views\estadoinscricaos\menu.ctp:30
 #: \views\estadomessages\menu.ctp:30
@@ -1690,7 +1688,6 @@ msgstr ""
 
 #: \views\avaliacaos\edit.ctp:24
 #: \views\avaliacaos\view.ctp:28;55
-#: \views\inscricaos\index.ctp:7
 msgid "Inscricao"
 msgstr ""
 
@@ -1895,7 +1892,7 @@ msgstr ""
 #: \views\semestrelectivos\index.ctp:41
 #: \views\tipopagamentos\index.ctp:33
 #: \views\tipoprecedencias\index.ctp:31
-msgid "Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%"
+msgid "Page %page% of %pages%, Mostrando %current% linhas. Total: %count% linhas retornadas, starting on record %start%, ending on %end%"
 msgstr ""
 
 #: \views\configs\index.ctp:40
@@ -2158,6 +2155,7 @@ msgstr ""
 #: \views\cursos\add.ctp:5
 #: \views\cursos\view.ctp:8
 #: \views\disciplinas\add.ctp:5
+#: \views\pages\homepage.ctp:5
 msgid "Lista de Cursos"
 msgstr ""
 
@@ -2169,6 +2167,7 @@ msgstr ""
 #: \views\cursos\index.ctp:9
 #: \views\cursos\menu.ctp:12
 #: \views\disciplinas\menu.ctp:12
+#: \views\elements\menu_avaliacao.ctp:3
 #: \views\elements\menu_estudantes.ctp:3
 #: \views\elements\menu_pedagogica.ctp:3
 #: \views\funcionarios\index.ctp:9
@@ -2186,6 +2185,7 @@ msgstr ""
 #: \views\cursos\menu.ctp:13
 #: \views\disciplinas\index.ctp:9
 #: \views\disciplinas\menu.ctp:13
+#: \views\elements\menu_avaliacao.ctp:4
 #: \views\elements\menu_estudantes.ctp:4
 #: \views\elements\menu_pedagogica.ctp:4
 #: \views\grupodisciplinas\add.ctp:9
@@ -2197,6 +2197,7 @@ msgstr ""
 
 #: \views\cursos\menu.ctp:14
 #: \views\disciplinas\menu.ctp:14
+#: \views\elements\menu_avaliacao.ctp:5
 #: \views\elements\menu_estudantes.ctp:5
 #: \views\elements\menu_pedagogica.ctp:5
 #: \views\grupodisciplinas\add.ctp:10
@@ -2366,7 +2367,19 @@ msgstr ""
 msgid "Documento - visualizar"
 msgstr ""
 
-#: \views\elements\header.ctp:106
+#: \views\elements\header.ctp:12
+msgid "OpenSGA - Sistema de Gestão Académica"
+msgstr ""
+
+#: \views\elements\header.ctp:16
+msgid "Bem Vindo"
+msgstr ""
+
+#: \views\elements\header.ctp:22
+msgid "Sair"
+msgstr ""
+
+#: \views\elements\header.ctp:82
 msgid "CONTABILIDADE"
 msgstr ""
 
@@ -2380,8 +2393,16 @@ msgstr ""
 #: \views\funcionarios\menu.ctp:18
 #: \views\messages\index.ctp:6
 #: \views\messages\menu.ctp:13
-#: \views\pages\homepage.ctp:62
+#: \views\pages\homepage.ctp:44
 msgid "Alertas"
+msgstr ""
+
+#: \views\elements\menu_administracao.ctp:6
+msgid "Backup do Sistema"
+msgstr ""
+
+#: \views\elements\menu_administracao.ctp:7
+msgid "Actualizar Sistema"
 msgstr ""
 
 #: \views\elements\menu_contabilidade.ctp:9
@@ -3029,6 +3050,7 @@ msgid "Estadopagamento Id"
 msgstr ""
 
 #: \views\estadopagamentos\view.ctp:44
+#: \views\inscricaos\index.ctp:23
 #: \views\ramos\view.ctp:47
 #: \views\regimelectivos\view.ctp:33
 #: \views\semestrelectivos\view.ctp:9
@@ -3236,6 +3258,7 @@ msgid "Ano"
 msgstr ""
 
 #: \views\grupodisciplinas\t0006planoestudoanos\view.ctp:14
+#: \views\inscricaos\index.ctp:27
 #: \views\planoestudoanos\view.ctp:14
 #: \views\ramos\view.ctp:42
 #: \views\semestrelectivos\view.ctp:19
@@ -3256,6 +3279,7 @@ msgid " of "
 msgstr ""
 
 #: \views\inscricaos\add.ctp:18
+#: \views\inscricaos\index.ctp:9
 msgid "Inscrições"
 msgstr ""
 
@@ -3292,13 +3316,42 @@ msgstr ""
 msgid "EDITAR"
 msgstr ""
 
-#: \views\inscricaos\index.ctp:4
+#: \views\inscricaos\index.ctp:11
 #: \views\turmas\index.ctp:143
 msgid "Imprimir PDF"
 msgstr ""
 
-#: \views\inscricaos\index.ctp:5
-msgid "Nova Inscricao"
+#: \views\inscricaos\index.ctp:24
+msgid "Ano Lectivo"
+msgstr ""
+
+#: \views\inscricaos\index.ctp:25
+msgid "Nome do Aluno"
+msgstr ""
+
+#: \views\inscricaos\index.ctp:26
+msgid "Nome da Disciplina"
+msgstr ""
+
+#: \views\inscricaos\index.ctp:28
+msgid "Turno"
+msgstr ""
+
+#: \views\inscricaos\index.ctp:29
+#: \views\matricularevisaos\view.ctp:39
+msgid "Estado"
+msgstr ""
+
+#: \views\inscricaos\index.ctp:52
+msgid "Com os seleccionados:"
+msgstr ""
+
+#: \views\inscricaos\index.ctp:54
+msgid "remover"
+msgstr ""
+
+#: \views\inscricaos\index.ctp:55
+msgid "editar"
 msgstr ""
 
 #: \views\inscricaos\view.ctp:6
@@ -3422,10 +3475,6 @@ msgstr ""
 
 #: \views\matricularevisaos\view.ctp:34
 msgid "Datamatricula"
-msgstr ""
-
-#: \views\matricularevisaos\view.ctp:39
-msgid "Estado"
 msgstr ""
 
 #: \views\matriculas\add.ctp:5
@@ -3590,6 +3639,10 @@ msgstr ""
 
 #: \views\pagamentos\view.ctp:45
 msgid "Delete Pagamento"
+msgstr ""
+
+#: \views\pages\homepage.ctp:4
+msgid "Painel"
 msgstr ""
 
 #: \views\paises\add.ctp:5

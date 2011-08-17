@@ -45,7 +45,7 @@ a img {border: none;}
 .ttop {vertical-align: top !important;}
 
 /* for buttons etc. */
-.hand {cursor: hand; cursor: pointer;}
+.hand {cursor: pointer;}
 
 /* accessible hiding of elements */
 .a-hidden {position: absolute; top: -10000em;}
@@ -202,7 +202,7 @@ form small {color: #999;}
 input.txt,
 textarea {
 	border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px;
-	border: 1px solid #999; background: url("img/txt.gif") repeat-x; padding: 3px 2px;
+	border: 1px solid #999; background: url("img/txt.gif") repeat-x; padding: 2px;
 }
 form.basic input.txt,
 form.basic textarea {width: 100%;}
@@ -340,6 +340,10 @@ ul.actions li {display: inline; margin-right: 5px;}
 	table.calendar strong {font-size: 140%;}
 	table.calendar .inactive {color: #aaa;}
 	table.calendar div.items a {border: 0; margin: 0 1px;}
+	
+	.input_wrapper{
+		position: relative;
+	}
 	
 /* login page */
 #login {background: #222; padding: 100px;}

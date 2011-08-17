@@ -1,108 +1,107 @@
-<?php //include('menu.ctp'); ?>
-<div class="projectos index" id="center-column">
-    <div class="top-bar">
-	<?php echo $this->Html->link(sprintf(__('Imprimir PDF', true)), array('action' => 'pdf_index'),array('class'=>'button','target'=>'_blank')); ?>
-        <?php echo $this->Html->link(sprintf(__('Nova Inscricao', true)), array('action' => 'add'),array('class'=>'button')); ?>
-		
-	<h1><?php __('Inscricao');?></h1>
-        <div class="breadcrumbs"><?php ?></div>
-    </div>
+<?php 
+$grupo = $session->read('Auth.User.group_id');
+$username = $session->read('Auth.User.username');
 
-    <div class="table">
-	<table cellpadding="0" cellspacing="0" class ="listing">
-	<tr>
-			<th><?php echo $this->Paginator->sort('Codigo','id');?></th>
-			<th><?php echo $this->Paginator->sort('Ano Lectivo','t0009anolectivo_id');?></th>
-			<th><?php echo $this->Paginator->sort('Nome do Aluno','Aluno_id');?></th>
-			<th><?php echo $this->Paginator->sort('Nome da Disciplina','t0010turma_id');?></th>
-			<th><?php echo $this->Paginator->sort('A/S','semestrecurricular');?></th>	
-			<th><?php echo $this->Paginator->sort('Turno','tg0012turno_id');?></th>			
-		    <th><?php echo $this->Paginator->sort('Estado','tg0020estadoinscricao_id');?></th>
-			<th class="actions"><?php __('Accao');?></th>
-		
-	</tr>
+?>
+<div class="box box-100 altbox" id="box1"><!-- box full-width -->
+					<div class="boxin">
+						<div class="header">
+							<h3><?php __('Inscrições')?></h3>
+							<?php echo $this->Html->link(__('Registrar novo', true), array('action' => 'add'),array('class'=>'button add_new','escape'=>false)); ?>
+							<?php echo $this->Html->link(sprintf(__('Imprimir PDF', true)), array('action' => 'pdf_index'),array('class'=>'button','target'=>'_blank')); ?>
+
+						</div>
+						<div class="content" id="box1-tabular"><!-- content box 1 for tab switching -->
+							<form enctype="multipart/form-data" method="post" action="" class="plain">
+								<fieldset>
+									<?php echo $form->create('Aluno',array('action'=>'index','id'=>'filters')); ?>  
+									<table cellspacing="0">
+										<thead><!-- universal table heading -->
+											<tr>
+												<td class="tc first"><input type="checkbox" value="true" name="data-1-check-all" id="data-1-check-all"></td>
+											
+			<th><?php echo $this->Paginator->sort(__('Codigo',true),'id');?></th>
+			<th><?php echo $this->Paginator->sort(__('Ano Lectivo',true),'anolectivo_id');?></th>
+			<th><?php echo $this->Paginator->sort(__('Nome do Aluno',true),'Aluno_id');?></th>
+			<th><?php echo $this->Paginator->sort(__('Nome da Disciplina',true),'turma_id');?></th>
+			<th><?php echo $this->Paginator->sort(__('Semestre',true),'semestrecurricular');?></th>	
+			<th><?php echo $this->Paginator->sort(__('Turno',true),'turno_id');?></th>			
+		    <th><?php echo $this->Paginator->sort(__('Estado',true),'estadoinscricao_id');?></th>
+                    							<td class="tc last"><?php __('Acção');?></td>
+											</tr>
+											<tr>
+												<td></td>
+											  
+            								<td><?php echo $form->input('codigo',array('label'=>false,'size'=>5)); ?></td>  
+            								<td><?php echo $form->input('name',array('label'=>false,'size'=>10)); ?></td>
+            								<td><?php echo $form->input('curso_id',array('label'=>false,'empty'=>true,'class'=>'filtro_select')); ?></td>
+            								<td><?php echo $form->input('escola_id',array('label'=>false,'empty'=>true)); ?></td>  
+            								<td></td>
+            								<td></td>
+            								<td></td>  
+            								<td>  
+                								<button type="submit" name="data[filter]" value="filter">Filtrar</button>  
+                								<button type="submit" name="data[reset]" value="reset">Limpar</button>  
+									            </td>  
+									        </tr>  
+										</thead>
+										<tfoot><!-- table foot - what to do with selected items -->
+											<tr>
+												<td colspan="6" class="first last"><!-- do not forget to set appropriate colspan if you will edit this table -->
+													<label>
+														<?php __('Com os seleccionados:')?>
+														<select name="data-1-groupaction">
+															<option value="delete"><?php __('remover')?></option>
+															<option value="edit"><?php __('editar')?></option>
+														</select>
+													</label>
+													<input type="submit" value="OK" class="button altbutton">
+												</td>
+											</tr>
+										</tfoot>
+										<tbody>
 	<?php
 	$i = 0;
    
-$k=0;
+
 	foreach ($inscricaos as $inscricao):
-		$class = null;
+		$class = "first";
 		
 		
 		if ($i++ % 2 == 0) {
-			$class = ' class="altrow"';
+			$class = ' class="even"';
 			
 		}
 		
-		   	//$anolectivo = $codigo;
-			//if(count($anolectivo)>0){
-			
-			//for($k=0; $k<1; $k++){
-			//var_dump(count($anolectivo)-$k);
+
 	?>
 	<tr <?php echo $class; ?>>
+		<td class="tc first"><input type="checkbox" value="true" name="data-1-check-1" id="data-1-check-1"></td>
 		<td><?php echo $inscricao['Inscricao']['id']; ?>&nbsp;</td>
-		
-		<td>	
-			<?php 
-			//var_dump($codigo);
-
-
-			
-        
-			
-			//echo $this->Html->link('2011-1'.$inscricao['Turma']['Anolectivo']['codigo'], array('controller' => 't0009anolectivos', 'action' => 'view', $inscricao['Turma']['t0009anolectivo_id']));
-			echo $this->Html->link($codigo[$k], array('controller' => 't0009anolectivos', 'action' => 'view', $inscricao['Turma']['t0009anolectivo_id']));
-
-			?>
+				<td>
+			<?php echo $this->Html->link($inscricao['Turma']['Anolectivo']['ano'], array('controller' => 'Alunos', 'action' => 'view', $inscricao['Aluno']['id'])); ?>
 		</td>
-		
 		<td>
 			<?php echo $this->Html->link($inscricao['Aluno']['name'], array('controller' => 'Alunos', 'action' => 'view', $inscricao['Aluno']['id'])); ?>
 		</td>
 		
 		<td>
-			<?php echo $this->Html->link($inscricao['Turma']['name'], array('controller' => 't0010turmas', 'action' => 'view', $inscricao['Turma']['id'])); ?>
+			<?php echo $this->Html->link($inscricao['Turma']['Disciplina']['name'], array('controller' => 'turmas', 'action' => 'view', $inscricao['Turma']['id'])); ?>
 		</td>
 		
 		<td>
-			<?php echo $inscricao['Turma']['anocurricular'].' / '.$inscricao['Turma']['anocurricular']; ?>&nbsp;
+			<?php echo $inscricao['Turma']['Anolectivo']['num_semestre']; ?>&nbsp;
 		</td>
 		
 		<td>
 			<?php 
-			//var_dump($inscricao['Turma']['tg0012turno_id']);
-				if($inscricao['Turma']['tg0012turno_id'] == 1)
-				{ $turno = "Diurno";}
-				if($inscricao['Turma']['tg0012turno_id'] == 2)
-				{ $turno = "Pos-Laboral";}
-				if($inscricao['Turma']['tg0012turno_id'] == null)
-				{ $turno = "Sem turno";}
-			echo $this->Html->link($turno, array('controller' => 'tg0012turnos', 'action' => 'view', $turma['Turno']['id'])); ?>
+			echo $this->Html->link($inscricao['Turma']['Turno']['name'], array('controller' => 'tg0012turnos', 'action' => 'view', $inscricao['Turma']['Turno']['id'])); ?>
 		</td>
 		
 		<td>
             <?php 
-			
-				if($inscricao['Inscricao']['tg0020estadoinscricao_id'] == 1)
-				{ $estado1 = "Inscrito";}
-				if($inscricao['Inscricao']['tg0020estadoinscricao_id'] == 2)
-				{ $estado1 = "Aprovado";}
-				if($inscricao['Inscricao']['tg0020estadoinscricao_id'] == 3)
-				{ $estado1 = "Reprovado";}
-                if($inscricao['Inscricao']['tg0020estadoinscricao_id'] == 4)
-				{ $estado1 = "Cancelada";}
-				if($inscricao['Inscricao']['tg0020estadoinscricao_id'] == 5)
-				{ $estado1 = "Anulada";}
-				if($inscricao['Inscricao']['tg0020estadoinscricao_id'] == 6)
-				{ $estado1 = "Excluido";}
-                if($inscricao['Inscricao']['tg0020estadoinscricao_id'] == 7)
-				{ $estado1 = "Admitido";}
-				if($inscricao['Inscricao']['tg0020estadoinscricao_id'] == 8)
-				{ $estado1 = "Dispensado";}
-				if($inscricao['Inscricao']['tg0020estadoinscricao_id'] == null)
-				{ $estado1 = "Sem estado";}
-				echo $this->Html->link($estado1, array('controller' => 't0013inscricao', 'action' => 'view', $inscricao['Inscricao']['tg0020estadoinscricao_id'])); 
+
+				echo $this->Html->link($inscricao['Estadoinscricao']['name'], array('controller' => 't0013inscricao', 'action' => 'view', $inscricao['Estadoinscricao']['id'])); 
 			?>
 		</td>
 		
@@ -115,29 +114,29 @@ $k=0;
 	</tr>
 	
 	
-<?php 
+<?php endforeach; ?>
+										</tbody>
+									</table>
+								</fieldset>
+							</form>
+							<div class="pagination">
+								<ul class="left">
+									<li><?php
+	echo $this->Paginator->counter(array(
+	'format' => __('Mostrando %current% linhas. Total: %count% linhas retornadas', true)
+	));
+	?>	</li>
+								</ul>
+								<ul class="pag_list">
+									<li><?php echo $paginator->prev('<< '.__('ANTERIOR', true), array(), null, array('class'=>'disabled'));?> </li>
+									<?php echo $paginator->numbers(array('tag'=>'li','separator'=>null,'class'=>'pagination'));?>
+                                    
+									<li><?php echo $paginator->next(__('PROXIMO', true).' >>', array(), null, array('class' => 'disabled'));?></li>
+								</ul>
+								
+								
+							</div>
+						</div><!-- .content#box-1-holder -->
 
-		  // }
-			
-	$k++;	//  }	
-endforeach; 
-
-
-?>
-	</table>
-
-</div>
-        <p>
-<?php
-//echo $this->Paginator->counter(array(
-//'format' => __('Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%', true)
-//));
-?></p>
-
-<div class="paging">
-	<?php echo $this->Paginator->prev('<< '.__('anterior', true), array(), null, array('class'=>'disabled'));?>
- | 	<?php echo $this->Paginator->numbers();?>
-	<?php echo $this->Paginator->next(__('proximo', true).' >>', array(), null, array('class' => 'disabled'));?>
-</div>
-
-</div>
+					</div>
+				</div>

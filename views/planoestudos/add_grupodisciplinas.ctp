@@ -287,7 +287,7 @@
 								<ul class="left">
 									<li><?php
 	//echo $this->Paginator->counter(array(
-	//'format' => __('showing %current% records out of %count% total', true)
+	//'format' => __('Mostrando %current% linhas. Total: %count% linhas retornadas', true)
 	//));
 	?>	</li>
 								</ul>

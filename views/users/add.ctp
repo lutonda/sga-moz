@@ -1,4 +1,9 @@
-<div class="actions" id="left-column">
+<?php
+/**
+ * @FIXME Colocar o nome do utilizador aqui
+ * 
+ */
+?><div class="actions" id="left-column">
 	<h3><?php __('Detalhes Adicionais'); ?></h3>
 	<br />
 		<?php echo $html->link(__('Lista de Usuarios', true), array('action' => 'index'),array('class'=>'link'));?>

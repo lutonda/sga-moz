@@ -1,4 +1,32 @@
 <?php
+/**
+ * OpenSGA - Sistema de Gestão Académica
+ *   Copyright (C) 2010-2011  INFOmoz (Informática-Moçambique)
+ * 
+ * Este programa é um software livre: Você pode redistribuir e/ou modificar
+ * todo ou parte deste programa, desde que siga os termos da licença por nele
+ * estabelecidos. Grande parte do código deste programa está sob a licença 
+ * GNU Affero General Public License publicada pela Free Software Foundation.
+ * A versão original desta licença está disponível na pasta raiz deste software.
+ * 
+ * Este software é distribuido sob a perspectiva de que possa ser útil para 
+ * satisfazer as necessidades dos seus utilizadores, mas SEM NENHUMA GARANTIA. Veja
+ * os termos da licença GNU Affero General Public License para mais detalhes
+ * 
+ * As redistribuições deste software, mesmo quando o código-fonte for modificado significativamente,
+ * devem manter está informação legal, assim como a licença original do software.
+ * 
+ * @copyright     Copyright 2010-2011, INFOmoz (Informática-Moçambique) (http://infomoz.net)
+ * @link          http://infomoz.net/opensga CakePHP(tm) Project
+ * @author		  Elisio Leonardo (http://infomoz.net/elisio-leonardo)
+ * @package       opensga
+ * @subpackage    opensga.core.controller
+ * @since         OpenSGA v 0.10.0.0
+ * @license       GNU Affero General Public License
+ * 
+ */
+ 
+ 
 class UsersController extends AppController {
 
 	var $name = 'Users';
@@ -70,47 +98,25 @@ class UsersController extends AppController {
 		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'User'));
 		$this->redirect(array('action' => 'index'));
 	}
-        /* metodo defino por Raimundo -> permite a visualizacao do login */
+        
+		
         function login(){
-		    App::Import('Model','Logmv');
-	        $logmv = new Logmv;
-            $this->set('current_section','administracao');
-			$this->data = $this->User->read(null,$this->Session->read('Auth.User.id'));
-			//var_dump($this->Session->read('Auth.User.id'));
-			//$tg0022logmv->loglogin(2,$this->Session->read('Auth.User.id'));
+            	
+		    if ($this->Auth->user()) {
+            	$this->loadModel('Config');
+            	$this->set('current_section','administracao');
+				
+				$configs = $this->Config->find('all',array('conditions'=>array('Config.autoload'=>1)));
+				foreach($configs as $config){
+					$this->Session->write('Config.'.$config['Config']['name'],$config['Config']['value']);
+				}
+				
+				//$this->redirect('/');
+			}
         }
 
 		function after_login() {
-		  App::Import('Model','Matricula');
-          $matriculas = new Matricula;
-		  App::Import('Model','Logmv');
-	      $logmv = new Logmv;
-		$this->data = $this->User->read(null,$this->Session->read('Auth.User.id'));
-		// ATENCAO: O ID A PASSAR Ã¯Â¿Â½ O DO ALUNO E NÃ¯Â¿Â½O O DO USER
-		// RA 2011.04.08
-		//var_dump($this->Session->read('Auth.User.id'));
-		$estado = $matriculas->verificaStatusAluno($this->Session->read('Auth.User.id'));	
-		//var_dump($this->Session->read('Auth.User.id'));
-        if(isset($estado[0])){
-		if($estado[0]["matriculas"]["estadomatricula_id"] == '2' || $estado[0]["matriculas"]["estadomatricula_id"] == '3')
-		{
-            $this->Auth->logout();
-                $this->redirect(array('action'=>'login'));
-				//var_dump($this->Session->read('Auth.User.id'));
-				$logmv->loglogin(2,$this->Session->read('Auth.User.id'));
-				
-		}
-		else
-		{
-		$this->redirect(array('controller'=>'pages','action' => 'homepage'));
-		$logmv->loglogin(2,$this->Session->read('Auth.User.id'));
-		}
-		
-	    }
-        else{
-            $this->redirect(array('controller'=>'pages','action' => 'homepage'));
-		$logmv->loglogin(2,$this->Session->read('Auth.User.id'));
-        }
+
         }
         
         function logout(){

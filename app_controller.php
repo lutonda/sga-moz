@@ -1,20 +1,29 @@
 <?php
 /**
  * OpenSGA - Sistema de Gestão Académica
-    Copyright (C) 2010-2011  Elisio Leonardo
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU Affero General Public License as
-    published by the Free Software Foundation, either version 3 of the
-    License, or (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
-
-    You should have received a copy of the GNU Affero General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *   Copyright (C) 2010-2011  INFOmoz (Informática-Moçambique)
+ * 
+ * Este programa é um software livre: Você pode redistribuir e/ou modificar
+ * todo ou parte deste programa, desde que siga os termos da licença por nele
+ * estabelecidos. Grande parte do código deste programa está sob a licença 
+ * GNU Affero General Public License publicada pela Free Software Foundation.
+ * A versão original desta licença está disponível na pasta raiz deste software.
+ * 
+ * Este software é distribuido sob a perspectiva de que possa ser útil para 
+ * satisfazer as necessidades dos seus utilizadores, mas SEM NENHUMA GARANTIA. Veja
+ * os termos da licença GNU Affero General Public License para mais detalhes
+ * 
+ * As redistribuições deste software, mesmo quando o código-fonte for modificado significativamente,
+ * devem manter está informação legal, assim como a licença original do software.
+ * 
+ * @copyright     Copyright 2010-2011, INFOmoz (Informática-Moçambique) (http://infomoz.net)
+ * @link          http://infomoz.net/opensga CakePHP(tm) Project
+ * @author		  Elisio Leonardo (http://infomoz.net/elisio-leonardo)
+ * @package       opensga
+ * @subpackage    opensga.core.controller
+ * @since         OpenSGA v 0.10.0.0
+ * @license       GNU Affero General Public License
+ * 
  */
 
 class AppController extends Controller {
@@ -29,6 +38,8 @@ class AppController extends Controller {
 
     function beforeFilter() {
         Configure::write('Config.language', $this->Session->read('Config.language'));
+		setlocale (LC_ALL, 'pt_BR');
+		
        // var_dump(Configure::read('Config.language'));
                 // for index actions  
         if($this->action == 'index') {  
@@ -48,20 +59,23 @@ class AppController extends Controller {
         } 
         //Configure AuthComponent
         Security::setHash('md5');
-        //$this->Auth->allow('*');
+        //this->Auth->allow('*');
         $this->Auth->authorize = 'actions';
+		$this->Auth->autoRedirect = false;
         $this->Auth->loginError = "Nome de Usuário ou senha incorrectas";
 		$this->Auth->authError = "Não possui permissão para aceder ao sistema, por favor autentique-se primeiro";
         $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
         $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
         $this->Auth->loginRedirect = array('controller' => 'users', 'action' => 'after_login');
         $this->Auth->actionPath = 'controllers/';
-		
-		
-		
-		        
 
     }
+
+	function beforeRender(){
+		
+		
+		
+	}
 
 
   /** 

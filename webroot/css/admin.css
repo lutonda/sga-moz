@@ -20,10 +20,10 @@
 
 .img_search{
 	cursor: pointer;
-    position: relative;
-    right: -200px;
-    top: -20px;
-    width: 22px;
+    position: absolute;
+    right: 2px;
+    top: -2px;
+    width: 18px;
 }
 
 .tab-data-desc{

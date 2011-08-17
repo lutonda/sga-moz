@@ -1,24 +1,29 @@
 <?php
-/*i18n schema generated on: 2007-11-25 07:11:25 : 1196004805*/
 /**
- * This is i18n Schema file
- *
- * Use it to configure database for i18n
- *
- * PHP versions 4 and 5
- *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright 2005-2010, Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright 2005-2010, Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       cake
- * @subpackage    cake.app.config.sql
- * @since         CakePHP(tm) v 0.2.9
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * OpenSGA - Sistema de Gestão Académica
+ *   Copyright (C) 2010-2011  INFOmoz (Informática-Moçambique)
+ * 
+ * Este programa é um software livre: Você pode redistribuir e/ou modificar
+ * todo ou parte deste programa, desde que siga os termos da licença por nele
+ * estabelecidos. Grande parte do código deste programa está sob a licença 
+ * GNU Affero General Public License publicada pela Free Software Foundation.
+ * A versão original desta licença está disponível na pasta raiz deste software.
+ * 
+ * Este software é distribuido sob a perspectiva de que possa ser útil para 
+ * satisfazer as necessidades dos seus utilizadores, mas SEM NENHUMA GARANTIA. Veja
+ * os termos da licença GNU Affero General Public License para mais detalhes
+ * 
+ * As redistribuições deste software, mesmo quando o código-fonte for modificado significativamente,
+ * devem manter está informação legal, assim como a licença original do software.
+ * 
+ * @copyright     Copyright 2010-2011, INFOmoz (Informática-Moçambique) (http://infomoz.net)
+ * @link          http://infomoz.net/opensga CakePHP(tm) Project
+ * @author		  Elisio Leonardo (http://infomoz.net/elisio-leonardo)
+ * @package       opensga
+ * @subpackage    opensga.core.config.sql
+ * @since         OpenSGA v 0.10.0.0
+ * @license       GNU Affero General Public License
+ * 
  */
 /*
  *

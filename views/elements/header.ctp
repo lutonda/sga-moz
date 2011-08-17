@@ -9,17 +9,17 @@
 
 			<!--[if !IE]>start logo and user details<![endif]-->
 			<div id="logo_user_details">
-				<h1 id="logo"><a href="#">OpenSGA - Sistema de Gestão Académica</a></h1>
+				<h1 id="logo"><a href="#"><?php __('OpenSGA - Sistema de Gestão Académica')?></a></h1>
 				<!--[if !IE]>start user details<![endif]-->
 				<div id="user_details">
 					<ul id="user_details_menu">
-						<li>Bem Vindo <strong><?php echo __($this->Session->read('Auth.User.name'));?></strong></li>
+						<li><?php __('Bem Vindo')?> <strong><?php echo __($this->Session->read('Auth.User.name'));?></strong></li>
 						<li>
 							<ul id="user_access">
 								<li class="first"><?php echo $this->Html->link('Minha Conta',array('controller'=>'users','action'=>'view',$userid))?></li>
 								<li><span id="portuguese"><?php echo $this->Html->link('Português',array('controller'=>'configs','action'=>'language',1),array('class'=>'portuguese'))?></span></li>
 								<li><span id="english"><?php echo $this->Html->link('English',array('controller'=>'configs','action'=>'language',2),array('class'=>'english'))?></span></li>
-								<li class="last"><?php echo $this->Html->link('Sair',array('controller'=>'users','action'=>'logout'))?></li>
+								<li class="last"><span id="sair"><?php echo $this->Html->link(__('Sair',true),array('controller'=>'users','action'=>'logout'))?></span></li>
 							</ul>
 						</li>
 						<li><a class="new_messages" href="#">4 new messages</a></li>

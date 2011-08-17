@@ -1,8 +1,13 @@
 		<!--[if !IE]>start sidebar<![endif]-->
 			<div id="sidebar">
 				<div class="inner">
-
-					<?php echo $eventsCalendar->calendario();?>
+					<?php echo $this->element('calendario', array(
+    'year' => 2011,
+    'month' => '08',
+    'month_link' => '/controller/showmonth/',
+    'day_link' => '/controller/showday/'
+));
+?>
 
 					<?php if(isset($relatorio))echo $this->element($relatorio);?>
 
