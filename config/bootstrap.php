@@ -48,5 +48,5 @@
  * Inflector::rules('plural', array('rules' => array(), 'irregular' => array(), 'uninflected' => array()));
  *
  */
-setlocale(LC_ALL, 'nl_NL');
+setlocale (LC_ALL, 'ptb');
 ?>

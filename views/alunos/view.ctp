@@ -26,6 +26,16 @@
  * 
  */
  ?>
+ 
+ <?php
+ /**
+  * Template para a visualização do Perfil do Estudante
+  * 
+  * @Todo Optimizar esta pagina
+  * 
+  * @Todo Colocar os links para as opcoes do estudante
+  */
+ ?>
 <div  class="box box-100">
 	<div class="boxin">
 		<div class="header">

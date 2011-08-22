@@ -2,8 +2,8 @@
 			<div id="sidebar">
 				<div class="inner">
 					<?php echo $this->element('calendario', array(
-    'year' => 2011,
-    'month' => '08',
+    'year' => intval(date('Y')),
+    'month' => date('m'),
     'month_link' => '/controller/showmonth/',
     'day_link' => '/controller/showday/'
 ));

@@ -26,6 +26,20 @@
  * 
  */
 
+ /**
+  * Vamos tentar carregar as opcoes globais aqui, comecando pelo modelo config
+  */
+	App::import('Model','Config');
+	App::import('Model','User');
+	
+	
+/**
+ * Classe Mae para todos os Controllers
+ * 
+ * @package opensga
+ * @subpackage opensga.core.controller
+ * @author Elisio Leonardo <elisio.leonardo@infomoz.net>
+ */  
 class AppController extends Controller {
    //var $components = array( 'Auth', 'Session');
    
@@ -38,7 +52,7 @@ class AppController extends Controller {
 
     function beforeFilter() {
         Configure::write('Config.language', $this->Session->read('Config.language'));
-		setlocale (LC_ALL, 'pt_BR');
+		setlocale (LC_ALL, 'ptb');
 		
        // var_dump(Configure::read('Config.language'));
                 // for index actions  
