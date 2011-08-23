@@ -2,7 +2,7 @@
 <div class="box box-50 altbox">
 			<div class="boxin">
 				<div class="header">
-					<h3>OpenSGA - ESEG<!--<img src="css/img/logo-login.png" alt="Boxie Admin" />--></h3>
+					<h3>OpenSGA - ESCOLA<!--<img src="css/img/logo-login.png" alt="Boxie Admin" />--></h3>
 				</div>
 				<?php     echo $this->Form->create('User', array('action' => 'login','class'=>'table')); ?><!-- Default forms (table layout) -->
 					<div class="inner-form">
