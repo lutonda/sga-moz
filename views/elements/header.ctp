@@ -1,4 +1,32 @@
-            <?php
+<?php
+/**
+ * OpenSGA - Sistema de Gestão Académica
+ *   Copyright (C) 2010-2011  INFOmoz (Informática-Moçambique)
+ * 
+ * Este programa é um software livre: Você pode redistribuir e/ou modificar
+ * todo ou parte deste programa, desde que siga os termos da licença por nele
+ * estabelecidos. Grande parte do código deste programa está sob a licença 
+ * GNU Affero General Public License publicada pela Free Software Foundation.
+ * A versão original desta licença está disponível na pasta raiz deste software.
+ * 
+ * Este software é distribuido sob a perspectiva de que possa ser útil para 
+ * satisfazer as necessidades dos seus utilizadores, mas SEM NENHUMA GARANTIA. Veja
+ * os termos da licença GNU Affero General Public License para mais detalhes
+ * 
+ * As redistribuições deste software, mesmo quando o código-fonte for modificado significativamente,
+ * devem manter está informação legal, assim como a licença original do software.
+ * 
+ * @copyright     Copyright 2010-2011, INFOmoz (Informática-Moçambique) (http://infomoz.net)
+ * @link          http://infomoz.net/opensga CakePHP(tm) Project
+ * @author		  Elisio Leonardo (http://infomoz.net/elisio-leonardo)
+ * @package       opensga
+ * @subpackage    opensga.core.controller
+ * @since         OpenSGA v 0.10.0.0
+ * @license       GNU Affero General Public License
+ * 
+ */
+?>
+ <?php
                 $grupo = $this->Session->read('Auth.User.group_id');
                 $username = $this->Session ->read('Auth.User.username');
                 $userid = $this->Session->read('Auth.User.id')
@@ -22,7 +50,8 @@
 								<li class="last"><span id="sair"><?php echo $this->Html->link(__('Sair',true),array('controller'=>'users','action'=>'logout'))?></span></li>
 							</ul>
 						</li>
-						<li><a class="new_messages" href="#">4 new messages</a></li>
+						<?php if(!isset($num_mensagens))$num_mensagens=0;?>
+						<li><a class="new_messages" href="#"><?php echo sprintf(__('%s novas mensagens',true),$num_mensagens)?></a></li>
 					</ul>
 				</div>
 
@@ -45,36 +74,36 @@
 
 				<div id="main_menu">
 					<ul>
-						<li><?php echo $this->Html->link(sprintf('<span><span>HOME</span></span>'),"/",array('id'=>'homepage','escape'=>false));?></li>
+						<li><?php echo $this->Html->link(sprintf('<span><span>'.__('HOME',true).'</span></span>'),"/",array('id'=>'homepage','escape'=>false));?></li>
                        
                         
-                        <li><?php if($grupo == 1 || $grupo == 2) { echo $this->Html->link(sprintf('<span><span>PEDAGÓGICA</span></span>'), array('controller'=>'cursos','action' => 'index'),array('id'=>'pedagogica','escape'=>false));}?></li>
+                        <li><?php if($grupo == 1 || $grupo == 2) { echo $this->Html->link(sprintf('<span><span>'.__('PEDAGÓGICA',true).'</span></span>'), array('controller'=>'cursos','action' => 'index'),array('id'=>'pedagogica','escape'=>false));}?></li>
 
 <li><?php 
      if($grupo == 1 || $grupo == 3) { 
        if ($grupo == 3)
-          echo $this->Html->link(sprintf('<span><span>CONSULTAR FICHA</span></span>'), array('controller'=>'alunos','action' => 'view',$idAluno),array('id'=>'estudantes','escape'=>false));
+          echo $this->Html->link(sprintf('<span><span>'.__('CONSULTAR FICHA',true).'</span></span>'), array('controller'=>'alunos','action' => 'view',$idAluno),array('id'=>'estudantes','escape'=>false));
        else
-          echo $this->Html->link(sprintf('<span><span>ESTUDANTES</span></span>'), array('controller'=>'alunos','action' => 'index'),array('id'=>'estudantes','escape'=>false));
+          echo $this->Html->link(sprintf('<span><span>'.__('ESTUDANTE',true).'</span></span>'), array('controller'=>'alunos','action' => 'index'),array('id'=>'estudantes','escape'=>false));
      } 
 ?></li>
 
 <li><?php 
     if($grupo == 1 || $grupo == 2) { 
-      echo $this->Html->link(sprintf('<span><span>MANUTENÇÃO</span></span>'), array('controller'=>'anolectivos','action' => 'index'),array('id'=>'manutencao','escape'=>false));
+      echo $this->Html->link(sprintf('<span><span>'.__('MANUTENÇÃO',true).'</span></span>'), array('controller'=>'anolectivos','action' => 'index'),array('id'=>'manutencao','escape'=>false));
     }
     else
     if($grupo == 4) { 
-      echo $this->Html->link(sprintf('<span><span>MANUTENÇÃO</span></span>'), array('controller'=>'turmas','action' => 'index'),array('id'=>'manutencao','escape'=>false));
+      echo $this->Html->link(sprintf('<span><span>'.__('MANUTENÇÃO',true).'</span></span>'), array('controller'=>'turmas','action' => 'index'),array('id'=>'manutencao','escape'=>false));
     }
 ?></li>
 
 <li><?php 
       if($grupo == 1 || $grupo == 2 || $grupo == 4) { 
-        echo $this->Html->link(sprintf('<span><span>AVALIAÇÕES</span></span>'), array('controller'=>'avaliacaos','action' => 'index'),array('id'=>'avaliacao','escape'=>false));
+        echo $this->Html->link(sprintf('<span><span>'.__('AVALIAÇÃO',true).'</span></span>'), array('controller'=>'avaliacaos','action' => 'index'),array('id'=>'avaliacao','escape'=>false));
       }
       else
-      if($grupo == 3) { echo $this->Html->link(sprintf('<span><span>NOTAS DAS AVALIAÇÕES</span></span>'), array('controller'=>'avaliacaos','action' => 'index'),array('id'=>'avaliacao'));}
+      if($grupo == 3) { echo $this->Html->link(sprintf('<span><span>'.__('NOTAS DE AVALIAÇÕES',true).'</span></span>'), array('controller'=>'avaliacaos','action' => 'index'),array('id'=>'avaliacao'));}
 
 ?></li>
 
@@ -82,13 +111,13 @@
     if(in_array($grupo,array(1,5,6))) {echo $this->Html->link(sprintf('<span><span>'.__('CONTABILIDADE',true).'</span></span>'), array('controller'=>'pagamentos','action' => 'index'),array('id'=>'contabilidade','escape'=>false));}
 	?>
 </li>
-<li><?php  if($grupo == 1 || $grupo == 2) {echo $this->Html->link(sprintf('<span><span>RELATÓRIOS</span></span>'), array('controller'=>'listagens','action' => 'listagens'),array('id'=>'listagens','escape'=>false));}?></li>
+<li><?php  if($grupo == 1 || $grupo == 2) {echo $this->Html->link(sprintf('<span><span>'.__('RELATÓRIOS',true).'</span></span>'), array('controller'=>'listagens','action' => 'listagens'),array('id'=>'listagens','escape'=>false));}?></li>
 
 <li>
 <?php
-    if($grupo == 1 || $grupo == 2) {echo $this->Html->link(sprintf('<span><span>ADMINISTRAÇÃO</span></span>'), array('controller'=>'funcionarios','action' => 'index'),array('id'=>'administracao','escape'=>false));}
+    if($grupo == 1 || $grupo == 2) {echo $this->Html->link(sprintf('<span><span>'.__('ADMINISTRAÇÃO',true).'</span></span>'), array('controller'=>'funcionarios','action' => 'index'),array('id'=>'administracao','escape'=>false));}
     else
-    if($grupo == 4) {echo $this->Html->link(sprintf('<span><span>CONSULTAR FICHA</span></span>'), array('controller'=>'funcionarios','action' => 'view',$idFunc),array('id'=>'administracao','escape'=>false));}
+    if($grupo == 4) {echo $this->Html->link(sprintf('<span><span>'.__('CONSULTAR FICHA',true).'</span></span>'), array('controller'=>'funcionarios','action' => 'view',$idFunc),array('id'=>'administracao','escape'=>false));}
 ?></li>
 
 

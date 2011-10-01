@@ -1,22 +1,22 @@
 <?php
 /**
- * OpenSGA - Sistema de Gestão Académica
- *   Copyright (C) 2010-2011  INFOmoz (Informática-Moçambique)
+ * OpenSGA - Sistema de Gestï¿½o Acadï¿½mica
+ *   Copyright (C) 2010-2011  INFOmoz (Informï¿½tica-Moï¿½ambique)
  * 
- * Este programa é um software livre: Você pode redistribuir e/ou modificar
- * todo ou parte deste programa, desde que siga os termos da licença por nele
- * estabelecidos. Grande parte do código deste programa está sob a licença 
+ * Este programa ï¿½ um software livre: Vocï¿½ pode redistribuir e/ou modificar
+ * todo ou parte deste programa, desde que siga os termos da licenï¿½a por nele
+ * estabelecidos. Grande parte do cï¿½digo deste programa estï¿½ sob a licenï¿½a 
  * GNU Affero General Public License publicada pela Free Software Foundation.
- * A versão original desta licença está disponível na pasta raiz deste software.
+ * A versï¿½o original desta licenï¿½a estï¿½ disponï¿½vel na pasta raiz deste software.
  * 
- * Este software é distribuido sob a perspectiva de que possa ser útil para 
+ * Este software ï¿½ distribuido sob a perspectiva de que possa ser ï¿½til para 
  * satisfazer as necessidades dos seus utilizadores, mas SEM NENHUMA GARANTIA. Veja
- * os termos da licença GNU Affero General Public License para mais detalhes
+ * os termos da licenï¿½a GNU Affero General Public License para mais detalhes
  * 
- * As redistribuições deste software, mesmo quando o código-fonte for modificado significativamente,
- * devem manter está informação legal, assim como a licença original do software.
+ * As redistribuiï¿½ï¿½es deste software, mesmo quando o cï¿½digo-fonte for modificado significativamente,
+ * devem manter estï¿½ informaï¿½ï¿½o legal, assim como a licenï¿½a original do software.
  * 
- * @copyright     Copyright 2010-2011, INFOmoz (Informática-Moçambique) (http://infomoz.net)
+ * @copyright     Copyright 2010-2011, INFOmoz (Informï¿½tica-Moï¿½ambique) (http://infomoz.net)
  * @link          http://infomoz.net/opensga CakePHP(tm) Project
  * @author		  Elisio Leonardo (http://infomoz.net/elisio-leonardo)
  * @package       opensga
@@ -38,7 +38,7 @@ class AnolectivoepocasController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash('Invalido %s', 'error');
+			$this->Session->setFlash('Invalido %s', 'flasherror');
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('t0017anolectivoepoca', $this->T0017anolectivoepoca->read(null, $id));
@@ -48,10 +48,10 @@ class AnolectivoepocasController extends AppController {
 		if (!empty($this->data)) {
 			$this->T0017anolectivoepoca->create();
 			if ($this->T0017anolectivoepoca->save($this->data)) {
-				$this->Session->setFlash('** Dados Cadastrados com Sucesso **','sucesso');
+				$this->Session->setFlash('** Dados Cadastrados com Sucesso **','flashok');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('Erro ao gravar dados. Por favor tente de novo.','error');}
+				$this->Session->setFlash('Erro ao gravar dados. Por favor tente de novo.','flasherror');}
 		}
 		$anolectivos = $this->T0017anolectivoepoca->Anolectivo->find('list');
 		$epocaavaliacaos = $this->T0017anolectivoepoca->Epocaavaliacao->find('list');
@@ -60,15 +60,15 @@ class AnolectivoepocasController extends AppController {
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash('Invalido %s', 'error');
+			$this->Session->setFlash('Invalido %s', 'flasherror');
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->T0017anolectivoepoca->save($this->data)) {
-				$this->Session->setFlash('Dado Editados com sucesso','sucesso');
+				$this->Session->setFlash('Dado Editados com sucesso','flashok');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('Erro ao editar dados. Por favor tente de novo.','error');}
+				$this->Session->setFlash('Erro ao editar dados. Por favor tente de novo.','flasherror');}
 		}
 		if (empty($this->data)) {
 			$this->data = $this->T0017anolectivoepoca->read(null, $id);
@@ -80,11 +80,11 @@ class AnolectivoepocasController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash('** ID invalido **','sucesso');
+			$this->Session->setFlash('** ID invalido **','flashok');
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->T0017anolectivoepoca->delete($id)) {
-			$this->Session->setFlash('Dados deletedos com sucesso ','sucesso');
+			$this->Session->setFlash('Dados deletedos com sucesso ','flashok');
 			$this->redirect(array('action'=>'index'));
 		}
 		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'T0017anolectivoepoca'));
@@ -102,10 +102,10 @@ class AnolectivoepocasController extends AppController {
 			$this->T0017anolectivoepoca->create();
 			if ($this->T0017anolectivoepoca->save($this->data)) {
 			//$logmv->logInsert(15,$this->Session->read('Auth.User.id'),$this->T0017anolectivoepoca->getLastInsertID(),"Tempo Limite");
-				$this->Session->setFlash('** Dados Cadastrados com Sucesso **','sucesso');
+				$this->Session->setFlash('** Dados Cadastrados com Sucesso **','flashok');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('Erro ao gravar dados. Por favor tente de novo.','error');}
+				$this->Session->setFlash('Erro ao gravar dados. Por favor tente de novo.','flasherror');}
 		}
 			$anolectivos = $this->T0017anolectivoepoca->Anolectivo->find('list');
 		

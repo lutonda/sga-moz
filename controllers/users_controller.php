@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * OpenSGA - Sistema de Gest�o Acad�mica
  *   Copyright (C) 2010-2011  INFOmoz (Inform�tica-Mo�ambique)
@@ -39,7 +39,7 @@ class UsersController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash('Invalido %s', 'error');
+			$this->Session->setFlash(sprintf(__('ID do Usuário Inválido', true), 'user'),'flasherror');
 			$this->redirect(array('action' => 'index'));
 		}
 		if (empty($this->data)) {
@@ -57,10 +57,11 @@ class UsersController extends AppController {
 		if (!empty($this->data)) {
 			$this->User->create();
 			if ($this->User->save($this->data)) {
-				$this->Session->setFlash('** Dados Cadastrados com Sucesso **','sucesso');
+				$this->Session->setFlash(sprintf(__('Usuário Registrado com Sucesso', true), 'user'),'flashok');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('Erro ao gravar dados. Por favor tente de novo.','error');}
+				$this->Session->setFlash(sprintf(__('Erro ao registrar usuário. Tente de novo', true), 'user'),'flasherror');
+		}
 		}
 		$groups = $this->User->Group->find('list');
 		$this->set(compact('groups'));
@@ -68,15 +69,15 @@ class UsersController extends AppController {
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'user'));
+			$this->Session->setFlash(sprintf(__('ID do Usuário Inválido', true), 'user'),'flasherror');
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->User->save($this->data)) {
-				$this->Session->setFlash('Dado Editados com sucesso','sucesso');
+				$this->Session->setFlash(sprintf(__('Os dados do usuário foram actualizados com sucesso', true), 'user'),'flashok');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('Erro ao gravar dados. Por favor tente de novo.','error');
+				$this->Session->setFlash('Erro ao gravar dados. Por favor tente de novo.','flasherror');
 			}
 		}
 		if (empty($this->data)) {
@@ -88,14 +89,14 @@ class UsersController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'user'));
+			$this->Session->setFlash(sprintf(__('ID do Usuário Inválido', true), 'user'),'flasherror');
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->User->delete($id)) {
-			$this->Session->setFlash('Dados deletedos com sucesso ','sucesso');
+			$this->Session->setFlash(sprintf(__('Usuário removido com sucesso', true), 'user'),'flashok');
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'User'));
+		$this->Session->setFlash(sprintf(__('O usuário não foi removido', true), 'user'),'flasherror');
 		$this->redirect(array('action' => 'index'));
 	}
         
@@ -120,10 +121,6 @@ class UsersController extends AppController {
         }
         
         function logout(){
-		        App::Import('Model','Logmv');
-	            $logmv = new Logmv;
-				//var_dump($this->Session->read('Auth.User.id'));
-				$logmv->loglogout(2,$this->Session->read('Auth.User.id'));
                 $this->Auth->logout();
                 $this->redirect(array('action'=>'login'));
         }
@@ -142,14 +139,14 @@ class UsersController extends AppController {
                 if($senha_nova1 == $senha_nova2){
                     $this->data['User']['password'] = md5($senha_nova1);
                     if ($this->User->save($this->data)) {
-                        $this->Session->setFlash(sprintf(__('Dado Cadastrado com sucesso', true), 'user'));
+                        $this->Session->setFlash(sprintf(__('Senha alterada com sucesso', true), 'user'),'flashok');
                         $this->redirect(array('action' => 'index'));
                     } else {
-                        $this->Session->setFlash(sprintf(__('Erro ao gravar dados. Por favor tente de novo.', true), 'user'));
+                        $this->Session->setFlash(sprintf(__('Erro ao alterar a senha. Por favor, tente de novo', true), 'user'),'flasherror');
                     }
                 }
                 else{
-                    $this->Session->setFlash(sprintf(__('As senhas nao conferem', true), 'user'));
+                    $this->Session->setFlash(sprintf(__('As senhas introduzidas não são idênticas', true), 'user'),'flasherror');
                     $this->redirect(array('action' => 'index'));
                 }
             }
@@ -157,14 +154,7 @@ class UsersController extends AppController {
                 $this->Session->setFlash(sprintf(__('A senha antiga nao confere', true), 'user'));
                 $this->redirect(array('action' => 'index'));
             }
-            
 
-            /*if ($this->User->save($this->data)) {
-				$this->Session->setFlash(sprintf(__('Dado Cadastrado com sucesso', true), 'user'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(sprintf(__('Erro ao gravar dados. Por favor tente de novo.', true), 'user'));
-			}*/
 		}
     }
         function beforeRender(){

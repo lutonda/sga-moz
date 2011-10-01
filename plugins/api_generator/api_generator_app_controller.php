@@ -55,7 +55,7 @@ class ApiGeneratorAppController extends AppController {
 	public function _notFound($name = null, $message = null) {
 		$name = ($name) ? $name : 'Page Not Found';
 		$message = ($message) ? $message : $this->params['url']['url'];
-		$this->cakeError('error', array(
+		$this->cakeError('flasherror', array(
 			'name' => $name,
 			'message' => $message,
 			'code' => 404,

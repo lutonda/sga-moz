@@ -1,0 +1,63 @@
+﻿{% extends '!layout.html' %}
+
+{% block doctype %}
+<!DOCTYPE html>
+{% endblock %}
+
+{% set css_files = css_files + ['_static/csf-navbar.css'] %}
+
+{# Use the header block to insert the CSF navbar #}
+{% block header %}
+<div id="cakephp-global-navigation">
+	<ul>
+		<li class="main"><a href="http://opensga.com">OpenSGA</a></li>
+		<li class="main"><a href="http://opensga.com">Sobre</a></li>
+		<li><a href="#" class="empty">Downloads</a>
+			<ul>
+				<li><a href="http://opensga.com">Última Versão</a></li>
+				<li class="cake-version"><a href="http://github.com/cakephp/cakephp/tree/1.2">OpenSGA 0.1</a>
+					<ul>
+						<li><a href="http://github.com/cakephp/cakephp/archives/1.2">Download</a>&nbsp;|</li>
+						<li><a href="http://cakephp.lighthouseapp.com/projects/42648-cakephp/milestones">Mudanças</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li><a href="#" class="empty">Documentação</a>
+			<ul>
+				<li class="cake-version"><a href="http://api.cakephp.org">API</a>
+					<ul>
+						<li><a href="http://api11.cakephp.org">0.1</a>&nbsp;|</li>
+						<li><a href="http://api12.cakephp.org">1.0</a></li>
+					</ul>
+				</li>
+				<li class="cake-version"><a href="http://book.cakephp.org">Manual do Utilizador</a>
+					<ul>
+						<li><a href="http://book.cakephp.org/view/305/The-Manual">0.1</a>&nbsp;|</li>
+						<li><a href="http://book.cakephp.org/view/3/The-Manual">1.0</a></li>
+					</ul>
+				</li>
+				<li><a href="http://cakephp.lighthouseapp.com">Erros encontrados</a></li>
+				<li><a href="http://translation.cakephp.org">Traduções</a></li>
+			</ul>
+		</li>
+		<li><a href="#" class="empty">Comunidade</a>
+			<ul>
+				<li><a href="http://bakery.cakephp.org">INFOmoz</a></li>
+				<li><a href="http://groups.google.com/group/cake-php">Google Groups</a></li>
+				<li><a href="http://cakephp.org/logos">Logo</a></li>
+				<li><a href="http://cakephp.org/planet">Planeta</a></li>
+				<li><a href="http://ask.cakephp.org">Perguntas Frequentes</a></li>
+			</ul>
+		</li>
+		<li><a href="http://cakephp.org/services">Serviços</a>
+			<ul>
+				<li><a href="http://cakephp.org/services/certification">Certificação</a></li>
+				<li><a href="http://cakephp.org/services/consultation">Consultoria</a></li>
+				<li><a href="http://cakephp.org/services/support">Suporte</a></li>
+				<li><a href="http://cakephp.org/services/training">Treinamento</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+{% endblock %}

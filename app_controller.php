@@ -53,7 +53,6 @@ class AppController extends Controller {
     function beforeFilter() {
         Configure::write('Config.language', $this->Session->read('Config.language'));
 		setlocale (LC_ALL, 'ptb');
-		
        // var_dump(Configure::read('Config.language'));
                 // for index actions  
         if($this->action == 'index') {  
@@ -82,6 +81,7 @@ class AppController extends Controller {
         $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
         $this->Auth->loginRedirect = array('controller' => 'users', 'action' => 'after_login');
         $this->Auth->actionPath = 'controllers/';
+		
 
     }
 
@@ -167,7 +167,7 @@ function uploadFiles($folder, $formdata, $itemId = null) {
 		// if file type ok upload the file
 		if($typeOK) {
 			// switch based on error code
-			switch($file['error']) {
+			switch($file['flasherror']) {
 				case 0:
 					// check filename already exists
 					if(!file_exists($folder_url.'/'.$filename)) {

@@ -66,7 +66,7 @@ class InscricaosController extends AppController {
             $turma = new Turma;
 			
 		if (!$id) {
-			$this->Session->setFlash('Invalido %s', 'error');
+			$this->Session->setFlash('Invalido %s', 'flasherror');
 			$this->redirect(array('action' => 'index'));
 		}
 	//	$this->set('t0013inscricao', $this->Inscricao->read(null, $id));
@@ -129,10 +129,10 @@ class InscricaosController extends AppController {
 			$this->Inscricao->create();
 			if ($this->Inscricao->save($this->data)) {
 			//$logmv->logInsert(11,$this->Session->read('Auth.User.id'),$this->Inscricao->getLastInsertID(),$this->data["Inscricao"]["Aluno_id"]);
-				$this->Session->setFlash('** Dados Cadastrados com Sucesso **','sucesso');
+				$this->Session->setFlash('** Dados Cadastrados com Sucesso **','flashok');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('Erro ao gravar dados. Por favor tente de novo.','error');}
+				$this->Session->setFlash('Erro ao gravar dados. Por favor tente de novo.','flasherror');}
 		}
 		
 		//$alunos = $matriculas->getAlunosForMatricula1();	
@@ -177,7 +177,7 @@ class InscricaosController extends AppController {
             }
             }
             //$this->Inscricao->delete($inscricao_id);
-            $this->Session->setFlash('** Dados Cadastrado com Sucesso **','sucesso');
+            $this->Session->setFlash('** Dados Cadastrado com Sucesso **','flashok');
             $this->redirect(array('action' => 'index'));
             
         }
@@ -202,16 +202,16 @@ class InscricaosController extends AppController {
 	       $logmv = new Logmv;
 			
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash('Invalido %s', 'error');
+			$this->Session->setFlash('Invalido %s', 'flasherror');
 			$this->redirect(array('action' => 'index'));
 		}
 		
 		if (!empty($this->data)) {
 			if ($this->Inscricao->save($this->data)) {
-				$this->Session->setFlash('Dado Editados com sucesso','sucesso');
+				$this->Session->setFlash('Dado Editados com sucesso','flashok');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('Erro ao editar dados. Por favor tente de novo.','error');}
+				$this->Session->setFlash('Erro ao editar dados. Por favor tente de novo.','flasherror');}
 		}
 		if (empty($this->data)) {
 			$this->data = $this->Inscricao->read(null, $id);
@@ -287,7 +287,7 @@ class InscricaosController extends AppController {
 			$this->Matricula->save($matricula_nova);
 				
 			if($this->Inscricao->saveAll($this->data['Inscricao'])){
-				$this->Session->setFlash(sprintf(__('O Aluno %s Foi inscrito com sucesso',true),$aluno['Aluno']['codigo']."-".$aluno['Aluno']['name']),'sucesso');
+				$this->Session->setFlash(sprintf(__('O Aluno %s Foi inscrito com sucesso',true),$aluno['Aluno']['codigo']."-".$aluno['Aluno']['name']),'flashok');
 				$this->Pagamento->recursive = -1;
 				$this->Pagamento->gerarPagamentos(4,$aluno_id);
 				
@@ -316,7 +316,7 @@ class InscricaosController extends AppController {
 		}
 		if ($this->Inscricao->delete($id)) {
 		//$logmv->logDelete(11,$this->Session->read('Auth.User.id'),$id,'Delete Inscricao');
-			$this->Session->setFlash('** Dados Deletados com Sucesso **','sucesso');
+			$this->Session->setFlash('** Dados Deletados com Sucesso **','flashok');
 			$this->redirect(array('action'=>'index'));
 		}
 		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'Inscricao'));

@@ -49,7 +49,14 @@
 				<div class="inner">
 		<?php } ?>
 
-			<?php echo $this->Session->flash(); ?>
+			<?php 
+				$session_message = $this->Session->read('Message');
+				if(isset($session_message) and $session_message!=null){
+					foreach($session_message as $k=>$v){
+							echo $this->Session->flash($k);			
+					}
+				}
+			?>
 
 			<?php echo $content_for_layout; ?>
 	

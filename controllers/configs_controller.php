@@ -38,7 +38,7 @@ class ConfigsController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid config', true));
+			$this->Session->setFlash(sprintf(__('ID Inválido', true), 'user'),'flasherror');
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('config', $this->Config->read(null, $id));
@@ -48,25 +48,25 @@ class ConfigsController extends AppController {
 		if (!empty($this->data)) {
 			$this->Config->create();
 			if ($this->Config->save($this->data)) {
-				$this->Session->setFlash(__('The config has been saved', true));
+				$this->Session->setFlash(sprintf(__('Dados Gravados com Sucesso', true), 'user'),'flashok');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The config could not be saved. Please, try again.', true));
+				$this->Session->setFlash(sprintf(__('Dados não gravados. Por favor, tente de novo', true), 'user'),'flasherror');
 			}
 		}
 	}
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Invalid config', true));
+			$this->Session->setFlash(sprintf(__('ID Inválido', true), 'user'),'flasherror');
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Config->save($this->data)) {
-				$this->Session->setFlash(__('The config has been saved', true));
+				$this->Session->setFlash(sprintf(__('Dados gravados com sucesso', true), 'user'),'flashok');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The config could not be saved. Please, try again.', true));
+				$this->Session->setFlash(sprintf(__('Dados não gravados. Por favor, tente de novo', true), 'user'),'flasherror');
 			}
 		}
 		if (empty($this->data)) {
@@ -76,14 +76,14 @@ class ConfigsController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for config', true));
+			$this->Session->setFlash(sprintf(__('ID Inválido', true), 'user'),'flasherror');
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Config->delete($id)) {
-			$this->Session->setFlash(__('Config deleted', true));
+			$this->Session->setFlash(sprintf(__('Dados removidos com sucesso', true), 'user'),'flashok');
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(__('Config was not deleted', true));
+		$this->Session->setFlash(sprintf(__('Dados não removidos.Por favor, tente de novo', true), 'user'),'flasherror');
 		$this->redirect(array('action' => 'index'));
 	}
 	
@@ -95,7 +95,9 @@ class ConfigsController extends AppController {
 			$this->Session->write('Config.language', 'eng');
 		}
 		Configure::write('Config.language', $this->Session->read('Config.language'));
-		//$this->Session->setFlash(__('O idioma do Sistema foi alterado com sucesso', true));
-		$this->redirect(array('action' => 'index'));
+		$this->Session->setFlash(sprintf(__('O idioma do sistema foi alterado com sucesso', true), 'user'),'flashok');
+		$this->redirect(array('controller'=>'pages','action'=>'display','homepage'));
 	}
 }
+
+

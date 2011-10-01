@@ -50,7 +50,7 @@ class AlunosController extends AppController {
 	        App::Import('Model','Matricula');
 	        $Matricula = new Matricula;			
 		if (!$id) {
-			//$this->Session->setFlash('Invalido %s', 'error');
+			$this->Session->setFlash('ID Invalido', 'flasherror');
 			$this->redirect(array('action' => 'index'));
 		}
 			if (empty($this->data)) {
@@ -126,10 +126,10 @@ class AlunosController extends AppController {
 								 $matricula_gravar=array('Matricula'=>$data_matricula);
 								
 								 if($Matricula->save($matricula_gravar)){
-									  $this->Session->setFlash('** Dados Cadastrados com Sucesso **','sucesso');
+									  $this->Session->setFlash('Aluno Registrado com sucesso</p><p>A matricula do aluno foi registrada com sucesso','flashok');
 									  $this->redirect(array('action' => 'index'));
 								} else {
-									  $this->Session->setFlash('Erro ao gravar dados. Por favor tente de novo.','error');
+									  $this->Session->setFlash('Erro ao registrar aluno. Por favor tente de novo.','flasherror');
 								}
 					}
 		}
@@ -153,7 +153,7 @@ class AlunosController extends AppController {
 	        App::Import('Model','Logmv');
 	        $logmv = new Logmv;
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash('Invalido %s', 'error');
+			$this->Session->setFlash('Invalido %s', 'flasherror');
 
 			$this->redirect(array('action' => 'index'));
 		}
@@ -166,10 +166,10 @@ class AlunosController extends AppController {
 			$this->data['Aluno']['foto']=$fileOk['urls'][0];
 			
 			if ($this->Aluno->save($this->data)) {
-				$this->Session->setFlash('Dado Editados com sucesso','sucesso');
+				$this->Session->setFlash('Os dados do aluno foram editados com sucesso','flashok');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('Erro ao editar dados. Por favor tente de novo.','error');}
+				$this->Session->setFlash('Erro ao editar dados do aluno. Por favor tente de novo.','flasherror');}
 		}
 		if (empty($this->data)) {
 			$this->data = $this->Aluno->read(null, $id);
@@ -198,7 +198,7 @@ class AlunosController extends AppController {
         $users = new User;
 		
 		if (!$id) {
-			$this->Session->setFlash('Invalido id para %s', 'error');
+			$this->Session->setFlash('Invalido id para %s', 'flasherror');
 			$this->redirect(array('action'=>'index'));
 		}
 		$dados= $matricula->getMatriculaAluno($id);
@@ -208,11 +208,11 @@ class AlunosController extends AppController {
 		$apagar = $users->deleteUser($user_id);	
 		if ($this->Aluno->delete($id)) {
 		$logmv->logDelete(4,$this->Session->read('Auth.User.id'),$id,$this->data["Aluno"]["name"]);
-			$this->Session->setFlash('Dados deletedos com sucesso ','sucesso');
+			$this->Session->setFlash('Dados deletedos com sucesso ','flashok');
 			$this->redirect(array('action'=>'index'));
 		}
 		}
-		$this->Session->setFlash('Nao e possivel apagar. O aluno esta associado a uma matricula','error');
+		$this->Session->setFlash('Nao e possivel apagar. O aluno esta associado a uma matricula','flasherror');
 		$this->redirect(array('action' => 'index'));
 	}
 

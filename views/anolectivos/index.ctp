@@ -1,22 +1,22 @@
 <?php
 /**
- * OpenSGA - Sistema de Gestão Académica
- *   Copyright (C) 2010-2011  INFOmoz (Informática-Moçambique)
+ * OpenSGA - Sistema de GestÃ£o AcadÃ©mica
+ *   Copyright (C) 2010-2011  INFOmoz (InformÃ¡tica-MoÃ§ambique)
  * 
- * Este programa é um software livre: Você pode redistribuir e/ou modificar
- * todo ou parte deste programa, desde que siga os termos da licença por nele
- * estabelecidos. Grande parte do código deste programa está sob a licença 
+ * Este programa Ã© um software livre: VocÃª pode redistribuir e/ou modificar
+ * todo ou parte deste programa, desde que siga os termos da licenÃ§a por nele
+ * estabelecidos. Grande parte do cÃ³digo deste programa estÃ¡ sob a licenÃ§a 
  * GNU Affero General Public License publicada pela Free Software Foundation.
- * A versão original desta licença está disponível na pasta raiz deste software.
+ * A versÃ£o original desta licenÃ§a estÃ¡ disponÃ­vel na pasta raiz deste software.
  * 
- * Este software é distribuido sob a perspectiva de que possa ser útil para 
+ * Este software Ã© distribuido sob a perspectiva de que possa ser Ãºtil para 
  * satisfazer as necessidades dos seus utilizadores, mas SEM NENHUMA GARANTIA. Veja
- * os termos da licença GNU Affero General Public License para mais detalhes
+ * os termos da licenÃ§a GNU Affero General Public License para mais detalhes
  * 
- * As redistribuições deste software, mesmo quando o código-fonte for modificado significativamente,
- * devem manter está informação legal, assim como a licença original do software.
+ * As redistribuiÃ§Ãµes deste software, mesmo quando o cÃ³digo-fonte for modificado significativamente,
+ * devem manter estÃ¡ informaÃ§Ã£o legal, assim como a licenÃ§a original do software.
  * 
- * @copyright     Copyright 2010-2011, INFOmoz (Informática-Moçambique) (http://infomoz.net)
+ * @copyright     Copyright 2010-2011, INFOmoz (InformÃ¡tica-MoÃ§ambique) (http://infomoz.net)
  * @link          http://infomoz.net/opensga CakePHP(tm) Project
  * @author		  Elisio Leonardo (http://infomoz.net/elisio-leonardo)
  * @package       opensga
@@ -25,56 +25,71 @@
  * @license       GNU Affero General Public License
  * 
  */
+
  ?>
 
- <!--[if !IE]>start section<![endif]-->
-					<div class="section table_section">
-						<!--[if !IE]>start title wrapper<![endif]-->
-						<div class="title_wrapper">
-							<h2>Cursos</h2>
-							<span class="title_wrapper_left"></span>
-							<span class="title_wrapper_right"></span>
+<div class="box box-100 altbox" id="box1"><!-- box full-width -->
+					<div class="boxin">
+						<div class="header">
+							<h3><?php __('Cursos')?></h3>
+							<?php echo $this->Html->link(__('Registrar novo', true), array('action' => 'add'),array('class'=>'button add_new','escape'=>false)); ?>
+
 						</div>
-						<!--[if !IE]>end title wrapper<![endif]-->
-						<!--[if !IE]>start section content<![endif]-->
-						<div class="section_content">
-							<!--[if !IE]>start section content top<![endif]-->
-							<div class="sct">
-								<div class="sct_left">
-									<div class="sct_right">
-										<div class="sct_left">
-											<div class="sct_right">
-
-												<form action="#">
-												<fieldset>
-												<!--[if !IE]>start table_wrapper<![endif]-->
-												<div class="table_wrapper">
-													<div class="table_wrapper_inner">
-													<table cellpadding="0" cellspacing="0" width="100%">
-                                                        <tbody>
-	<tr>
-
-			
+						<div class="content" id="box1-tabular"><!-- content box 1 for tab switching -->
+							<form enctype="multipart/form-data" method="post" action="" class="plain">
+								<fieldset>
+									<?php echo $form->create('Curso',array('action'=>'index','id'=>'filters')); ?>  
+									<table cellspacing="0">
+										<thead><!-- universal table heading -->
+											<tr>
+												<td class="tc first"><input type="checkbox" value="true" name="data-1-check-all" id="data-1-check-all"></td>
+											
 			<th><?php echo $this->Paginator->sort('Codigo','codigo');?></th>
 			<th><?php echo $this->Paginator->sort('Ano','ano');?></th>
             <th><?php echo $this->Paginator->sort('Regime','regime');?></th>
             <th><?php echo $this->Paginator->sort('Semestre Lectivo','num_semestre');?></th>
-			<th class="actions"><?php __('Accao');?></th>
-		
-	</tr>
+			<td class="tc last"><?php __('AcÃ§Ãµes');?></td>
+											</tr>
+											<tr>
+												<td></td>
+											  
+            								<td><?php echo $form->input('codigo',array('label'=>false,'size'=>8)); ?></td>  
+            								<td><?php echo $form->input('name',array('label'=>false,'size'=>10)); ?></td> 
+            								  
+            								<td>  
+                								<button type="submit" name="data[filter]" value="filter">Filtrar</button>  
+                								<button type="submit" name="data[reset]" value="reset">Limpar</button>  
+									            </td>  
+									        </tr>  
+										</thead>
+										<tfoot><!-- table foot - what to do with selected items -->
+											<tr>
+												<td colspan="6" class="first last"><!-- do not forget to set appropriate colspan if you will edit this table -->
+													<label>
+														Com os seleccionados:
+														<select name="data-1-groupaction">
+															<option value="delete">remover</option>
+															<option value="edit">editar</option>
+														</select>
+													</label>
+													<input type="submit" value="OK" class="button altbutton">
+												</td>
+											</tr>
+										</tfoot>
+										<tbody>
 	<?php
 	$i = 0;
 	foreach ($anolectivos as $anolectivo):
-		$class = null;
+		$class = "first";
 		if ($i++ % 2 == 0) {
-			$class = ' class="altrow"';
+			$class = ' class="even"';
 		}
 	?>
 	<tr<?php echo $class;?>>
-		
+		<td class="tc first"><input type="checkbox" value="true" name="data-1-check-all" id="data-1-check-all"></td>
 		<td><?php echo $anolectivo['Anolectivo']['codigo']; ?>&nbsp;</td>
 		<td><?php echo $anolectivo['Anolectivo']['ano']; ?>&nbsp;</td>
-        <td><?php echo $anolectivo['Anolectivo']['regime']; ?>&nbsp;</td>
+        <td><?php echo $anolectivo['Regimelectivo']['name']; ?>&nbsp;</td>
         <td><?php echo $anolectivo['Anolectivo']['num_semestre']; ?>&nbsp;</td>
 		
 		<td class="accoes">
@@ -85,42 +100,28 @@
 		
 	</tr>
 <?php endforeach; ?>
-	</table>
-
-
-													</div>
-												</div>
-												<!--[if !IE]>end table_wrapper<![endif]-->
-
-												<!--[if !IE]>start table menu<![endif]-->
-												<div class="table_menu">
-													<ul class="left">
-														<li><?php echo $this->Html->link(__('<span><span>NOVO CURSO</span></span>', true), array('action' => 'add'),array('class'=>'button add_new','escape'=>false)); ?></li>
-													</ul>
-													<ul class="right">
-														<li><a href="#" class="button check_all"><span><span>MARCAR TODAS</span></span></a></li>
-														<li><a href="#" class="button uncheck_all"><span><span>DESMARCAR TODAS</span></span></a></li>
-														<li><span class="button approve"><span><span>REMOVER</span></span></span></li>
-													</ul>
-												</div>
-												<!--[if !IE]>end table menu<![endif]-->
-
-
-												</fieldset>
-												</form>
-
-
-											</div>
-										</div>
-									</div>
-								</div>
+										</tbody>
+									</table>
+								</fieldset>
+							</form>
+							<div class="pagination">
+								<ul class="left">
+									<li><?php
+	echo $this->Paginator->counter(array(
+	'format' => __('Mostrando %current% linhas. Total: %count% linhas retornadas', true)
+	));
+	?>	</li>
+								</ul>
+								<ul class="pag_list">
+									<li><?php echo $paginator->prev('<< '.__('ANTERIOR', true), array(), null, array('class'=>'disabled'));?> </li>
+									<?php echo $paginator->numbers(array('tag'=>'li','separator'=>null,'class'=>'pagination'));?>
+                                    
+									<li><?php echo $paginator->next(__('PROXIMO', true).' >>', array(), null, array('class' => 'disabled'));?></li>
+								</ul>
+								
+								
 							</div>
-							<!--[if !IE]>end section content top<![endif]-->
-							<!--[if !IE]>start section content bottom<![endif]-->
-							<span class="scb"><span class="scb_left"></span><span class="scb_right"></span></span>
-							<!--[if !IE]>end section content bottom<![endif]-->
+						</div><!-- .content#box-1-holder -->
 
-						</div>
-						<!--[if !IE]>end section content<![endif]-->
 					</div>
-					<!--[if !IE]>end section<![endif]-->
+				</div>

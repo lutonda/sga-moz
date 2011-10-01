@@ -1,7 +1,7 @@
 
 
 <div class="actions" id="left-column">
-	<h3><?php __('SecÃƒÂ§ÃƒÂµes'); ?></h3>
+	<h3><?php __('Secções'); ?></h3>
 	<br />
 		<?php echo $this->Html->link(sprintf(__('Alterar Senha', true)), array('controller' => 'users', 'action' => 'trocar_senha'),array('class'=>'link'));
  ?>
@@ -9,8 +9,8 @@
 
 <div class="projectos index" id="center-column">
     <div class="top-bar">
-        <?php echo $this->Html->link(sprintf(__('Lista de Usuarios', true)), array('action' => 'index'),array('class'=>'button')); ?>
-	<h1><?php __('UsuÃƒÂ¡rio');?></h1>
+        <?php echo $this->Html->link(sprintf(__('Lista de usuários', true)), array('action' => 'index'),array('class'=>'button')); ?>
+	<h1><?php __('Usuário');?></h1>
         <div class="breadcrumbs"><?php ?></div>
     </div>
 <div class="table">
@@ -18,7 +18,7 @@
 <?php echo $form->create('User');?>
         <table class="listingform" cellpadding="0" cellspacing="0">
          <tr>
-            <th class="full" colspan="2">Carregamento de Novo Aluno</th>
+            <th class="full" colspan="2"><?php __('Registrar Novo Aluno');?></th>
          </tr>
           <?php
 		echo $this->Form->input('username',array('disabled'=>'true','label'=>'Usuario','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));

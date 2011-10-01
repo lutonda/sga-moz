@@ -1,4 +1,4 @@
-<!-- Jeff Linse's Calendar Element for CakePHP -->
+﻿<!-- Jeff Linse's Calendar Element for CakePHP -->
 
 <?php
 
