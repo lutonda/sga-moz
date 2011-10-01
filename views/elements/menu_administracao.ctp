@@ -2,6 +2,7 @@
 <ul>
 						
 						<li><?php if($grupo == 1 || $grupo == 2)  echo $this->Html->link(sprintf(__('Funcionarios', true)), array('action' => 'index'),array('class'=>'linkselected')); ?></a></li>
+												<li><?php if($grupo == 1 || $grupo == 2)  echo $this->Html->link(sprintf(__('Docentes', true)), array('controller'=>'docentes','action' => 'index'),array('class'=>'linkselected')); ?></a></li>
 						<?php if($grupo == 1 || $grupo == 2)  echo "<li>".$this->Html->link(sprintf(__('Alertas', true)), array('controller'=>'messages','action' => 'index'),array('class'=>'link'))."</li>"; ?>
 						<?php if($grupo == 1 || $grupo == 2)  echo "<li>".$this->Html->link(sprintf(__('Backup do Sistema', true)), array('controller'=>'messages','action' => 'index'),array('class'=>'link'))."</li>"; ?>
 						<?php if($grupo == 1 || $grupo == 2)  echo "<li>".$this->Html->link(sprintf(__('Actualizar Sistema', true)), array('controller'=>'messages','action' => 'index'),array('class'=>'link'))."</li>"; ?>
