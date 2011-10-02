@@ -1,4 +1,4 @@
-<?php $html->script('/api_generator/js/request_manager.js', array('inline' => false)); ?>
+<?php $this->Html->script('/api_generator/js/request_manager.js', array('inline' => false)); ?>
 <h1><?php __d('api_generator', 'Admin Class Index'); ?></h1>
 <table class="listing coverage" cellspacing="0" cellpadding="0">
 	<thead>
