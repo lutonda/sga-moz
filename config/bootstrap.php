@@ -49,5 +49,4 @@
  *
  */
 setlocale (LC_ALL, 'ptb');
-CakePlugin::load('DebugKit');
 ?>

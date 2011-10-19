@@ -27,12 +27,12 @@
  */
  
  
-class Tg0018estadomessagesController extends AppController {
+class EstadomessagesController extends AppController {
 
-	var $name = 'Tg0018estadomessages';
+	var $name = 'Estadomessages';
 
 	function index() {
-		$this->Tg0018estadomessage->recursive = 0;
+		$this->Estadomessage->recursive = 0;
 		$this->set('tg0018estadomessages', $this->paginate());
 	}
 
@@ -41,16 +41,16 @@ class Tg0018estadomessagesController extends AppController {
 			$this->Session->setFlash('Invalido %s', 'flasherror');
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->set('tg0018estadomessage', $this->Tg0018estadomessage->read(null, $id));
+		$this->set('tg0018estadomessage', $this->Estadomessage->read(null, $id));
 		if (empty($this->data)) {
-			$this->data = $this->Tg0018estadomessage->read(null, $id);
+			$this->data = $this->Estadomessage->read(null, $id);
 		}
 	}
 
 	function add() {
 		if (!empty($this->data)) {
-			$this->Tg0018estadomessage->create();
-			if ($this->Tg0018estadomessage->save($this->data)) {
+			$this->Estadomessage->create();
+			if ($this->Estadomessage->save($this->data)) {
 				$this->Session->setFlash('** Dados Cadastrados com Sucesso **','flashok');
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -64,14 +64,14 @@ class Tg0018estadomessagesController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
-			if ($this->Tg0018estadomessage->save($this->data)) {
+			if ($this->Estadomessage->save($this->data)) {
 				$this->Session->setFlash('Dado Editados com sucesso','flashok');
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash('Erro ao gravar dados. Por favor tente de novo.','flasherror');}
 		}
 		if (empty($this->data)) {
-			$this->data = $this->Tg0018estadomessage->read(null, $id);
+			$this->data = $this->Estadomessage->read(null, $id);
 		}
 	}
 
@@ -80,11 +80,11 @@ class Tg0018estadomessagesController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'tg0018estadomessage'));
 			$this->redirect(array('action'=>'index'));
 		}
-		if ($this->Tg0018estadomessage->delete($id)) {
+		if ($this->Estadomessage->delete($id)) {
 			$this->Session->setFlash('Dados deletedos com sucesso ','flashok');
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'Tg0018estadomessage'));
+		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'Estadomessage'));
 		$this->redirect(array('action' => 'index'));
 	}
         function beforeRender(){

@@ -27,8 +27,8 @@
  */
 
  
-class T0019semestrelectivo extends AppModel {
-	var $name = 'T0019semestrelectivo';
+class Semestrelectivo extends AppModel {
+	var $name = 'Semestrelectivo';
         var $displayField = 'codigo';
 	var $validate = array(
 		'codigo' => array(

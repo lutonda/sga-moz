@@ -27,12 +27,12 @@
  */
  
  
-class T0012matricularevisaosController extends AppController {
+class MatricularevisaosController extends AppController {
 
-	var $name = 'T0012matricularevisaos';
+	var $name = 'Matricularevisaos';
 
 	function index() {
-		$this->T0012matricularevisao->recursive = 0;
+		$this->Matricularevisao->recursive = 0;
 		$this->set('t0012matricularevisaos', $this->paginate());
 	}
 
@@ -41,21 +41,21 @@ class T0012matricularevisaosController extends AppController {
 			$this->Session->setFlash('Invalido %s', 'flasherror');
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->set('t0012matricularevisao', $this->T0012matricularevisao->read(null, $id));
+		$this->set('t0012matricularevisao', $this->Matricularevisao->read(null, $id));
 	}
 
 	function add() {
 		if (!empty($this->data)) {
-			$this->T0012matricularevisao->create();
-			if ($this->T0012matricularevisao->save($this->data)) {
+			$this->Matricularevisao->create();
+			if ($this->Matricularevisao->save($this->data)) {
 				$this->Session->setFlash('** Dados Cadastrados com Sucesso **','flashok');
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash('Erro ao gravar dados. Por favor tente de novo.','flasherror');}
 		}
-		$alunos = $this->T0012matricularevisao->Aluno->find('list');
-		$cursos = $this->T0012matricularevisao->Curso->find('list');
-		$planoestudos = $this->T0012matricularevisao->Planoestudo->find('list');
+		$alunos = $this->Matricularevisao->Aluno->find('list');
+		$cursos = $this->Matricularevisao->Curso->find('list');
+		$planoestudos = $this->Matricularevisao->Planoestudo->find('list');
 		$this->set(compact('Alunos', 't0003cursos', 't0005planoestudos'));
 	}
 
@@ -65,18 +65,18 @@ class T0012matricularevisaosController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
-			if ($this->T0012matricularevisao->save($this->data)) {
+			if ($this->Matricularevisao->save($this->data)) {
 				$this->Session->setFlash('Dado Editados com sucesso','flashok');
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash('Erro ao editar dados. Por favor tente de novo.','flasherror');}
 		}
 		if (empty($this->data)) {
-			$this->data = $this->T0012matricularevisao->read(null, $id);
+			$this->data = $this->Matricularevisao->read(null, $id);
 		}
-		$alunos = $this->T0012matricularevisao->Aluno->find('list');
-		$cursos = $this->T0012matricularevisao->Curso->find('list');
-		$planoestudos = $this->T0012matricularevisao->Planoestudo->find('list');
+		$alunos = $this->Matricularevisao->Aluno->find('list');
+		$cursos = $this->Matricularevisao->Curso->find('list');
+		$planoestudos = $this->Matricularevisao->Planoestudo->find('list');
 		$this->set(compact('Alunos', 't0003cursos', 't0005planoestudos'));
 	}
 
@@ -85,11 +85,11 @@ class T0012matricularevisaosController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 't0012matricularevisao'));
 			$this->redirect(array('action'=>'index'));
 		}
-		if ($this->T0012matricularevisao->delete($id)) {
+		if ($this->Matricularevisao->delete($id)) {
 			$this->Session->setFlash('Dados deletedos com sucesso ','flashok');
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'T0012matricularevisao'));
+		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'Matricularevisao'));
 		$this->redirect(array('action' => 'index'));
 	}
         function beforeRender(){

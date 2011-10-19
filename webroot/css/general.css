@@ -81,7 +81,7 @@ p {
 }
 #user_details {
 	float: right;
-	width: 260px;
+	width: 280px;
 	background: url(layout/site/user_details_bg.gif) no-repeat;
 	padding: 15px 0 0 12px;
 	height: 65px;

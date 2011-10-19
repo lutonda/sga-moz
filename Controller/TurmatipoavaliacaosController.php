@@ -27,12 +27,12 @@
  */
  
  
-class T0018turmatipoavaliacaosController extends AppController {
+class TurmatipoavaliacaosController extends AppController {
 
-	var $name = 'T0018turmatipoavaliacaos';
+	var $name = 'Turmatipoavaliacaos';
 
 	function index() {
-		$this->T0018turmatipoavaliacao->recursive = 0;
+		$this->Turmatipoavaliacao->recursive = 0;
 		$this->set('t0018turmatipoavaliacaos', $this->paginate());
 	}
 
@@ -41,20 +41,20 @@ class T0018turmatipoavaliacaosController extends AppController {
 			$this->Session->setFlash('Invalido %s', 'flasherror');
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->set('t0018turmatipoavaliacao', $this->T0018turmatipoavaliacao->read(null, $id));
+		$this->set('t0018turmatipoavaliacao', $this->Turmatipoavaliacao->read(null, $id));
                 if (empty($this->data)) {
-			$this->data = $this->T0018turmatipoavaliacao->read(null, $id);
+			$this->data = $this->Turmatipoavaliacao->read(null, $id);
 		}
 
-		$turma = $this->T0018turmatipoavaliacao->Turma->find('list');
-		$tipoavaliacao = $this->T0018turmatipoavaliacao->Tipoavaliacao->find('list');
+		$turma = $this->Turmatipoavaliacao->Turma->find('list');
+		$tipoavaliacao = $this->Turmatipoavaliacao->Tipoavaliacao->find('list');
        	$this->set(compact('t0010turma', 't0015tipoavaliacao'));
 	}
 
 	function add() {
 		if (!empty($this->data)) {
-			$this->T0018turmatipoavaliacao->create();
-			if ($this->T0018turmatipoavaliacao->save($this->data)) {
+			$this->Turmatipoavaliacao->create();
+			if ($this->Turmatipoavaliacao->save($this->data)) {
 				$this->Session->setFlash('** Dados Cadastrados com Sucesso **','flashok');
 				$this->redirect(array('action' => 'index'));
 				
@@ -62,8 +62,8 @@ class T0018turmatipoavaliacaosController extends AppController {
 				$this->Session->setFlash('Erro ao gravar dados. Por favor tente de novo Zai.','flasherror');}
 		}
 		
-		$turmas = $this->T0018turmatipoavaliacao->Turma->find('list');
-		$tipoavaliacaos = $this->T0018turmatipoavaliacao->Tipoavaliacao->find('list');
+		$turmas = $this->Turmatipoavaliacao->Turma->find('list');
+		$tipoavaliacaos = $this->Turmatipoavaliacao->Tipoavaliacao->find('list');
 		$this->set(compact('t0010turmas', 't0015tipoavaliacaos'));
 	}
 
@@ -73,17 +73,17 @@ class T0018turmatipoavaliacaosController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
-			if ($this->T0018turmatipoavaliacao->save($this->data)) {
+			if ($this->Turmatipoavaliacao->save($this->data)) {
 				$this->Session->setFlash('Dado Editados com sucesso','flashok');
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash('Erro ao editar dados. Por favor tente de novo.','flasherror');}
 		}
 		if (empty($this->data)) {
-			$this->data = $this->T0018turmatipoavaliacao->read(null, $id);
+			$this->data = $this->Turmatipoavaliacao->read(null, $id);
 		}
-		$turmas = $this->T0018turmatipoavaliacao->Turma->find('list');
-		$tipoavaliacaos = $this->T0018turmatipoavaliacao->Tipoavaliacao->find('list');
+		$turmas = $this->Turmatipoavaliacao->Turma->find('list');
+		$tipoavaliacaos = $this->Turmatipoavaliacao->Tipoavaliacao->find('list');
 		$this->set(compact('t0010turmas', 't0015tipoavaliacaos'));
 	}
 
@@ -92,11 +92,11 @@ class T0018turmatipoavaliacaosController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 't0018turmatipoavaliacao'));
 			$this->redirect(array('action'=>'index'));
 		}
-		if ($this->T0018turmatipoavaliacao->delete($id)) {
+		if ($this->Turmatipoavaliacao->delete($id)) {
 			$this->Session->setFlash('Dados deletedos com sucesso ','flashok');
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'T0018turmatipoavaliacao'));
+		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'Turmatipoavaliacao'));
 		$this->redirect(array('action' => 'index'));
 	}
         function beforeRender(){
