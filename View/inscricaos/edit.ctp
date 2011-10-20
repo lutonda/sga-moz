@@ -15,7 +15,7 @@
 	  <?php	
 		echo $this->Form->input('Aluno_id',array('disabled'=>'true','options'=>$alunos,'empty'=>'--Seleccione--','label'=>'Nome do Aluno','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false,'id'=>'alunoid'));
 		$options = array('url' => 'update_curso_aluno/','update' => 'cursoid');
-	    echo $ajax->observeField('alunoid', $options);
+	    //echo $ajax->observeField('alunoid', $options);
 		
 		echo $this->Form->input('cc',array('disabled'=>'true','value'=>$curso1,'label'=>'Curso','Size'=>'50px','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false,'id'=>'cursoid','align'=>'right'));
 		
@@ -41,7 +41,7 @@
 
 			echo $this->Form->input('notafinal',array('options'=>$notafinal ,'label'=>'Nota Final','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false,'id'=>'cursoid'));		
 
-			echo $this->Form->input('t0014epocaavaliacao_id',array('options'=>$epocaavaliacao_id ,'label'=>'Epoca da Avaliacao','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false,'id'=>'cursoid'));				
+			echo $this->Form->input('epocaavaliacao_id',array('options'=>$epocaavaliacao_id ,'label'=>'Epoca da Avaliacao','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false,'id'=>'cursoid'));				
 		
 			echo $this->Form->input('data',array('monthNames'=>array('Janeiro','Fevereiro','Marco','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'),'dateFormat'=>'DMY','label'=>'Data da Inscricao','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
 		

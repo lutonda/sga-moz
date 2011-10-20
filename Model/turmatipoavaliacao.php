@@ -34,14 +34,14 @@ class Turmatipoavaliacao extends AppModel {
 	var $belongsTo = array(
 		'Turma' => array(
 			'className' => 'Turma',
-			'foreignKey' => 't0010turma_id',
+			'foreignKey' => 'turma_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
 		'Tipoavaliacao' => array(
 			'className' => 'Tipoavaliacao',
-			'foreignKey' => 't0015tipoavaliacao_id',
+			'foreignKey' => 'tipoavaliacao_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

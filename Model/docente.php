@@ -26,4 +26,18 @@ class Docente extends AppModel {
 			'order' => ''
 		)
 	);
+	
+	
+	
+	function configuraAcl(){
+		
+		
+		
+	}
+	
+	function getByUserID($user_id){
+		//Primeiro retornamos a entidade
+		$entidade = $this->Entidade->find('first',array('conditions'=>array('user_id'=>$user_id),));
+		return $entidade['Docente'][0]['id'];
+	}
 }

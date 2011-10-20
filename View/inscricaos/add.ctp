@@ -29,9 +29,9 @@
 	
 		echo $this->Form->input('t0008aluno_id',array('options'=>$t0008alunos,'empty'=>'--Seleccione--','label'=>'Nome do Aluno','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false,'id'=>'alunoid'));
 		$options = array('url' => 'update_curso_aluno/','update' => 'cursoid');
-	    //echo $ajax->observeField('alunoid', $options);
+	    ////echo $ajax->observeField('alunoid', $options);
 		$options = array('url' => 'update_plano_aluno/','update' => 'planoid');
-	    //echo $ajax->observeField('alunoid', $options);
+	    ////echo $ajax->observeField('alunoid', $options);
 		
 		
 		
@@ -44,26 +44,26 @@
 		
 		echo $this->Form->input('t0009anolectivo_id',array('empty'=>'--seleccione--','options'=>$t0009anolectivo,'label'=>'Ano Lectivo','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false,'id'=>'anolectivoid'));
         $options = array('url' => 'update_turma_aluno/','update' => 'turma');
-        //echo $ajax->observeField('anolectivoid', $options);
+        ////echo $ajax->observeField('anolectivoid', $options);
 				
 
 		
 		echo $this->Form->input('t0010turma_id',array('empty'=>'--seleccione--','options'=>$t0010turmas,'label'=>'Turma','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false,'id'=>'turma'));
 		//$options = array('url' => 'update_ano_curricular/','update' => 'ano');
-                //echo $ajax->observeField('turma', $options);
+                ////echo $ajax->observeField('turma', $options);
                 $options = array('url' => 'update_turma_turno/','update' => 'turno');
-                //echo $ajax->observeField('turma', $options);
+                ////echo $ajax->observeField('turma', $options);
 		
 		//echo $this->Form->input('uu',array('options'=>$t0009anolectivo,'empty'=>'--Seleccione--','label'=>'Ano Curricular','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false,'id'=>'ano'));
 		
 		//echo $this->Form->input('ts',array('disabled'=>'true','value'=>$semestreCurricular1,'empty'=>'--Seleccione--','label'=>'Semestre Curricular','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
 		
-		echo $this->Form->input('tg0012turno_id',array('disabled'=>'true','value'=>$turno,'label'=>'Turno da Turma','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false,'id'=>'turno'));
+		echo $this->Form->input('turno_id',array('disabled'=>'true','value'=>$turno,'label'=>'Turno da Turma','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false,'id'=>'turno'));
 
 		echo $this->Form->input('data',array('monthNames'=>array('','Janeiro','Fevereiro','Marco','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'),'dateFormat'=>'DMY','label'=>'Data da Inscricao','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
 
              //   $options = array('url' => 'ajax_get_plano_estudos/','update' => 'turmasdiv');
-             //  echo $ajax->observeField('nomealunoid', $options);
+             //  //echo $ajax->observeField('nomealunoid', $options);
 	?> 
 	<tr><td></td><td><?php echo $this->Form->end(__('GRAVAR', true));?></td></tr>
         </table>

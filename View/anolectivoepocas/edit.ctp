@@ -41,7 +41,7 @@
 	<th class="full" colspan="2">Dados do Turno</th>
         <?php
        	echo $this->Form->input('t0009anolectivo_id',array('label'=>'Ano Lectivo','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-		echo $this->Form->input('t0014epocaavaliacao_id',array('label'=>'Epoca','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
+		echo $this->Form->input('epocaavaliacao_id',array('label'=>'Epoca','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
 		//echo $this->Form->input('limite',array('label'=>'Limite','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
         echo $this->Form->input('limite',array('monthNames'=>array('','Janeiro','Fevereiro','Marco','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'),'dateFormat'=>'DMY','label'=>'Limite','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
 		?>

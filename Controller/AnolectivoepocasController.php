@@ -33,7 +33,7 @@ class AnolectivoepocasController extends AppController {
 
 	function index() {
 		$this->T0017anolectivoepoca->recursive = 0;
-		$this->set('t0017anolectivoepocas', $this->paginate());
+		$this->set('anolectivoepocas', $this->paginate());
 	}
 
 	function view($id = null) {
@@ -55,7 +55,7 @@ class AnolectivoepocasController extends AppController {
 		}
 		$anolectivos = $this->T0017anolectivoepoca->Anolectivo->find('list');
 		$epocaavaliacaos = $this->T0017anolectivoepoca->Epocaavaliacao->find('list');
-		$this->set(compact('t0009anolectivos', 't0014epocaavaliacaos'));
+		$this->set(compact('t0009anolectivos', 'epocaavaliacaos'));
 	}
 
 	function edit($id = null) {
@@ -75,7 +75,7 @@ class AnolectivoepocasController extends AppController {
 		}
 		$anolectivos = $this->T0017anolectivoepoca->Anolectivo->find('list');
 		$epocaavaliacaos = $this->T0017anolectivoepoca->Epocaavaliacao->find('list');
-		$this->set(compact('t0009anolectivos', 't0014epocaavaliacaos'));
+		$this->set(compact('t0009anolectivos', 'epocaavaliacaos'));
 	}
 
 	function delete($id = null) {
@@ -110,7 +110,7 @@ class AnolectivoepocasController extends AppController {
 			$anolectivos = $this->T0017anolectivoepoca->Anolectivo->find('list');
 		
 			$epocaavaliacaos = $this->T0017anolectivoepoca->Epocaavaliacao->find('list');
-			$this->set(compact('t0009anolectivos', 't0014epocaavaliacaos'));
+			$this->set(compact('t0009anolectivos', 'epocaavaliacaos'));
         }
 		
 		function index_tempo_limite(){

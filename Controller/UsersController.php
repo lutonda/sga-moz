@@ -117,14 +117,18 @@ class UsersController extends AppController {
         }
 */
 	function login() {
-    if ($this->request->is('post')) {
-        if ($this->Auth->login()) {
-            $this->redirect($this->Auth->redirect());
-        } else {
-            $this->Session->setFlash('Your username or password was incorrect.');
-        }
-    }
-}
+	    if ($this->request->is('post')) {
+	        if ($this->Auth->login()) {
+	            $this->redirect($this->Auth->redirect());
+	        } else {
+	            $this->Session->setFlash('Your username or password was incorrect.');
+	        }
+	    }
+	}
+	
+	function after_login(){
+		$this->redirect(array('controller'=>'pages','action'=>'homepage'));
+	}
 
         
         function logout(){

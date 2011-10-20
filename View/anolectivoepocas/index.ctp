@@ -50,7 +50,7 @@ $grupo = $this->Session->read('Auth.User.group_id');
 	</tr>
 	<?php
 	$i = 0;
-	foreach ($t0017anolectivoepocas as $t0017anolectivoepoca):
+	foreach ($anolectivoepocas as $t0017anolectivoepoca):
 		$class = null;
 		if ($i++ % 2 == 0) {
 			$class = ' class="altrow"';
@@ -62,7 +62,7 @@ $grupo = $this->Session->read('Auth.User.group_id');
 			<?php echo $this->Html->link($t0017anolectivoepoca['Anolectivo']['codigo'], array('controller' => 't0009anolectivos', 'action' => 'view', $t0017anolectivoepoca['Anolectivo']['codigo'])); ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link($t0017anolectivoepoca['Epocaavaliacao']['name'], array('controller' => 't0014epocaavaliacaos', 'action' => 'view', $t0017anolectivoepoca['Epocaavaliacao']['id'])); ?>
+			<?php echo $this->Html->link($t0017anolectivoepoca['Epocaavaliacao']['name'], array('controller' => 'epocaavaliacaos', 'action' => 'view', $t0017anolectivoepoca['Epocaavaliacao']['id'])); ?>
 		</td>
 		<td><?php echo $t0017anolectivoepoca['T0017anolectivoepoca']['limite']; ?>&nbsp;</td>
 		

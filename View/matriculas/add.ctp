@@ -50,7 +50,7 @@
 		echo $this->Form->input('tg0021estadomatricula_id',array('options'=>array('1'=>'Normal','2'=>'Anulada','3'=>'Suspensa','4'=>'Concluida'),'label'=>'Estado da Matricula','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
 	    
         $options = array('url' => 'ajax_update_plano_estudos/','update' => 'planoestudoid','indicator'=>'ajax-loader');
-        echo $ajax->observeField('cursoid', $options);
+        //echo $ajax->observeField('cursoid', $options);
 		  ?>
         </tr>
       

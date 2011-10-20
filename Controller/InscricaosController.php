@@ -113,7 +113,7 @@ class InscricaosController extends AppController {
 		$anoLectivo1 = $anoLectivo[0]['tal']['codigo'];
 
 		
-		$this->set(compact('Alunos', 't0010turmas', 't0014epocaavaliacaos', 'tg0020estadoinscricao','funcionarios','curso1','docente1','assistente1', 'plano1','turma1', 'turno1','anoCurricular1','semestreCurricular1','anoLectivo1'));
+		$this->set(compact('Alunos', 't0010turmas', 'epocaavaliacaos', 'tg0020estadoinscricao','funcionarios','curso1','docente1','assistente1', 'plano1','turma1', 'turno1','anoCurricular1','semestreCurricular1','anoLectivo1'));
 	}
 
 	function add() {
@@ -189,7 +189,7 @@ class InscricaosController extends AppController {
 		$turmas = $this->Inscricao->Turma->find('list',array('fields'=>array('Turma.id','Turma.name')));
 		
 		
-        $this->set(compact('Alunos', 't0010turmas', '$disciplinas','t0014epocaavaliacaos'));
+        $this->set(compact('Alunos', 't0010turmas', '$disciplinas','epocaavaliacaos'));
     }
 	
 	
@@ -255,7 +255,7 @@ class InscricaosController extends AppController {
 		$anoLectivo1 = $anoLectivo[0]['tal']['codigo'];
 
 		
-		$this->set(compact('Alunos', 't0010turmas', 't0014epocaavaliacaos', 'tg0020estadoinscricao','funcionarios','curso1','docente1','assistente1', 'plano1','turma1', 'turno1','anoCurricular1','semestreCurricular1','anoLectivo1'));
+		$this->set(compact('Alunos', 't0010turmas', 'epocaavaliacaos', 'tg0020estadoinscricao','funcionarios','curso1','docente1','assistente1', 'plano1','turma1', 'turno1','anoCurricular1','semestreCurricular1','anoLectivo1'));
 	}
 
 	/**
@@ -399,10 +399,10 @@ class InscricaosController extends AppController {
                         $turma = new Turma;
 
                        //var_dump($this->data['Inscricao']);
-			//$tg0012turno_id = $turma->find('list',array('conditions'=>array('id'=>$this->data['Inscricao']['t0010turma_id'])));;
-                        $tg0012turno_id = $turma->getTurnoTurma($this->data['Inscricao']['t0010turma_id']);
+			//$turno_id = $turma->find('list',array('conditions'=>array('id'=>$this->data['Inscricao']['t0010turma_id'])));;
+                        $turno_id = $turma->getTurnoTurma($this->data['Inscricao']['t0010turma_id']);
 
-                        $turno=$tg0012turno_id[0]['ttu']['name'];
+                        $turno=$turno_id[0]['ttu']['name'];
                         //var_dump($turno);
                         $this->set('turno',$turno);
 			$this->layout = 'ajax';
@@ -442,11 +442,11 @@ class InscricaosController extends AppController {
                $lista[] =$m['Turma']['name'];
 			   $lista[] =$m["Turma"]["anocurricular"].' / '.$m["Turma"]["semestrecurricular"];
 			   
-			   	if($m['Turma']['tg0012turno_id'] == 1)
+			   	if($m['Turma']['turno_id'] == 1)
 				{ $turno = "Diurno";}
-				if($m['Turma']['tg0012turno_id'] == 2)
+				if($m['Turma']['turno_id'] == 2)
 				{ $turno = "Pos-Laboral";}
-				if($m['Turma']['tg0012turno_id'] == null)
+				if($m['Turma']['turno_id'] == null)
 				{ $turno = "Sem turno";}
 			   $lista[] =$turno;
 			   

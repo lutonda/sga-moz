@@ -29,7 +29,7 @@
 			echo $this->Form->input('t0009anolectivo_id',array('empty'=>'--seleccione--','label'=>'Ano Lectivo','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false,'id'=>'anolectivoid'));
             echo $this->Form->input('t0003curso_id',array('empty'=>'--seleccione--','label'=>'Curso','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false,'id'=>'cursoid','align'=>'right'));
 			$options = array('url' => 'update_plano_estudos/','update' => 'planoestudoid');
-			echo $ajax->observeField('cursoid', $options);
+			//echo $ajax->observeField('cursoid', $options);
 			
 		?>
         <tr><td></td><td><?php echo $this->Form->end(__('FECHO DA TURMA', true));?></td></tr>

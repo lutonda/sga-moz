@@ -34,7 +34,7 @@ class EpocaavaliacaosController extends AppController {
 
 	function index() {
 		$this->Epocaavaliacao->recursive = 0;
-		$this->set('t0014epocaavaliacaos', $this->paginate());
+		$this->set('epocaavaliacaos', $this->paginate());
 	}
 
 	function view($id = null) 
@@ -44,7 +44,7 @@ class EpocaavaliacaosController extends AppController {
 			$this->Session->setFlash('Invalido %s', 'flasherror');
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->set('t0014epocaavaliacao', $this->Epocaavaliacao->read(null, $id));
+		$this->set('epocaavaliacao', $this->Epocaavaliacao->read(null, $id));
                 if (empty($this->data)) 
 				{
 			$this->data = $this->Epocaavaliacao->read(null, $id);
@@ -92,7 +92,7 @@ class EpocaavaliacaosController extends AppController {
 	        App::Import('Model','Logmv');
 	        $logmv = new Logmv;
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 't0014epocaavaliacao'));
+			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'epocaavaliacao'));
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Epocaavaliacao->delete($id)) {

@@ -23,7 +23,7 @@
 		//echo $this->Form->input('mediaturma');
 		//echo $this->Form->input('estado');
 		//echo $this->Form->input('numreprovados');
-		//echo $this->Form->input('tg0016escola_id');
+		//echo $this->Form->input('escola_id');
 	?>
 
 <tr><td></td><td colspan="2"><?php echo $this->Form->end(__('Gravar', true));?></td></tr>

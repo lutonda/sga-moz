@@ -72,23 +72,24 @@ class DisciplinasController extends AppController {
 		$this->set(compact('grupodisciplinars'));
 	}
 
-	function edit($id = null) 
-	{
-	  App::Import('Model','Logmv');
-	  $logmv = new Logmv;
+	function edit($id = null){
+	  $this->Disciplina->id = $id;
 		
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash('Invalido %s', 'flasherror');
 			$this->redirect(array('action' => 'index'));
 		}
-		if (!empty($this->data)) {
-			if ($this->Disciplina->save($this->data)) {
+		if ($this->request->is('post') || $this->request->is('put')) {
+			
+			//die(var_dump($this->request->data));
+			if ($this->Disciplina->save($this->request->data)) {
 			////$logmv->logUpdate(4,$this->Session->read('Auth.User.id'),$id,$this->data["Disciplina"]["name"]);
 				
 				$this->Session->setFlash('Dados modificados com sucesso','flashok');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('Erro ao editar dados. Por favor tente de novo.','flasherror');}
+				$this->Session->setFlash('Erro ao editar dados. Por favor tente de novo.','flasherror');
+			}
 		}
 		if (empty($this->data)) {
 			$this->data = $this->Disciplina->read(null, $id);

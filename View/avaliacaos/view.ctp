@@ -39,7 +39,7 @@
 <div class="table">
 
 
-<div class="t0016avaliacaos view">
+<div class="avaliacaos view">
 <h2><?php  __('Avaliacao');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Id'); ?></dt>
@@ -49,7 +49,7 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Tipoavaliacao'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($avaliacao['Tipoavaliacao']['name'], array('controller' => 't0015tipoavaliacaos', 'action' => 'view', $avaliacao['Tipoavaliacao']['id'])); ?>
+			<?php echo $this->Html->link($avaliacao['Tipoavaliacao']['name'], array('controller' => 'tipoavaliacaos', 'action' => 'view', $avaliacao['Tipoavaliacao']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Inscricao'); ?></dt>
@@ -76,8 +76,8 @@
 		<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('Avaliacao', true)), array('action' => 'delete', $avaliacao['Avaliacao']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $avaliacao['Avaliacao']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Avaliacaos', true)), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Avaliacao', true)), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Tipoavaliacaos', true)), array('controller' => 't0015tipoavaliacaos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Tipoavaliacao', true)), array('controller' => 't0015tipoavaliacaos', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Tipoavaliacaos', true)), array('controller' => 'tipoavaliacaos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Tipoavaliacao', true)), array('controller' => 'tipoavaliacaos', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Inscricaos', true)), array('controller' => 't0013inscricaos', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Inscricao', true)), array('controller' => 't0013inscricaos', 'action' => 'add')); ?> </li>
 	</ul>

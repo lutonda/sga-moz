@@ -33,7 +33,7 @@
 			           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php
 		   echo $this->Form->input('t0009anolectivos',array('options'=>Anolectivos,'type'=>'select','div'=>false,'label'=>false, 'id'=>'anolectivoid'));
 		$options = array('url' => 'update_turma/','update' => 'turma');
-        echo $ajax->observeField('anolectivoid', $options);
+        //echo $ajax->observeField('anolectivoid', $options);
 		
 		/*Caso seja necessario colocar "'options'=>$turmas"
 		   */
@@ -57,7 +57,7 @@
 		   echo $this->Form->input('t0009anolectivos2',array('options'=>Anolectivos,'type'=>'select','div'=>false,'label'=>false, 'id'=>'anolectivoid1'));
 				
 		$options = array('url' => 'update_turma1/','update' => 'turma1');
-        echo $ajax->observeField('anolectivoid1', $options);
+        //echo $ajax->observeField('anolectivoid1', $options);
 		
 		/*Caso seja necessario colocar "'options'=>$turmas1"
 		*/

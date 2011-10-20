@@ -37,10 +37,10 @@ if ($grupo==3 || $grupo==4) {
 
 <li><?php 
       if($grupo == 1 || $grupo == 2 || $grupo == 4) { 
-        echo $this->Html->link(sprintf('AVALIAÇÕES'), array('controller'=>'t0016avaliacaos','action' => 'registo_de_notas'),array('id'=>'avaliacao'));
+        echo $this->Html->link(sprintf('AVALIAÇÕES'), array('controller'=>'avaliacaos','action' => 'registo_de_notas'),array('id'=>'avaliacao'));
       }
       else
-      if($grupo == 3) { echo $this->Html->link(sprintf('NOTAS DAS AVALIAÇÕES'), array('controller'=>'t0016avaliacaos','action' => 'index'),array('id'=>'avaliacao'));}
+      if($grupo == 3) { echo $this->Html->link(sprintf('NOTAS DAS AVALIAÇÕES'), array('controller'=>'avaliacaos','action' => 'index'),array('id'=>'avaliacao'));}
 
 ?></li>
 

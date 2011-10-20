@@ -36,8 +36,8 @@
 [01-Apr-2011 11:34:19] PHP Fatal error:  Call to undefined method AlunosController::uploadFiles() in /home/zonalogi/public_html/sga/app/controllers/Alunos_controller.php on line 43
 [01-Apr-2011 13:52:26] PHP Fatal error:  Class 'Listagen' not found in /home/zonalogi/public_html/sga/app/controllers/listagens_controller.php on line 240
 [01-Apr-2011 14:22:12] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/zonalogi/public_html/sga/app/controllers/t0003cursos_controller.php on line 87
-[02-Apr-2011 11:53:12] PHP Parse error:  syntax error, unexpected $end in /home/zonalogi/public_html/sga/app/controllers/t0016avaliacaos_controller.php on line 82
-[02-Apr-2011 12:15:07] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/zonalogi/public_html/sga/app/controllers/t0016avaliacaos_controller.php on line 25
+[02-Apr-2011 11:53:12] PHP Parse error:  syntax error, unexpected $end in /home/zonalogi/public_html/sga/app/controllers/avaliacaos_controller.php on line 82
+[02-Apr-2011 12:15:07] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/zonalogi/public_html/sga/app/controllers/avaliacaos_controller.php on line 25
 [02-Apr-2011 13:20:27] PHP Parse error:  syntax error, unexpected $end in /home/zonalogi/public_html/sga/app/controllers/listagens_controller.php on line 543
 [02-Apr-2011 13:33:15] PHP Parse error:  syntax error, unexpected $end in /home/zonalogi/public_html/sga/app/controllers/listagens_controller.php on line 358
 [02-Apr-2011 13:33:53] PHP Parse error:  syntax error, unexpected $end in /home/zonalogi/public_html/sga/app/controllers/listagens_controller.php on line 242

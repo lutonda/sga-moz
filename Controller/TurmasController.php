@@ -30,9 +30,19 @@
 class TurmasController extends AppController {
 
 	var $name = 'Turmas';
-
+	
+	
 	function index() {
-		$this->Turma->recursive = 0;	
+		
+		$this->Turma->recursive = 2;
+		$grupo = $this->Session->read('Auth.User.group_id');
+		
+		$conditions = array();
+		if($grupo==4){
+			$docente_id = $this->Turma->Docente->getByUserID($this->Session->read('Auth.User.id'));
+			$conditions['Turma.docente_id']=$docente_id;
+		}	
+		$this->paginate = array('conditions'=>$conditions);
 		$this->set('turmas', $this->paginate());
 	}
 
@@ -46,16 +56,18 @@ class TurmasController extends AppController {
 		
 		if (empty($this->data)) {
 			$this->data = $this->Turma->read(null, $id);
-			//$logmv->logview(8,$this->Session->read('Auth.User.id'),$id,$this->data["Disciplina"]["name"]);
+			
 		}
-		$alunosInscritos= $this->Turma->getAlunosInscritos($this->data['Turma']['id']);	
-		$alunosAprovados= $this->Turma->getAlunosAprovados($this->data['Turma']['id']);
-		$alunosReprovados= $this->Turma->getAlunosReprovados($this->data['Turma']['id']);
-		$somaNotaFinal= $this->Turma->getSomaNotaFinal($this->data['Turma']['id']);
-	
-
-		$mediaTurma= (int)$somaNotaFinal[0][0]['sum(notafinal)']/(int)$alunosInscritos[0][0]['count(*)'];
-				
+		
+		$this->loadModel('Planoestudoano');
+		$planoestudoanos = $this->Planoestudoano->find('first',array('conditions'=>array('planoestudo_id'=>$this->data['Planoestudo']['id'],'disciplina_id'=>$this->data['Turma']['disciplina_id'])));
+		
+		
+		$anocurricular = $planoestudoanos['Planoestudoano']['ano'];
+		$semestrecurricular = $planoestudoanos['Planoestudoano']['semestre'];
+		
+		$this->loadModel('Turmatipoavaliacao');
+		$turmatipoavaliacaos = $this->Turmatipoavaliacao->find('all',array('conditions'=>array('turma_id'=>$this->data['Turma']['id'])));	
         $estados=array('1'=>'Activa','2'=>'Cancelada','3'=>'Fechada');
 		$anosemestrecurr = array('1'=>'1','2'=>'2','3'=>'3','4'=>'4');
         $anolectivos = $this->Turma->Anolectivo->find('list');
@@ -63,10 +75,10 @@ class TurmasController extends AppController {
 		$planoestudos = $this->Turma->Planoestudo->find('list');
 		$turnos = $this->Turma->Turno->find('list');
 		$disciplinas = $this->Turma->Disciplina->find('list');
-		$funcionarios = $this->Turma->Funcionario->find('list');
+		$docentes = $this->Turma->Docente->find('list');
         $disciplinas = array();
-        $this->set('disciplinas',$disciplinas);
-		$this->set(compact('t0009anolectivos','estados','alunosInscritos','somaNotaFinal','alunosReprovados','alunosAprovados','mediaTurma','anosemestrecurr', 't0003cursos', 't0005planoestudos', 'tg0012turnos', 't0004disciplinas', 'funcionarios'));
+        $this->set('turma',$this->data);
+		$this->set(compact('turmatipoavaliacaos','anolectivos','estados','mediaTurma','anosemestrecurr', 'cursos', 'planoestudos', 'turnos', 'disciplinas', 'docentes','anocurricular','semestrecurricular'));
 		}
 
 	/**
@@ -103,7 +115,7 @@ class TurmasController extends AppController {
 		$funcionarios = $this->Turma->Funcionario->find('list');
         $disciplinas = array();
         $this->set('disciplinas',$disciplinas);
-		$this->set(compact('t0009anolectivos','estados','anosemestrecurr', 't0003cursos', 't0005planoestudos', 'tg0012turnos', 't0004disciplinas', 'funcionarios'));
+		$this->set(compact('anolectivos','estados','anosemestrecurr', 't0003cursos', 't0005planoestudos', 'turnos', 't0004disciplinas', 'funcionarios'));
 	}
 
 	function gerar_turmas(){
@@ -150,7 +162,7 @@ class TurmasController extends AppController {
                     $this->data[$disc_id][$disc_id]['Turma']['t0009anolectivo_id']=$turma_base[0]['Turma']['t0009anolectivo_id'];
                     $this->data[$disc_id][$disc_id]['Turma']['t0003curso_id']=$turma_base[0]['Turma']['t0003curso_id'];
                     $this->data[$disc_id][$disc_id]['Turma']['t0005planoestudo_id']=$turma_base[0]['Turma']['t0005planoestudo_id'];
-                    $this->data[$disc_id][$disc_id]['Turma']['tg0012turno_id']=$turma_base[0]['Turma']['tg0012turno_id'];
+                    $this->data[$disc_id][$disc_id]['Turma']['turno_id']=$turma_base[0]['Turma']['turno_id'];
                     $this->data[$disc_id][$disc_id]['Turma']['funcionario_id']=$this->data[$disc_id][$disc_id]['Turma']['docente'];
                     $this->data[$disc_id][$disc_id]['Turma']['semestrecurricular']=$turma_base[0]['Turma']['semestrecurricular'];
                     $this->data[$disc_id][$disc_id]['Turma']['anocurricular']=$turma_base[0]['Turma']['anocurricular'];
@@ -201,43 +213,55 @@ class TurmasController extends AppController {
     }
 
 	function edit($id = null) {
-		App::Import('Model','Logmv');
-	    $logmv = new Logmv;
+		$this->Turma->id = $id;
+		if(!$this->Turma->exists()){
+			throw new NotFoundException(__('Turma Invalida'));
+		}
+
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash('Invalido %s', 'flasherror');
 			$this->redirect(array('action' => 'index'));
 		}
-		if (!empty($this->data)) {
-			if ($this->Turma->save($this->data)) {
+		
+		if ($this->request->is('post') || $this->request->is('put')) {
+			
+			if ($this->Turma->save($this->request->data)) {
 			    
 				$this->Session->setFlash('** Dados Editados com Sucesso **','flashok');
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash('Erro ao editar dados. Por favor tente de novo.','flasherror');}
 		}
+
+
 		if (empty($this->data)) {
 			$this->data = $this->Turma->read(null, $id);
 			//$logmv->logUpdate(8,$this->Session->read('Auth.User.id'),$id,$this->data["Turma"]["name"]);
 		}
-		$alunosInscritos= $this->Turma->getAlunosInscritos($this->data['Turma']['id']);	
-		$alunosAprovados= $this->Turma->getAlunosAprovados($this->data['Turma']['id']);
-		$alunosReprovados= $this->Turma->getAlunosReprovados($this->data['Turma']['id']);
-		$somaNotaFinal= $this->Turma->getSomaNotaFinal($this->data['Turma']['id']);
+		
 	
 
-		$mediaTurma= (int)$somaNotaFinal[0][0]['sum(notafinal)']/(int)$alunosInscritos[0][0]['count(*)'];
+		
+		
+		$this->loadModel('Planoestudoano');
+		$planoestudoanos = $this->Planoestudoano->find('first',array('conditions'=>array('planoestudo_id'=>$this->data['Planoestudo']['id'],'disciplina_id'=>$this->data['Turma']['disciplina_id'])));
+		var_dump($planoestudoanos);
+		
+		$anocurricular = $planoestudoanos['Planoestudoano']['ano'];
+		$semestrecurricular = $planoestudoanos['Planoestudoano']['semestre'];
 				
         $estados=array('1'=>'Activa','2'=>'Cancelada','3'=>'Fechada');
-		$anosemestrecurr = array('1'=>'1','2'=>'2','3'=>'3','4'=>'4');
         $anolectivos = $this->Turma->Anolectivo->find('list');
 		$cursos = $this->Turma->Curso->find('list');
 		$planoestudos = $this->Turma->Planoestudo->find('list');
 		$turnos = $this->Turma->Turno->find('list');
 		$disciplinas = $this->Turma->Disciplina->find('list');
-		$funcionarios = $this->Turma->Funcionario->find('list');
+		$docentes = $this->Turma->Docente->find('list');
+		$assistentes = $this->Turma->Docente->find('list');
         $disciplinas = array();
         $this->set('disciplinas',$disciplinas);
-		$this->set(compact('t0009anolectivos','estados','alunosInscritos','somaNotaFinal','alunosReprovados','alunosAprovados','mediaTurma','anosemestrecurr', 't0003cursos', 't0005planoestudos', 'tg0012turnos', 't0004disciplinas', 'funcionarios'));
+		$this->set(compact('anolectivos','estados','semestrecurricular','anocurricular', 'cursos', 'planoestudos', 'turnos', 'disciplinas', 'docentes','assistentes'));
+		
 	}
 
 	function delete($id = null) {

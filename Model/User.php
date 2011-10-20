@@ -119,5 +119,12 @@ class User extends AppModel {
 			//var_dump($query);
 			return $resultado;
         }
+		
+		function beforeSave(){
+			$this->data['User']['password'] = AuthComponent::password($this->data['User']['password']);
+   
+			return true;
+			
+		}
 }
 ?>

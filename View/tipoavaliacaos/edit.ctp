@@ -18,7 +18,7 @@
          <tr>
             <?php
 		echo $this->Form->input('name',array('label'=>'Nome','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false,'size'=>'45'));
-                echo $this->Form->input('t0014epocaavaliacao_id',array('label'=>'Epoca de Avaliacao','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
+                echo $this->Form->input('epocaavaliacao_id',array('label'=>'Epoca de Avaliacao','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
 
 	     ?>
 	</tr>

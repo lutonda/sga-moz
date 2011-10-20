@@ -37,7 +37,7 @@ $grupo = $this->Session->read('Auth.User.group_id');
 		</td>
 	-->
 		<td>
-		<?php echo $this->Html->link($t0018turmatipoavaliacao['Tipoavaliacao']['name'], array('controller' => 't0015tipoavaliacaos', 'action' => 'view', $t0018turmatipoavaliacao['Tipoavaliacao']['id'])); ?>
+		<?php echo $this->Html->link($t0018turmatipoavaliacao['Tipoavaliacao']['name'], array('controller' => 'tipoavaliacaos', 'action' => 'view', $t0018turmatipoavaliacao['Tipoavaliacao']['id'])); ?>
 		</td>
 		<td><?php echo $t0018turmatipoavaliacao['T0018turmatipoavaliacao']['data']; ?>&nbsp;</td>
 		<td><?php echo $t0018turmatipoavaliacao['T0018turmatipoavaliacao']['scanpauta']; ?>&nbsp;</td>

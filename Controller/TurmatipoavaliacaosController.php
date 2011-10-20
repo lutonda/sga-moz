@@ -33,7 +33,7 @@ class TurmatipoavaliacaosController extends AppController {
 
 	function index() {
 		$this->Turmatipoavaliacao->recursive = 0;
-		$this->set('t0018turmatipoavaliacaos', $this->paginate());
+		$this->set('turmatipoavaliacaos', $this->paginate());
 	}
 
 	function view($id = null) {
@@ -51,20 +51,25 @@ class TurmatipoavaliacaosController extends AppController {
        	$this->set(compact('t0010turma', 't0015tipoavaliacao'));
 	}
 
-	function add() {
+	function add($turma_id) {
 		if (!empty($this->data)) {
+			$tta = $this->data;
+			$tta['Turmatipoavaliacao']['turma_id']=$turma_id;
+			
 			$this->Turmatipoavaliacao->create();
-			if ($this->Turmatipoavaliacao->save($this->data)) {
-				$this->Session->setFlash('** Dados Cadastrados com Sucesso **','flashok');
-				$this->redirect(array('action' => 'index'));
+			if ($this->Turmatipoavaliacao->save($tta)) {
+				$this->Session->setFlash(__('Avaliacao Adicionada com sucesso'),'flashok');
+				$this->redirect(array('controller'=>'turmas','action' => 'view',$turma_id));
 				
 			} else {
 				$this->Session->setFlash('Erro ao gravar dados. Por favor tente de novo Zai.','flasherror');}
 		}
-		
+
+	
+		var_dump($turma_id);
 		$turmas = $this->Turmatipoavaliacao->Turma->find('list');
 		$tipoavaliacaos = $this->Turmatipoavaliacao->Tipoavaliacao->find('list');
-		$this->set(compact('t0010turmas', 't0015tipoavaliacaos'));
+		$this->set(compact('t0010turmas', 'tipoavaliacaos'));
 	}
 
 	function edit($id = null) {
@@ -84,7 +89,7 @@ class TurmatipoavaliacaosController extends AppController {
 		}
 		$turmas = $this->Turmatipoavaliacao->Turma->find('list');
 		$tipoavaliacaos = $this->Turmatipoavaliacao->Tipoavaliacao->find('list');
-		$this->set(compact('t0010turmas', 't0015tipoavaliacaos'));
+		$this->set(compact('t0010turmas', 'tipoavaliacaos'));
 	}
 
 	function delete($id = null) {

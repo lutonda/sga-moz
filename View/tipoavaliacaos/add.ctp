@@ -1,26 +1,80 @@
-<?php //include('menu.ctp'); ?>
-<div class="projectos form" id="center-column">
-      <div class="top-bar">
-        <?php echo $this->Html->link(sprintf(__('Lista de Tipo de Avaliacoes', true)), array('action' => 'index'),array('class'=>'button')); ?>
-	<h1><?php echo __('Tipo de  Avaliacao - Adicionar');?></h1>
-        <div class="breadcrumbs"><?php echo $this->Html->getCrumbs(' > ','Home'); ?></div>
-    </div>
-    <div class="table">
+<?php
+/**
+ * OpenSGA - Sistema de Gestão Académica
+ *   Copyright (C) 2010-2011  INFOmoz (Informática-Moçambique)
+ * 
+ * Este programa é um software livre: Você pode redistribuir e/ou modificar
+ * todo ou parte deste programa, desde que siga os termos da licença por nele
+ * estabelecidos. Grande parte do código deste programa está sob a licença 
+ * GNU Affero General Public License publicada pela Free Software Foundation.
+ * A versão original desta licença está disponível na pasta raiz deste software.
+ * 
+ * Este software é distribuido sob a perspectiva de que possa ser útil para 
+ * satisfazer as necessidades dos seus utilizadores, mas SEM NENHUMA GARANTIA. Veja
+ * os termos da licença GNU Affero General Public License para mais detalhes
+ * 
+ * As redistribuições deste software, mesmo quando o código-fonte for modificado significativamente,
+ * devem manter está informação legal, assim como a licença original do software.
+ * 
+ * @copyright     Copyright 2010-2011, INFOmoz (Informática-Moçambique) (http://infomoz.net)
+ * @link          http://infomoz.net/opensga CakePHP(tm) Project
+ * @author		  Elisio Leonardo (http://infomoz.net/elisio-leonardo)
+ * @package       opensga
+ * @subpackage    opensga.core.controller
+ * @since         OpenSGA v 0.10.0.0
+ * @license       GNU Affero General Public License
+ * 
+ */
+ ?>
+ 
+ <div  class="box box-100">
+	<div class="boxin">
+		<div class="header">
+			<h3><?php echo __('Adicionar Novo Tipo de Avaliação')?></h3>
+			<a href="#" class="button"><?php echo __('Lista de Tipos de Avaliação')?>&nbsp;»</a>
+		</div>
+		<?php echo $this->Form->create('Tipoavaliacao',array('class'=>'fields'));?>
+		<fieldset>
+			<legend><?php echo __('Detalhes do Curso')?></legend>
+			<table>
+				<tr>
+				<td width="50%">
+					<table>
+						<tr>
+							<td>
+								<label>
+									Nome da Avaliação: 
+									<span class="hotspot" onmouseover="tooltip.show('Nome do Curso a Adicionar');" onmouseout="tooltip.hide();">?</span
+								</label>
+								<span class="input_wrapper blank">
+									<?php echo $this->Form->input('name',array('label'=>false,'div'=>false,'class'=>'txt','size'=>45));?>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label>Época de Avaliação:</label>
+								<span class="input_wrapper blank">
+									<?php  echo $this->Form->input('epocaavaliacao_id',array('label'=>false,'div'=>false));?>
+								<span class="input_wrapper blank">
+							</td>
+						</tr>														
+					</table>
+					</td>
+					<td width="50%">
+					<table>
+						<tr>
+							<td>
 
-
-<?php echo $this->Form->create('Tipoavaliacao');?>
+							</td>
+						</tr>
+					</table>						
+					</td>
+				</tr>
+			</table>	
+		</fieldset>
         <table class="listingform" cellpadding="0" cellspacing="0">
-         <tr>
-            <th class="full" colspan="2">Carregamento de Novo Tipo de Avaliacao</th>
-         </tr>
-         <tr>
-            <?php
-		echo $this->Form->input('name',array('label'=>'Nome','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-        echo $this->Form->input('t0014epocaavaliacao_id',array('label'=>'Epoca de Avaliacao','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false));
-         ?>
-        </tr>
-      
-    <tr><td></td><td><?php echo $this->Form->end(__('Carregar', true));?></td></tr>
+    <tr><td></td><td><?php echo $this->Form->end(__('GRAVAR', true),array('class'=>'button'));?></td></tr>
         </table>
-</div>
+	</div>
 </div>

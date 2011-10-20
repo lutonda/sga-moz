@@ -64,7 +64,7 @@ $username = $this->Session->read('Auth.User.username');
 			<td><?php echo $codigo; ?>&nbsp;</td>
 			<td><?php echo $name; ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($avaliacao['Tipoavaliacao']['name'], array('controller' => 't0015tipoavaliacaos', 'action' => 'view', $avaliacao['Tipoavaliacao']['id'])); ?>
+			<?php echo $this->Html->link($avaliacao['Tipoavaliacao']['name'], array('controller' => 'tipoavaliacaos', 'action' => 'view', $avaliacao['Tipoavaliacao']['id'])); ?>
 		</td>
 
 		<td><?php echo $avaliacao['Avaliacao']['nota']; ?>&nbsp;</td>

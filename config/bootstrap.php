@@ -49,4 +49,5 @@
  *
  */
 setlocale (LC_ALL, 'ptb');
+CakePlugin::loadAll();
 ?>

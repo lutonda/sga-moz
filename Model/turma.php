@@ -84,13 +84,20 @@ class Turma extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
-		'funcionario' => array(
-			'className' => 'funcionario',
-			'foreignKey' => 'funcionario_id',
+		'Assistente' => array(
+			'className' => 'Docente',
+			'foreignKey' => 'assistente_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
+		'Docente' => array(
+			'className' => 'Docente',
+			'foreignKey' => 'docente_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),		
 		'Escola' => array(
 			'className' => 'Escola',
 			'foreignKey' => 'escola_id',
@@ -290,7 +297,7 @@ class Turma extends AppModel {
 		
 		// Devolve o turno da Turma
 		function getTurno($turma_id){
-            $query = "select ttu.name from t0010turmas tt, t0013inscricaos ti, tg0012turnos ttu where ti.t0010turma_id = tt.id and tt.tg0012turno_id = ttu.id and ti.t0010turma_id = {$turma_id}";
+            $query = "select ttu.name from t0010turmas tt, t0013inscricaos ti, tg0012turnos ttu where ti.t0010turma_id = tt.id and tt.turno_id = ttu.id and ti.t0010turma_id = {$turma_id}";
 			//var_dump($query);
             $resultado = $this->query($query);
 			return $resultado;				
@@ -358,7 +365,7 @@ class Turma extends AppModel {
 
         		// Devolve o turno da Turma
 	function getTurnoTurma($turma_id){
-            $query = "select ttu.name from t0010turmas tt, tg0012turnos ttu where  tt.tg0012turno_id = ttu.id and tt.id = {$turma_id}";
+            $query = "select ttu.name from t0010turmas tt, tg0012turnos ttu where  tt.turno_id = ttu.id and tt.id = {$turma_id}";
             
             $resultado = $this->query($query);
             //var_dump($resultado);

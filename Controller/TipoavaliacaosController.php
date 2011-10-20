@@ -33,7 +33,7 @@ class TipoavaliacaosController extends AppController {
 
 	function index() {
 		$this->Tipoavaliacao->recursive = 0;
-		$this->set('t0015tipoavaliacaos', $this->paginate());
+		$this->set('tipoavaliacaos', $this->paginate());
 	}
 
 	function view($id = null) {
@@ -49,7 +49,7 @@ class TipoavaliacaosController extends AppController {
 			//$logmv->logview(13,$this->Session->read('Auth.User.id'),$id,$this->data["Tipoavaliacao"]["name"]);
 		
                         $epocaavaliacaos = $this->Tipoavaliacao->Epocaavaliacao->find('list');
-		$this->set(compact('t0014epocaavaliacaos'));
+		$this->set(compact('epocaavaliacaos'));
 		}
                 
 	}
@@ -69,7 +69,7 @@ class TipoavaliacaosController extends AppController {
                                 }
 		}
         $epocaavaliacaos = $this->Tipoavaliacao->Epocaavaliacao->find('list');
-		$this->set(compact('t0014epocaavaliacaos'));
+		$this->set(compact('epocaavaliacaos'));
 	}
 
 	function edit($id = null) {
@@ -91,7 +91,7 @@ class TipoavaliacaosController extends AppController {
 			$this->data = $this->Tipoavaliacao->read(null, $id);
 		}
                 $epocaavaliacaos = $this->Tipoavaliacao->Epocaavaliacao->find('list');
-		$this->set(compact('t0014epocaavaliacaos'));
+		$this->set(compact('epocaavaliacaos'));
 	}
 
 	function delete($id = null) {

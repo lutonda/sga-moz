@@ -117,7 +117,7 @@
 <?php
     if($grupo == 1 || $grupo == 2) {echo $this->Html->link(sprintf('<span><span>'.__('ADMINISTRAÇÃO',true).'</span></span>'), array('controller'=>'funcionarios','action' => 'index'),array('id'=>'administracao','escape'=>false));}
     else
-    if($grupo == 4) {echo $this->Html->link(sprintf('<span><span>'.__('CONSULTAR FICHA',true).'</span></span>'), array('controller'=>'funcionarios','action' => 'view',$idFunc),array('id'=>'administracao','escape'=>false));}
+    if($grupo == 4) {echo $this->Html->link(sprintf('<span><span>'.__('CONSULTAR FICHA',true).'</span></span>'), array('controller'=>'funcionarios','action' => 'view',$userid),array('id'=>'administracao','escape'=>false));}
 ?></li>
 
 

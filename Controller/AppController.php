@@ -45,7 +45,7 @@ class AppController extends Controller {
    
    var $_Filter = array();
    //var $components = array( 'Acl','Auth', 'Session','RequestHandler','Filter','DebugKit.Toolbar');
-   var $components = array( 'Acl','Auth', 'Session','RequestHandler');
+   var $components = array( 'Acl','Auth', 'Session','RequestHandler','DebugKit.Toolbar');
    var $helpers = array('Html','Form','Session','DatePicker','Js','EventsCalendar');
 
 	 // default datetime filter  

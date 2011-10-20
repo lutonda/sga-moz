@@ -53,7 +53,7 @@ $username = $this->Session->read('Auth.User.username');
 			
 			 echo $this->Form->input('curso_id',array('empty'=>'--seleccione--','options'=>$cursos,'label'=>'Curso','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false,'id'=>'cursoid'));
 			$options = array('url' => 'update_plano/','update' => 'planoid');
-			//echo $ajax->observeField('cursoid', $options);			 
+			////echo $ajax->observeField('cursoid', $options);			 
 
 			
 echo $this->Form->input('planoestudo_id',array('empty'=>'--seleccione--','options'=>$plano,'label'=>'Plano de estudo','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','id'=>'planoid','div'=>false));
@@ -62,7 +62,7 @@ if($grupo ==4)
 {
 			echo $this->Form->input('anolectivo_id',array('empty'=>'--seleccione--','options'=>Anolectivos,'label'=>'Ano Lectivo','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false,'id'=>'anolectivoid'));
 			$options = array('url' => 'update_turma_funcionario/','update' => 'turma');
-            //echo $ajax->observeField('anolectivoid', $options);
+            ////echo $ajax->observeField('anolectivoid', $options);
 
 			echo $this->Form->input('docente',array('value'=>$username,'type'=>'hidden','div'=>false));
 			var_dump('Entrei...if .  Username: '. $username);
@@ -71,7 +71,7 @@ if($grupo ==4)
 
 			echo $this->Form->input('anolectivo_id',array('empty'=>'--seleccione--','options'=>Anolectivos,'label'=>'Ano Lectivo','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false,'id'=>'anolectivoid'));
 			$options = array('url' => 'update_turma/','update' => 'turma');
-            //echo $ajax->observeField('anolectivoid', $options);
+            ////echo $ajax->observeField('anolectivoid', $options);
 			
 			//var_dump('Entrei...else');
 }			
@@ -80,10 +80,10 @@ if($grupo ==4)
 		
 		echo $this->Form->input('t0010turma_id',array('empty'=>'--seleccione--','options'=>$turmas,'label'=>'Turma','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false,'id'=>'turma'));
 		
-            echo $this->Form->input('t0014epocaavaliacao_id',array('empty'=>'--seleccione--','options'=>$epocaavaliacaos,'label'=>'Epoca de Avaliacao','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','id'=>'epocaid','div'=>false));
+            echo $this->Form->input('epocaavaliacao_id',array('empty'=>'--seleccione--','options'=>$epocaavaliacaos,'label'=>'Epoca de Avaliacao','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','id'=>'epocaid','div'=>false));
 			
 			$options = array('url' => 'update_tipo_de_avaliacao/','update' => 'tipoavaliacaoid');
-            echo $ajax->observeField('epocaid', $options);
+            //echo $ajax->observeField('epocaid', $options);
 			
 			
 			echo $this->Form->input('t0015tipoavaliacao_id',array('empty'=>'--seleccione--','options'=>$tipoavaliacaos,'label'=>'Tipo de Avaliacao','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','id'=>'tipoavaliacaoid','div'=>false));

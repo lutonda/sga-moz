@@ -33,7 +33,7 @@ class Tipoavaliacao extends AppModel {
     var $belongsTo = array(
 		'Epocaavaliacao' => array(
 			'className' => 'Epocaavaliacao',
-			'foreignKey' => 't0014epocaavaliacao_id',
+			'foreignKey' => 'epocaavaliacao_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
@@ -44,11 +44,11 @@ class Tipoavaliacao extends AppModel {
         'name' => array(
             'rule1'=>array(
                 'rule'=>'isUnique',
-                'message'=>'Este tipo de avaliaÃƒÂ§ÃƒÂ£o jÃƒÂ¡ foi registrado'
+                'message'=>'Este tipo de Avaliação ja foi Registrado'
             ),
             'rule2'=>array(
                 'rule'=>'notEmpty',
-                'message'=>'O nome do tipo de avaliaÃƒÂ§ÃƒÂ£o nÃƒÂ£o pode estar em branco'
+                'message'=>'O nome do tipo de avaliação não pode estar em branco'
             )
         )
     );

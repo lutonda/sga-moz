@@ -51,12 +51,12 @@
 			
 			 echo $this->Form->input('t0003curso_id',array('empty'=>'--seleccione--','options'=>$cursos,'label'=>'Curso','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','div'=>false,'id'=>'cursoid'));
 			$options = array('url' => 'update_plano/','update' => 'planoid');
-			echo $ajax->observeField('cursoid', $options);			 
+			//echo $ajax->observeField('cursoid', $options);			 
 
 
 			echo $this->Form->input('t0005planoestudo_id',array('empty'=>'--seleccione--','options'=>$plano,'label'=>'Plano de estudo','before'=>'<tr><td>','between'=>'</td><td>','after'=>'</td></tr>','id'=>'planoid','div'=>false));
 			$options = array('url' => 'update_turma_pauta/','update' => 'turma');
-            echo $ajax->observeField('planoid', $options);
+            //echo $ajax->observeField('planoid', $options);
 
 			
 
