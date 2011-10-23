@@ -45,9 +45,9 @@
 ?></p>
 
 <div class="paging">
-	<?php echo $this->Paginator->prev('<< '.__('ANTERIOR'), array(), null, array('class'=>'disabled'));?>
+	<?php echo $this->Paginator->prev('<<', array(), null, array('class'=>'disabled'));?>
  | 	<?php echo $this->Paginator->numbers();?>
-	<?php echo $this->Paginator->next(__('PROXIMO').' >>', array(), null, array('class' => 'disabled'));?>
+	<?php echo $this->Paginator->next('>>', array(), null, array('class' => 'disabled'));?>
 </div>
 
 </div>

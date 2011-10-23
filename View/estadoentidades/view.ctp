@@ -21,14 +21,14 @@
 		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Tg0013estadoentidades', true)), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Tg0013estadoentidade', true)), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('funcionarios', true)), array('controller' => 'funcionarios', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('funcionario', true)), array('controller' => 'funcionarios', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Funcionario', true)), array('controller' => 'funcionarios', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Alunos', true)), array('controller' => 'Alunos', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Aluno', true)), array('controller' => 'Alunos', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 <div class="related">
 	<h3><?php printf(__('Related %s', true), __('funcionarios', true));?></h3>
-	<?php if (!empty($tg0013estadoentidade['funcionario'])):?>
+	<?php if (!empty($tg0013estadoentidade['Funcionario'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
@@ -61,7 +61,7 @@
 	</tr>
 	<?php
 		$i = 0;
-		foreach ($tg0013estadoentidade['funcionario'] as $funcionario):
+		foreach ($tg0013estadoentidade['Funcionario'] as $funcionario):
 			$class = null;
 			if ($i++ % 2 == 0) {
 				$class = ' class="altrow"';
@@ -106,7 +106,7 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('funcionario', true)), array('controller' => 'funcionarios', 'action' => 'add'));?> </li>
+			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Funcionario', true)), array('controller' => 'funcionarios', 'action' => 'add'));?> </li>
 		</ul>
 	</div>
 </div>

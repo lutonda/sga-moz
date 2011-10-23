@@ -25,7 +25,7 @@ class DocentesController extends AppController {
 			//Primeiro vamos criar um usuario na tabela users
 			//O Username sera o email, logo este campo eh obrigatorio
 			$this->Docente->Entidade->User->create();
-			$user_data = array('User'=>array('username'=>$this->data['Entidade']['email'],'password'=>$this->data['Entidade']['email'],'group_id'=>4));
+			$user_data = array('User'=>array('username'=>$this->data['Entidade']['email'],'password'=>$this->data['Entidade']['email'],'group_id'=>4,'name'=>$this->data['Entidade']['name']));
 			
 			if($this->Docente->Entidade->User->save($user_data)){
 				

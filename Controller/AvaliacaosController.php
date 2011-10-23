@@ -319,7 +319,7 @@ class AvaliacaosController extends AppController {
 $turma11 = new Turma;			
 
 			
-			App::Import('Model','funcionario');
+			App::Import('Model','Funcionario');
             $funcionario = new funcionario;
 $turmas11 = $turma11->find('all');
 		
@@ -327,7 +327,7 @@ $turmas11 = $turma11->find('all');
 	//var_dump($this->data["Avaliacaos"]["docente"]);
 	
 			$turmas = $turma->find('list',array('conditions'=>array('t0009anolectivo_id'=> $this->data["Avaliacaos"][      "t0009anolectivo_id"]),'order'=> array ('name ASC'),'estado'=>1));
-	//var_dump('This data111: '.$turma['funcionario']['codigo']);	
+	//var_dump('This data111: '.$turma['Funcionario']['codigo']);	
 			$this->set('turmas',$turmas);
 			$this->layout = 'ajax';
 		}

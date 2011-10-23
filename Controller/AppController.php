@@ -46,7 +46,7 @@ class AppController extends Controller {
    var $_Filter = array();
    //var $components = array( 'Acl','Auth', 'Session','RequestHandler','Filter','DebugKit.Toolbar');
    var $components = array( 'Acl','Auth', 'Session','RequestHandler','DebugKit.Toolbar');
-   var $helpers = array('Html','Form','Session','DatePicker','Js','EventsCalendar');
+   var $helpers = array('Html','Form','Session','DatePicker','Js' => array('MyJquery'),'EventsCalendar');
 
 	 // default datetime filter  
     var $_Form_options_datetime = array();  
@@ -77,23 +77,21 @@ class AppController extends Controller {
         //Configure AuthComponent
         Security::setHash('md5');
        //$this->Auth->allow('*');
-        //$this->Auth->authorize = 'actions';
-        $this->Auth->authorize = array(
-    AuthComponent::ALL => array('actionPath' => 'controllers'),
-    'Actions',
-    'Controller'
-);
+        $this->Auth->authorize = 'actions';
+        
+
 		$this->Auth->autoRedirect = false;
         $this->Auth->loginError = "Nome de Usuário ou senha incorrectas";
 		$this->Auth->authError = "Não possui permissão para aceder ao sistema, por favor autentique-se primeiro";
         $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
         $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
         $this->Auth->loginRedirect = array('controller' => 'users', 'action' => 'after_login');
-        //$this->Auth->actionPath = 'Controllers';
+        $this->Auth->actionPath = 'Controllers';
 		
 		//var_dump($this->Auth->isAuthorized());
 		
-
+		
+		var_dump($this->Acl->check('admin','alunos'));
     }
 
 	function beforeRender(){
@@ -102,9 +100,6 @@ class AppController extends Controller {
 		
 	}
 
-	function isAuthorized(){
-		return true;
-	}
   /** 
      * Builds up a selected datetime for the form helper 
      * @param string $fieldname 

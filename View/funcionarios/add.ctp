@@ -7,7 +7,7 @@
         
     </div>
     <div class="table">
-<?php echo $this->Form->create('funcionario');?>
+<?php echo $this->Form->create('Funcionario');?>
         <table class="listingform" cellpadding="0" cellspacing="0">
          <tr>
             <th class="full" colspan="2">Ficha do Funcionario</th>

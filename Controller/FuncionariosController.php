@@ -29,7 +29,7 @@
  
 class FuncionariosController extends AppController {
 
-	var $name = 'funcionarios';
+	var $name = 'Funcionarios';
 
 	function index() {
 	
@@ -44,7 +44,7 @@ class FuncionariosController extends AppController {
 			$this->Session->setFlash('Invalido %s', 'flasherror');
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->set('funcionario', $this->Funcionario->read(null, $id));
+		$this->set('Funcionario', $this->Funcionario->read(null, $id));
 		if (empty($this->data)) {
 			$this->data = $this->Funcionario->read(null, $id);
 			
@@ -71,25 +71,26 @@ class FuncionariosController extends AppController {
 		if (!empty($this->data)) {
 			$this->Funcionario->create();
                        
-                       // $nome_foto = WWW_ROOT."\ffotos\\".$this->data['funcionario']['foto']['name'];
+                       // $nome_foto = WWW_ROOT."\ffotos\\".$this->data['Funcionario']['foto']['name'];
                         //var_dump($this->data['Aluno']['foto']['tmp_name']);
                         $this->Funcionario->User->create();
-                        $this->data['User']['username'] = $this->Funcionario->criaUsername($this->data['funcionario']['name']);
-                         $this->data['funcionario']['codigo'] = $this->data['User']['username'];
-                        $this->data['User']['password'] = md5($this->data['funcionario']['codigo']);
-                        $this->data['User']['codigocartao'] = $this->data['funcionario']['codigo'];
+                        $this->data['User']['username'] = $this->Funcionario->criaUsername($this->data['Funcionario']['name']);
+                         $this->data['Funcionario']['codigo'] = $this->data['User']['username'];
+                        $this->data['User']['password'] = md5($this->data['Funcionario']['codigo']);
+                        $this->data['User']['codigocartao'] = $this->data['Funcionario']['codigo'];
+						$this->data['User']['name'] = $this->data['Funcionario']['name'];
 						
-						if($this->data["funcionario"]["tg0011tipofuncionario_id"]!=1);
+						if($this->data['Funcionario']['tipofuncionario_id']!=1);
                           $this->data['User']['group_id'] = 2;
-						if($this->data["funcionario"]["tg0011tipofuncionario_id"]==1);
+						if($this->data['Funcionario']['tipofuncionario_id']==1);
                           $this->data['User']['group_id'] = 4;
 						
 						  
                         $this->Funcionario->User->save($this->data);
-                        $this->data['funcionario']['user_id'] = $this->Funcionario->User->getLastInsertID();
-                        $this->data['funcionario']['foto'] = $this->data['funcionario']['codigo'].".jpg";
+                        $this->data['Funcionario']['user_id'] = $this->Funcionario->User->getLastInsertID();
+                        $this->data['Funcionario']['foto'] = $this->data['Funcionario']['codigo'].".jpg";
 			if ($this->Funcionario->save($this->data)) {
-			//$logmv->logInsert(16,$this->Session->read('Auth.User.id'),$this->Funcionario->getLastInsertID(),$this->data["funcionario"]["name"]);
+			//$logmv->logInsert(16,$this->Session->read('Auth.User.id'),$this->Funcionario->getLastInsertID(),$this->data['Funcionario']["name"]);
 				$this->Session->setFlash('** Dados Cadastrados com Sucesso **','flashok');
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -123,7 +124,7 @@ class FuncionariosController extends AppController {
 		}
 		if (!empty($this->data)) {
 			if ($this->Funcionario->save($this->data)) {
-			//$logmv->logUpdate(16,$this->Session->read('Auth.User.id'),$id,$this->data["funcionario"]["name"]);
+			//$logmv->logUpdate(16,$this->Session->read('Auth.User.id'),$id,$this->data['Funcionario']["name"]);
 				$this->Session->setFlash('Dados Editados com sucesso','flashok');
 				$this->redirect(array('action' => 'index'));
 			} else {

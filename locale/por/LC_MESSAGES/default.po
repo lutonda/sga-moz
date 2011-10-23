@@ -4752,7 +4752,7 @@ msgstr ""
 #: \views\estadoentidades\edit.ctp:19
 #: \views\estadoentidades\index.ctp:47
 #: \views\estadoentidades\view.ctp:24;109
-msgid "funcionario"
+msgid 'Funcionario'
 msgstr ""
 
 #: \views\estadoentidades\add.ctp:18

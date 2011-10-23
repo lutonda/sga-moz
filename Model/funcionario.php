@@ -27,8 +27,8 @@
  */
  
  
-class funcionario extends AppModel {
-	var $name = 'funcionario';
+class Funcionario extends AppModel {
+	var $name = 'Funcionario';
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $belongsTo = array(
@@ -116,7 +116,7 @@ class funcionario extends AppModel {
         function geraCodigo(){
             $id = $this->find('first', array('order' => array('funcionario.created DESC'),'fields'=>'id'));
             $ano=date('Y');
-            $id_for=str_pad($id['funcionario']['id']+1, 5,"0",STR_PAD_LEFT);
+            $id_for=str_pad($id['Funcionario']['id']+1, 5,"0",STR_PAD_LEFT);
             $codigo = $ano.$id_for;
             return $codigo;
         }

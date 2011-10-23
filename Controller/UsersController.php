@@ -178,6 +178,12 @@ class UsersController extends AppController {
 		parent::beforeFilter();
 		
 	}
+	
+	function teste(){
+		
+		$this->User->geraUsername('Nilza Martina Notico');
+		$this->render('add');
+	}
 
 }
 ?>

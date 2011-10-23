@@ -103,6 +103,7 @@ class AlunosController extends AppController {
                         $this->data['User']['username'] = $this->data['Aluno']['codigo'];
                         $this->data['User']['password'] = md5($this->data['Aluno']['codigo']);
                         $this->data['User']['codigocartao'] = $this->data['Aluno']['codigo'];
+						$this->data['User']['name'] = $this->data['Aluno']['name'];
                         $this->data['User']['group_id'] = 3;
                         $this->Aluno->User->save($this->data);
                         $this->data['Aluno']['user_id'] = $this->Aluno->User->getLastInsertID();
@@ -218,10 +219,15 @@ class AlunosController extends AppController {
 
 
 	function beforeRender(){
-            parent::beforeRender();	
-            $this->set('current_section','estudantes');
-        }
+        parent::beforeRender();	
+        $this->set('current_section','estudantes');
+    }
 		
+	function ajax_update_cidade(){
+		//var_dump($teste);
+		
+		$this->layout = 'ajax';
+	}
         function pdf_index($id = null){
 		    App::Import('Model','Logmv');
 	        $logmv = new Logmv;

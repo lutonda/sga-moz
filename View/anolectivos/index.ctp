@@ -112,11 +112,11 @@
 	));
 	?>	</li>
 								</ul>
-								<ul class="pag_list">
-									<li><?php echo $this->Paginator->prev('<< '.__('ANTERIOR'), array(), null, array('class'=>'disabled'));?> </li>
-									<?php echo $this->Paginator->numbers(array('tag'=>'li','separator'=>null,'class'=>'pagination'));?>
+								<ul>
+									<li><?php echo $this->Paginator->prev('<<', array(), null, array('class'=>'disabled'));?> </li>
+									<?php echo $this->Paginator->numbers(array('tag'=>'li','separator'=>null));?>
                                     
-									<li><?php echo $this->Paginator->next(__('PROXIMO').' >>', array(), null, array('class' => 'disabled'));?></li>
+									<li><?php echo $this->Paginator->next('>>', array(), null, array('class' => 'disabled'));?></li>
 								</ul>
 								
 								

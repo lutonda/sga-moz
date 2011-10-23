@@ -20,9 +20,9 @@
                 echo $this->Html->css('sistema');
 
                echo $this->Html->script(array('prototype','scriptaculous.js?load=effects','modalbox'));
-   				echo $this->Html->script(array('jquery-1.6.2.min','jquery-ui-1.8.14.custom.min.js','date.js','jquery.datePicker.js'));
-				//$this->Js->JqueryEngine->jQueryObject = '$j';
-				echo $this->Html->scriptBlock('var $j = jQuery.noConflict();', array('inline' => true)); //Tell jQuery to go into noconflict mode
+   				echo $this->Html->script(array('jquery','jquery-ui-1.8.14.custom.min.js','date.js','jquery.datePicker.js'));
+				
+				echo $this->Html->scriptBlock('jQuery.noConflict();', array('inline' => true)); //Tell jQuery to go into noconflict mode
 				
    				echo $this->Html->css(array('datePicker.css','modalbox','jquery.ui.all'));
 

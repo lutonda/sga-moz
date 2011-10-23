@@ -42,8 +42,8 @@ class User extends AppModel {
 	);
 
 	var $hasMany = array(
-		'funcionario' => array(
-			'className' => 'funcionario',
+		'Funcionario' => array(
+			'className' => 'Funcionario',
 			'foreignKey' => 'user_id',
 			'dependent' => false,
 			'conditions' => '',
@@ -88,10 +88,11 @@ class User extends AppModel {
 		}
 	}
 	 
+	/**
 	function bindNode($user) {
 		return array('model' => 'Group', 'foreign_key' => $user['User']['group_id']);
 	}
-	
+	*/
 
 	
 		function getUserByFuncionario($funcionario_id){
@@ -122,9 +123,63 @@ class User extends AppModel {
 		
 		function beforeSave(){
 			$this->data['User']['password'] = AuthComponent::password($this->data['User']['password']);
+			
+			$nomes = explode(' ', $this->data['User']['name']);
+			
+			$username = strtolower($nomes[0]).".".strtolower(end($nomes));
+			
+			$username1 = $username;
+			$numero = 1;
+			$linha=1;
+			while($linha!=0){
+				$users = $this->find('all',array('conditions'=>array('username'=>$username)));
+				$linha = count($users);
+				if($linha==0){
+					$this->data['User']['username']=$username;
+					return true;
+				}
+				else{
+					var_dump($users);
+					$username = $username1.$numero;
+					$numero++;
+				}	
+			}
+			
+			
    
 			return true;
 			
+		}
+		
+		/**
+		 * Gera o nome de Usuario de Cada Utilizador de acordo com criterios pre-estabelecidos
+		 * Por Enquanto Ele usa a estrutura "primeironome.ultimonome<sequencia>"
+		 */
+		function geraUsername($nome){
+			$nomes = explode(' ', $nome);
+			
+			$username = strtolower($nomes[0]).".".strtolower(end($nomes));
+			
+			$username1 = $username;
+			$numero = 1;
+			$linha=1;
+			while($linha!=0){
+				$users = $this->find('all',array('conditions'=>array('username'=>$username)));
+				$linha = count($users);
+				if($linha==0){
+					var_dump($username);
+					return true;
+				}
+				else{
+					var_dump($users);
+					$username = $username1.$numero;
+					$numero++;
+				}	
+			}
+			
+			
+			
+			var_dump($numero);
 		}
 }
 ?>

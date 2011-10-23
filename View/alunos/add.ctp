@@ -26,6 +26,7 @@
  * 
  */
  ?>
+
  <div  class="box box-100">
 	<div class="boxin">
 		<div class="header">
@@ -115,8 +116,11 @@
 									<label>Provincia:</label>
 									<div class="inputs">
 										<span class="input_wrapper">
-									<?php echo $this->Form->input('provincia_id',array('label'=>false,'div'=>false));?></span>
-										
+									<?php echo $this->Form->input('provincia_id',array('label'=>false,'div'=>false,'id'=>'provinciaNascimentoID'));?></span>
+									<?php $this->Js->get('#provinciaNascimentoID')->event('change', 
+									$this->Js->request(array('controller'=>'alunos','action'=>'ajax_update_cidade'),array(
+									'update'=>'#cidadeNascimentoID','dataExpression'=>true,
+									'data'=> $this->Js->serializeForm(array('isForm' => false, 'inline' => true)) )));?>	
 									</div>
 								</div>
 								<!--[if !IE]>end row<![endif]-->
@@ -124,7 +128,7 @@
 									<label>Cidade:</label>
 									<div class="inputs">
 										<span class="input_wrapper">
-									<?php echo $this->Form->input('cidadenascimento_id',array('label'=>false,'div'=>false));?></span>
+									<?php echo $this->Form->input('cidadenascimento_id',array('label'=>false,'div'=>false,'id'=>'cidadeNascimentoID'));?></span>
 										
 									</div>
 								</div>
