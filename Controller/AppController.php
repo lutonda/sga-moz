@@ -91,7 +91,7 @@ class AppController extends Controller {
 		//var_dump($this->Auth->isAuthorized());
 		
 		
-		var_dump($this->Acl->check('admin','alunos'));
+		var_dump($this->Acl->check(array('model'=>'User','foreign_key'=>'1'),'controllers','read'));
     }
 
 	function beforeRender(){
