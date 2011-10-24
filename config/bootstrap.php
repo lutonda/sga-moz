@@ -49,5 +49,6 @@
  *
  */
 setlocale (LC_ALL, 'ptb');
-CakePlugin::loadAll();
+ CakePlugin::load('Acl', array('bootstrap' => true));
+ CakePlugin::load('DebugKit');
 ?>

@@ -77,21 +77,25 @@ class AppController extends Controller {
         //Configure AuthComponent
         Security::setHash('md5');
        //$this->Auth->allow('*');
-        $this->Auth->authorize = 'actions';
-        
+        //$this->Auth->authorize = 'actions';
+        $this->Auth->authorize = array(
+        'Actions' => array(
+            'actionPath' => 'controllers'
+        )
+    );
+
 
 		$this->Auth->autoRedirect = false;
         $this->Auth->loginError = "Nome de Usuário ou senha incorrectas";
-		$this->Auth->authError = "Não possui permissão para aceder ao sistema, por favor autentique-se primeiro";
+		$this->Auth->authError = "Não possui permissão para aceder ao sistema";
         $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
         $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
         $this->Auth->loginRedirect = array('controller' => 'users', 'action' => 'after_login');
-        $this->Auth->actionPath = 'Controllers';
+        //$this->Auth->actionPath = 'Controllers';
 		
-		//var_dump($this->Auth->isAuthorized());
-		
-		
-		var_dump($this->Acl->check(array('model'=>'User','foreign_key'=>'1'),'controllers','read'));
+		//var_dump($this->Auth->isAuthorized($this->Auth->user(),'Funcionarios/index'));
+		//$this->Acl->allow(array('model'=>'User','foreign_key'=>'1'),'controllers/Funcionarios/index','*');
+		//var_dump($this->Acl->check(array('model'=>'User','foreign_key'=>'1'),'controllers/Funcionarios/index','read'));
     }
 
 	function beforeRender(){
