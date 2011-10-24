@@ -34,6 +34,7 @@ class FuncionariosController extends AppController {
 	function index() {
 	
 		$this->Funcionario->recursive = 2;
+		$this->set('groups',$this->Funcionario->User->Group->find('list'));
 		$this->set('funcionarios', $this->paginate());
 	}
 

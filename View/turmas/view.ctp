@@ -160,9 +160,9 @@
 
 		<td><?php echo $turmatipoavaliacao['Turmatipoavaliacao']['data']; ?>&nbsp;</td>
 		<td class="accoes">
-	            <?php echo $this->Html->image("/img/login-icon.gif", array("alt" => "Brownies","title"=>"Visualizar",'url' => array('action' => 'view', $turmatipoavaliacao['Turmatipoavaliacao']['id']))); ?>
-                    <?php echo $this->Html->image("/img/edit-icon.gif", array("alt" => "Brownies","title"=>"Editar",'url' => array('action' => 'edit', $turmatipoavaliacao['Turmatipoavaliacao']['id']))); ?>
-                    <?php echo $this->Html->image("/img/hr.gif", array("alt" => "Brownies","title"=>"Eliminar",'url' => array('action' => 'delete',$turmatipoavaliacao['Turmatipoavaliacao']['id']), null, sprintf(__('Tem a certeza que deseja eliminar # %s?', true), $turmatipoavaliacao['Turmatipoavaliacao']['id']))); ?>
+	            <?php echo $this->Html->image("/img/login-icon.gif", array("alt" => "Brownies","title"=>"Visualizar",'url' => array('controller'=>'avaliacaos','action' => 'view', $turmatipoavaliacao['Turmatipoavaliacao']['id']))); ?>
+                    <?php echo $this->Html->image("/img/edit-icon.gif", array("alt" => "Brownies","title"=>"Editar",'url' => array('controller'=>'avaliacaos','action' => 'edit', $turmatipoavaliacao['Turmatipoavaliacao']['id']))); ?>
+                    <?php echo $this->Html->image("/img/hr.gif", array("alt" => "Brownies","title"=>"Eliminar",'url' => array('controller'=>'avaliacaos','action' => 'delete',$turmatipoavaliacao['Turmatipoavaliacao']['id']), null, sprintf(__('Tem a certeza que deseja eliminar # %s?', true), $turmatipoavaliacao['Turmatipoavaliacao']['id']))); ?>
 		</td>
 
 	</tr>

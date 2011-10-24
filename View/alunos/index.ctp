@@ -132,7 +132,12 @@ $username = $this->Session->read('Auth.User.username');
 							</form>
 							<div class="pagination">
 								<ul class="left">
-									<li><?php
+									<li>
+												<?php $this->Paginator->options(array(
+    'update' => '#pagina',
+    'evalScripts' => true
+));
+	?><?php
 	echo $this->Paginator->counter(array(
 	'format' => __('Mostrando %current% linhas. Total: %count% linhas retornadas')
 	));

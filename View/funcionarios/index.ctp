@@ -6,7 +6,7 @@ $username = $this->Session->read('Auth.User.username');
 <div class="box box-100 altbox" id="box1"><!-- box full-width -->
 					<div class="boxin">
 						<div class="header">
-							<h3><?php echo __('Cursos')?></h3>
+							<h3><?php echo __('Funcionarios')?></h3>
 							<?php echo $this->Html->link(__('Registrar novo', true), array('action' => 'add'),array('class'=>'button add_new','escape'=>false)); ?>
 
 						</div>
@@ -19,9 +19,9 @@ $username = $this->Session->read('Auth.User.username');
 											<tr>
 												<td class="tc first"><input type="checkbox" value="true" name="data-1-check-all" id="data-1-check-all"></td>
 											
-			<th><?php echo $this->Paginator->sort('Código','id');?></th>
-			<th><?php echo $this->Paginator->sort('Usuário','user_id');?></th>
-			<th><?php echo $this->Paginator->sort('Nome','name');?></th>
+			<th><?php echo $this->Paginator->sort('username','Nome de Utilizador');?></th>
+			<th><?php echo $this->Paginator->sort('name','Nome Completo');?></th>
+			<th><?php echo $this->Paginator->sort('group_id','Grupo');?></th>
                     							<td class="tc last"><?php echo __('Acção');?></td>
 											</tr>
 											<tr>

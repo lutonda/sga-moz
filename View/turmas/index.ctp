@@ -6,8 +6,8 @@ $username = $this->Session->read('Auth.User.username');
 <div class="box box-100 altbox" id="box1"><!-- box full-width -->
 					<div class="boxin">
 						<div class="header">
-							<h3>Estudantes</h3>
-							<?php echo $this->Html->link(__('Registrar novo', true), array('action' => 'add'),array('class'=>'button add_new','escape'=>false)); ?>
+							<h3><?php echo __('Turmas');?></h3>
+							<?php if($grupo==1){echo $this->Html->link(__('Registrar novo', true), array('action' => 'add'),array('class'=>'button add_new','escape'=>false));} ?>
 
 						</div>
 						<div class="content" id="box1-tabular"><!-- content box 1 for tab switching -->

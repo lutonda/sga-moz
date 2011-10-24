@@ -35,7 +35,7 @@ class AlunosController extends AppController {
 		$this->Aluno->recursive = 0;
 		$this->set('date_options_created', array_merge($this->_Form_options_datetime, array('selected'=>$this->process_datetime('Model.created'))));  
     $this->set('date_options_modified', array_merge($this->_Form_options_datetime, array('selected'=>$this->process_datetime('Model.modified'))));  
-		$this->set('alunos', $this->paginate(null, $this->_Filter));
+	$this->set('alunos', $this->paginate(null, $this->_Filter));
 		
 		$escolas = $this->Aluno->Escola->find('list');
 		$cursos = $this->Aluno->Curso->find('list');

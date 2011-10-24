@@ -19,18 +19,18 @@ $username = $this->Session->read('Auth.User.username');
 											<tr>
 												<td class="tc first"><input type="checkbox" value="true" name="data-1-check-all" id="data-1-check-all"></td>
 											
-			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th><?php echo $this->Paginator->sort('entidade_id');?></th>
-			<th><?php echo $this->Paginator->sort('seccao_id');?></th>
-			<th><?php echo $this->Paginator->sort('docente_categoria_id');?></th>
-			<th class="actions"><?php echo __('Actions');?></th>
+			<th><?php echo $this->Paginator->sort('username','Nome de Utilizador');?></th>
+			<th><?php echo $this->Paginator->sort('name','Nome Completo');?></th>
+			<th><?php echo $this->Paginator->sort('seccao_id','Secção');?></th>
+			<th><?php echo $this->Paginator->sort('docente_categoria_id','Categoria');?></th>
+			<th class="actions"><?php echo __('Acção');?></th>
 											</tr>
 											<tr>
 												<td></td>
-											  <td></td>
-            								<td><?php echo $this->Form->input('codigo',array('label'=>false,'size'=>8)); ?></td>  
+            								<td><?php echo $this->Form->input('username',array('label'=>false,'size'=>8)); ?></td>  
             								<td><?php echo $this->Form->input('name',array('label'=>false,'size'=>10)); ?></td>
-            								<td><?php echo $this->Form->input('group_id',array('label'=>false)); ?></td> 
+            								<td><?php echo $this->Form->input('seccao_id',array('label'=>false)); ?></td>
+            								<td><?php echo $this->Form->input('docente_categoria_id',array('label'=>false)); ?></td> 
             								  
             								<td>  
                 								<button type="submit" name="data[filter]" value="filter">Filtrar</button>  
@@ -63,7 +63,7 @@ $username = $this->Session->read('Auth.User.username');
 	?>
 	<tr<?php echo $class;?>>
 		<td class="tc first"><input type="checkbox" value="true" name="data-1-check-all" id="data-1-check-all"></td>
-		<td><?php echo $docente['Docente']['id']; ?>&nbsp;</td>
+		<td><?php echo $docente['Entidade']['User']['username']; ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($docente['Entidade']['name'], array('controller' => 'entidades', 'action' => 'view', $docente['Entidade']['id'])); ?>
 		</td>
