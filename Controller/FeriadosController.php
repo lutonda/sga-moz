@@ -47,10 +47,16 @@ class FeriadosController extends AppController {
 				$this->Session->setFlash(__('The feriado could not be saved. Please, try again.'));
 			}
 		}
+<<<<<<< HEAD
 		$provincias = $this->Feriado->Provincia->find('list');
 		$cidades = $this->Feriado->Cidade->find('list');
 		$months = $this->Feriado->Month->find('list');
 		$this->set(compact('provincias', 'cidades', 'months'));
+=======
+		$provincias = $this->Feriado->Provincium->find('list');
+		$cidades = $this->Feriado->Cidade->find('list');
+		$this->set(compact('provincias', 'cidades'));
+>>>>>>> 35801335a86a2e7e00116c8036e9e34f553dacfe
 	}
 
 /**
@@ -76,8 +82,12 @@ class FeriadosController extends AppController {
 		}
 		$provincias = $this->Feriado->Provincium->find('list');
 		$cidades = $this->Feriado->Cidade->find('list');
+<<<<<<< HEAD
 		$months = $this->Feriado->Month->find('list');
 		$this->set(compact('provincias', 'cidades', 'months'));
+=======
+		$this->set(compact('provincias', 'cidades'));
+>>>>>>> 35801335a86a2e7e00116c8036e9e34f553dacfe
 	}
 
 /**

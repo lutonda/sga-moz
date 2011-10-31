@@ -8,7 +8,11 @@
 		echo $this->Form->input('provincia_id');
 		echo $this->Form->input('cidade_id');
 		echo $this->Form->input('dia');
+<<<<<<< HEAD
 		echo $this->Form->input('month_id');
+=======
+		echo $this->Form->input('mes');
+>>>>>>> 35801335a86a2e7e00116c8036e9e34f553dacfe
 		echo $this->Form->input('detalhes');
 	?>
 	</fieldset>
@@ -24,7 +28,10 @@
 		<li><?php echo $this->Html->link(__('New Provincia'), array('controller' => 'provincias', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Cidades'), array('controller' => 'cidades', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Cidade'), array('controller' => 'cidades', 'action' => 'add')); ?> </li>
+<<<<<<< HEAD
 		<li><?php echo $this->Html->link(__('List Months'), array('controller' => 'months', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Month'), array('controller' => 'months', 'action' => 'add')); ?> </li>
+=======
+>>>>>>> 35801335a86a2e7e00116c8036e9e34f553dacfe
 	</ul>
 </div>
