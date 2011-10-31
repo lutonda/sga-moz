@@ -171,11 +171,11 @@ class User extends AppModel {
 				$users = $this->find('all',array('conditions'=>array('username'=>$username)));
 				$linha = count($users);
 				if($linha==0){
-					var_dump($username);
+					
 					return true;
 				}
 				else{
-					var_dump($users);
+					
 					$username = $username1.$numero;
 					$numero++;
 				}	
@@ -183,7 +183,7 @@ class User extends AppModel {
 			
 			
 			
-			var_dump($numero);
+			
 		}
 }
 ?>

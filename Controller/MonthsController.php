@@ -1,90 +1,96 @@
 <?php
+App::uses('AppController', 'Controller');
 /**
- * OpenSGA - Sistema de Gestão Académica
- *   Copyright (C) 2010-2011  INFOmoz (Informática-Moçambique)
- * 
- * Este programa é um software livre: Você pode redistribuir e/ou modificar
- * todo ou parte deste programa, desde que siga os termos da licença por nele
- * estabelecidos. Grande parte do código deste programa está sob a licença 
- * GNU Affero General Public License publicada pela Free Software Foundation.
- * A versão original desta licença está disponível na pasta raiz deste software.
- * 
- * Este software é distribuido sob a perspectiva de que possa ser útil para 
- * satisfazer as necessidades dos seus utilizadores, mas SEM NENHUMA GARANTIA. Veja
- * os termos da licença GNU Affero General Public License para mais detalhes
- * 
- * As redistribuições deste software, mesmo quando o código-fonte for modificado significativamente,
- * devem manter está informação legal, assim como a licença original do software.
- * 
- * @copyright     Copyright 2010-2011, INFOmoz (Informática-Moçambique) (http://infomoz.net)
- * @link          http://infomoz.net/opensga CakePHP(tm) Project
- * @author		  Elisio Leonardo (http://infomoz.net/elisio-leonardo)
- * @package       opensga
- * @subpackage    opensga.core.controller
- * @since         OpenSGA v 0.10.0.0
- * @license       GNU Affero General Public License
- * 
+ * Months Controller
+ *
+ * @property Month $Month
  */
- 
- 
 class MonthsController extends AppController {
 
-	var $name = 'Months';
 
-	function index() {
+/**
+ * index method
+ *
+ * @return void
+ */
+	public function index() {
 		$this->Month->recursive = 0;
 		$this->set('months', $this->paginate());
 	}
 
-	function view($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid month', true));
-			$this->redirect(array('action' => 'index'));
+/**
+ * view method
+ *
+ * @param string $id
+ * @return void
+ */
+	public function view($id = null) {
+		$this->Month->id = $id;
+		if (!$this->Month->exists()) {
+			throw new NotFoundException(__('Invalid month'));
 		}
 		$this->set('month', $this->Month->read(null, $id));
 	}
 
-	function add() {
-		if (!empty($this->data)) {
+/**
+ * add method
+ *
+ * @return void
+ */
+	public function add() {
+		if ($this->request->is('post')) {
 			$this->Month->create();
-			if ($this->Month->save($this->data)) {
-				$this->Session->setFlash(__('The month has been saved', true));
+			if ($this->Month->save($this->request->data)) {
+				$this->Session->setFlash(__('The month has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The month could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('The month could not be saved. Please, try again.'));
 			}
 		}
 	}
 
-	function edit($id = null) {
-		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Invalid month', true));
-			$this->redirect(array('action' => 'index'));
+/**
+ * edit method
+ *
+ * @param string $id
+ * @return void
+ */
+	public function edit($id = null) {
+		$this->Month->id = $id;
+		if (!$this->Month->exists()) {
+			throw new NotFoundException(__('Invalid month'));
 		}
-		if (!empty($this->data)) {
-			if ($this->Month->save($this->data)) {
-				$this->Session->setFlash(__('The month has been saved', true));
+		if ($this->request->is('post') || $this->request->is('put')) {
+			if ($this->Month->save($this->request->data)) {
+				$this->Session->setFlash(__('The month has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The month could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('The month could not be saved. Please, try again.'));
 			}
-		}
-		if (empty($this->data)) {
-			$this->data = $this->Month->read(null, $id);
+		} else {
+			$this->request->data = $this->Month->read(null, $id);
 		}
 	}
 
-	function delete($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for month', true));
+/**
+ * delete method
+ *
+ * @param string $id
+ * @return void
+ */
+	public function delete($id = null) {
+		if (!$this->request->is('post')) {
+			throw new MethodNotAllowedException();
+		}
+		$this->Month->id = $id;
+		if (!$this->Month->exists()) {
+			throw new NotFoundException(__('Invalid month'));
+		}
+		if ($this->Month->delete()) {
+			$this->Session->setFlash(__('Month deleted'));
 			$this->redirect(array('action'=>'index'));
 		}
-		if ($this->Month->delete($id)) {
-			$this->Session->setFlash(__('Month deleted', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		$this->Session->setFlash(__('Month was not deleted', true));
+		$this->Session->setFlash(__('Month was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
 }
-?>

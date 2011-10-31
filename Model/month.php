@@ -1,52 +1,64 @@
 <?php
+App::uses('AppModel', 'Model');
 /**
- * OpenSGA - Sistema de Gestão Académica
- *   Copyright (C) 2010-2011  INFOmoz (Informática-Moçambique)
- * 
- * Este programa é um software livre: Você pode redistribuir e/ou modificar
- * todo ou parte deste programa, desde que siga os termos da licença por nele
- * estabelecidos. Grande parte do código deste programa está sob a licença 
- * GNU Affero General Public License publicada pela Free Software Foundation.
- * A versão original desta licença está disponível na pasta raiz deste software.
- * 
- * Este software é distribuido sob a perspectiva de que possa ser útil para 
- * satisfazer as necessidades dos seus utilizadores, mas SEM NENHUMA GARANTIA. Veja
- * os termos da licença GNU Affero General Public License para mais detalhes
- * 
- * As redistribuições deste software, mesmo quando o código-fonte for modificado significativamente,
- * devem manter está informação legal, assim como a licença original do software.
- * 
- * @copyright     Copyright 2010-2011, INFOmoz (Informática-Moçambique) (http://infomoz.net)
- * @link          http://infomoz.net/opensga CakePHP(tm) Project
- * @author		  Elisio Leonardo (http://infomoz.net/elisio-leonardo)
- * @package       opensga
- * @subpackage    opensga.core.controller
- * @since         OpenSGA v 0.10.0.0
- * @license       GNU Affero General Public License
- * 
+ * Month Model
+ *
+ * @property EscolasTipopagamento $EscolasTipopagamento
+ * @property Feriado $Feriado
+ * @property Mensalidade $Mensalidade
+ * @property Tipopagamento $Tipopagamento
  */
- 
- 
- 
 class Month extends AppModel {
-	var $name = 'Month';
-	var $validate = array(
-		'int' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-	);
+
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-	var $hasMany = array(
+/**
+ * hasMany associations
+ *
+ * @var array
+ */
+	public $hasMany = array(
+		'EscolasTipopagamento' => array(
+			'className' => 'EscolasTipopagamento',
+			'foreignKey' => 'month_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'Feriado' => array(
+			'className' => 'Feriado',
+			'foreignKey' => 'month_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
 		'Mensalidade' => array(
 			'className' => 'Mensalidade',
+			'foreignKey' => 'month_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'Tipopagamento' => array(
+			'className' => 'Tipopagamento',
 			'foreignKey' => 'month_id',
 			'dependent' => false,
 			'conditions' => '',
@@ -61,4 +73,3 @@ class Month extends AppModel {
 	);
 
 }
-?>

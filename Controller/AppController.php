@@ -99,8 +99,9 @@ class AppController extends Controller {
     }
 
 	function beforeRender(){
-		
-		
+			
+		App::uses('Feriado','Model');
+		$this->set('dferiados',$this->Feriado->getFeriados());
 		
 	}
 

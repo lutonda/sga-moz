@@ -64,7 +64,10 @@
 													<?php endfor; ?>
 												<?php for( $day = 1; $day <= $num_days; ++$day ): ?>
 												
-												<li><a href="#"><?php echo $day?></a></li>
+												<li>
+													<?php if(in_array($day,$dferiados)){?><a style ="background-color: red" href="#"><?php echo $day?></a><?php } else{?>
+													<a href="#"><?php echo $day?></a><?php }?>
+													</li>
 												<?php endfor;?>
 													<?php for( $day; ($day + $offset) <= $rows * 7; ++$day ): ?>
 														<li><span></span></li>

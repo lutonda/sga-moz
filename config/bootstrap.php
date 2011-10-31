@@ -48,7 +48,9 @@
  * Inflector::rules('plural', array('rules' => array(), 'irregular' => array(), 'uninflected' => array()));
  *
  */
+
 setlocale (LC_ALL, 'ptb');
  CakePlugin::load('Acl', array('bootstrap' => true));
  CakePlugin::load('DebugKit');
+ CakePlugin::load('AclExtras');
 ?>
