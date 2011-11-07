@@ -189,33 +189,7 @@ class AlunosController extends AppController {
 		$this->set(compact('users', 'Paises', 'Cidades', 'Provincias', 'Documentos', 'tg0010areatrabalhos','generos','cidadenascimentos','proveniencianomes','provenienciacidades'));
 	}
 
-	function delete($id = null) {
-	        App::Import('Model','Logmv');
-	        $logmv = new Logmv;
-		App::Import('Model','Matricula');
-        $matricula = new Matricula;
-		
-		App::Import('Model','User');
-        $users = new User;
-		
-		if (!$id) {
-			$this->Session->setFlash('Invalido id para %s', 'flasherror');
-			$this->redirect(array('action'=>'index'));
-		}
-		$dados= $matricula->getMatriculaAluno($id);
-        $user_id =	$dados[0]["ta"]["user_id"];	
 
-		if(empty($dados)){
-		$apagar = $users->deleteUser($user_id);	
-		if ($this->Aluno->delete($id)) {
-		$logmv->logDelete(4,$this->Session->read('Auth.User.id'),$id,$this->data["Aluno"]["name"]);
-			$this->Session->setFlash('Dados deletedos com sucesso ','flashok');
-			$this->redirect(array('action'=>'index'));
-		}
-		}
-		$this->Session->setFlash('Nao e possivel apagar. O aluno esta associado a uma matricula','flasherror');
-		$this->redirect(array('action' => 'index'));
-	}
 
 
 	function beforeRender(){

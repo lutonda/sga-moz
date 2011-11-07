@@ -100,6 +100,6 @@ else
             
                        //  $pdf->Text(170, 11, $data_actual);
 //Close and output PDF document
-$pdf->Output('listagens.pdf', 'I');
+$pdf->Output('listagens.pdf', 'FD');
 
 ?>

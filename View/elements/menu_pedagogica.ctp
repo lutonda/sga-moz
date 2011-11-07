@@ -1,7 +1,7 @@
 <ul>
-						
-						<li><?php echo $this->Html->link(sprintf(__('Cursos', true)), array('controller' => 'cursos', 'action' => 'index'),array('class'=>'link')); ?></a></li>
 						<li><?php echo $this->Html->link(sprintf(__('Disciplinas', true)), array('controller' => 'disciplinas', 'action' => 'index'),array('class'=>'link')); ?></li>
+						<li><?php echo $this->Html->link(sprintf(__('Cursos', true)), array('controller' => 'cursos', 'action' => 'index'),array('class'=>'link')); ?></a></li>
+						
 						<li><?php echo $this->Html->link(sprintf(__('Plano de Estudos', true)), array('controller' => 'planoestudos', 'action' => 'index'),array('class'=>'link')); ?></li>
 						
 						<li>

@@ -98,7 +98,7 @@ class DisciplinasController extends AppController {
 		$this->set(compact('grupodisciplinars'));
 	}
 
-	function delete($id = null) 
+/*	function delete($id = null) 
 	{
 	App::Import('Model','Logmv');
 	$logmv = new Logmv;
@@ -121,8 +121,11 @@ class DisciplinasController extends AppController {
 		$this->Session->setFlash('Esta Disciplina nao pode ser Deletada. Ja Pertence a um Palno de Estudo.','flasherror');
 		$this->redirect(array('action' => 'index'));
 	}
+ * 
+ */
         function beforeRender()
 		{
+            parent::beforeRender();
             $this->set('current_section','pedagogica');
         }
           

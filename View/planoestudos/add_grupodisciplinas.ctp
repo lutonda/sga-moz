@@ -196,8 +196,7 @@
                                                         <th><?php echo 'Sem.';?></th>
                                                         <th><?php echo 'Teoria';?></th>
                                                         <th><?php echo 'Pratica';?></th>
-                                                        <th><?php echo 'Precedencias ObrigatÃ³rias';?></th>
-                                                        <th><?php echo 'Precedencias Aconselhadas';?></th>
+
                                                         
                     							<td class="tc last"><?php echo __('Acção');?></td>
 											</tr>
@@ -209,9 +208,7 @@
             								<td><?php echo $this->Form->input('ano',array('label'=>false,'empty'=>true)); ?></td>
             								<td><?php echo $this->Form->input('semestre',array('label'=>false,'empty'=>true)); ?></td>  
             								<td></td>
-            								<td></td>
-            								<td></td>
-            								<td></td>  
+            								<td></td> 
             								<td>  
                 								<button type="submit" name="data[filter]" value="filter">Filtrar</button>  
                 								<button type="submit" name="data[reset]" value="reset">Limpar</button>  
@@ -250,30 +247,10 @@
                 <td><?php echo $disciplina['p']['semestre']; ?>&nbsp;</td>
                 <td><?php echo $disciplina['p']['cargahorariateoricas']; ?>&nbsp;</td>
                 <td><?php echo $disciplina['p']['cargahorariapraticas']; ?>&nbsp;</td>
-                <td>
-                    <?php
-                        if(!empty($disciplina['pr']['o'])){
-                            echo "<table>";
-                            foreach($disciplina['pr']['o'] as $d){
-                                echo "<tr><td class='precedencias'>".$d."</td></tr>";
-                            }
-                            echo "</table>";
-                        }
 
-                                ?>&nbsp;</td>
-                <td>                    <?php
-                        if(!empty($disciplina['pr']['a'])){
-                            echo "<table>";
-                            foreach($disciplina['pr']['a'] as $d){
-                                echo "<tr><td class='precedencias'>".$d."</td></tr>";
-                            }
-                            echo "</table>";
-                        }
-
-                                ?>&nbsp;</td>
 		<td class="accoes">
-	            <?php //echo $this->Html->image("/img/login-icon.gif", array("alt" => "Brownies","title"=>"Visualizar",'url' => array('action' => 'view',$disciplina['p']['id'],$disciplina['d']['id']))); ?>
-                <?php //echo $this->Html->image("/img/edit-icon.gif", array("alt" => "Brownies","title"=>"Editar",'url' => array('action' => 'edit',$disciplina['p']['id'],$disciplina['d']['id']))); ?>
+	            <?php echo $this->Html->image("/img/login-icon.gif", array("alt" => "Brownies","title"=>"Visualizar",'url' => array('action' => 'view',$disciplina['p']['id'],$disciplina['d']['id']))); ?>
+
                 <?php echo $this->Html->image("/img/hr.gif", array("alt" => "Brownies","title"=>"Remover",'url' => array('action' => 'remove_disc',$disciplina['p']['id'],$disciplina['d']['id'],$plano_id), null, sprintf(__('Tem a certeza que deseja eliminar # %s?', true),$disciplina['d']['id']))); ?>
 		</td>
 

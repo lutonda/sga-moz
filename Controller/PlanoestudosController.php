@@ -170,7 +170,8 @@ class PlanoestudosController extends AppController {
             }
 
             $plano_estudo=$this->Planoestudo->findById($plano_id);
-            $this->data['Planoestudo']=$plano_estudo['Planoestudo'];
+			
+            $this->request->data['Planoestudo']=$plano_estudo['Planoestudo'];
 
             
 

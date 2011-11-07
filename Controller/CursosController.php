@@ -129,6 +129,7 @@ class CursosController extends AppController {
 	}
 
         function beforeRender(){
+            parent::beforeRender();
             $this->set('current_section','pedagogica');
         }
 		   function pdf_index(){

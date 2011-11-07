@@ -50,7 +50,8 @@
  */
 
 setlocale (LC_ALL, 'ptb');
- CakePlugin::load('Acl', array('bootstrap' => true));
+ //CakePlugin::load('Acl', array('bootstrap' => true));
  CakePlugin::load('DebugKit');
  CakePlugin::load('AclExtras');
+ CakePlugin::load('Migrations');
 ?>

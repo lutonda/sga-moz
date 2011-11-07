@@ -35,6 +35,7 @@ class ListagensController extends AppController {
 	var $uses = array();
 
 	function beforeRender(){
+            parent::beforeRender();
             $this->set('current_section','listagens');
     }
 	
@@ -59,7 +60,7 @@ class ListagensController extends AppController {
          //$listagens = new Listagen;
          //busca lista de dados
          $cursos = $curso->find('list' ,array('order'=> array ('name ASC')));
-         $turmas = $turma->find('list',array('conditions'=>array('estado'=> 1),'order'=> array ('name ASC')));
+         $turmas = $turma->find('list',array('conditions'=>array('estadoturma_id'=> 1),'order'=> array ('name ASC')));
          $provincias = $provincia->find('list' ,array('order'=> array ('name ASC')));
          $disciplinas = $disciplina->find('list',array('order'=> array ('name ASC')));
 		 
@@ -153,7 +154,7 @@ class ListagensController extends AppController {
              //  $id++;
             }
               }
-  // var_dump($listas[0]);
+ //var_dump($listas);
 	//var_dump($titulo);
            $this->set('lista',$listas);
 		   $this->set('titulos',$titulot);

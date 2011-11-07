@@ -30,12 +30,12 @@
  <div  class="box box-100">
 	<div class="boxin">
 		<div class="header">
-			<h3><?php echo __('Adicionar novo Curso')?></h3>
-			<a href="#" class="button"><?php echo __('Lista de Cursos')?>&nbsp;»</a>
+			<h3><?php echo __('Adicionar Nova Disciplina')?></h3>
+			<a href="#" class="button"><?php echo __('Lista de Disciplinas')?>&nbsp;»</a>
 		</div>
 		<?php echo $this->Form->create('Disciplina',array('class'=>'fields'));?>
 		<fieldset>
-			<legend><?php echo __('Detalhes do Curso')?></legend>
+			<legend><?php echo __('Detalhes da Disciplina')?></legend>
 			<table>
 				<tr>
 				<td width="50%">

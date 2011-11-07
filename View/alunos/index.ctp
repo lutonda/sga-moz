@@ -47,10 +47,10 @@ $username = $this->Session->read('Auth.User.username');
 											<tr>
 												<td class="tc first"><input type="checkbox" value="true" name="data-1-check-all" id="data-1-check-all"></td>
 											
-												<td class="filterable"><?php echo $this->Paginator->sort('Codigo','codigo');?></td>
-							                    <td class="filterable" ><?php echo $this->Paginator->sort('Nome','name');?></td>
-							                    <td class="filterable" ><?php echo $this->Paginator->sort('Curso','curso_id');?></td>
-							                    <td class="filterable" ><?php echo $this->Paginator->sort('Escola','escola_id');?></td>
+												<td class="filterable"><?php echo $this->Paginator->sort('codigo','Codigo');?></td>
+							                    <td class="filterable" ><?php echo $this->Paginator->sort('name','Nome');?></td>
+							                    <td class="filterable" ><?php echo $this->Paginator->sort('curso_id','Curso');?></td>
+							                    <td class="filterable" ><?php echo $this->Paginator->sort('escola_id','Escola');?></td>
                     							<td class="tc last"><?php echo __('Acção');?></td>
 											</tr>
 											<tr>
@@ -107,13 +107,13 @@ $username = $this->Session->read('Auth.User.username');
 												<td class="accoes">
 											        <?php echo $this->Html->image("/img/login-icon.gif", array("alt" => "Brownies","title"=>"Visualizar",'url' => array('action' => 'view', $aluno['Aluno']['id']))); ?>
 										                <?php  if($grupo ==1) echo $this->Html->image("/img/edit-icon.gif", array("alt" => "Brownies","title"=>"Editar",'url' => array('action' => 'edit', $aluno['Aluno']['id']))); ?>
-										                <?php  if($grupo ==1) echo $this->Html->image("/img/hr.gif", array("alt" => "Brownies","title"=>"Remover",'url' => array('action' => 'delete', $aluno['Aluno']['id']), null, sprintf(__('Tem a certeza que deseja eliminar # %s?', true), $aluno['Aluno']['id']))); ?>
+										                
 											        <?php  echo $this->Html->link($this->Html->image("/img/save-icon.gif"),  array('action' => 'pdf_index', $aluno['Aluno']['id']),array('target'=>'_blank','escape'=>false)); ?>
 											        <?php  echo $this->Html->link($this->Html->image("/img/page_new.gif"),
   array('controller'=>'inscricaos', 'action'=>'inscrever_aluno',$aluno['Aluno']['id']),
   array('title'=>'Fazer Inscricao', 'escape'=>false,'onclick'=>'Modalbox.show(this.href, {
     title: this.title, width: 900, overlayClose: false,
-    afterHide: function(element, value) {new Ajax.Updater(\'PeopleContainer\',\'/people/display\')}}); return false;')); ?>
+    afterHide: function(element, value) {new Ajax.Updater(\'PeopleContainer\',\'/alunos/index\')}}); return false;')); ?>
 													<?php  echo $this->Html->link($this->Html->image("/img/dollar.png"),
   array('controller'=>'pagamentos', 'action'=>'gerar_facturas',$aluno['Aluno']['id']),
   array('title'=>'Efectuar Pagamento', 'escape'=>false,'onclick'=>'Modalbox.show(this.href, {

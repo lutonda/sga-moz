@@ -62,7 +62,7 @@ class TurmasController extends AppController {
 		$this->loadModel('Planoestudoano');
 		$planoestudoanos = $this->Planoestudoano->find('first',array('conditions'=>array('planoestudo_id'=>$this->data['Planoestudo']['id'],'disciplina_id'=>$this->data['Turma']['disciplina_id'])));
 		
-		
+		$inscricaos = $this->Turma->Inscricao->find('all',array('conditions'=>array('turma_id'=>$id)));
 		$anocurricular = $planoestudoanos['Planoestudoano']['ano'];
 		$semestrecurricular = $planoestudoanos['Planoestudoano']['semestre'];
 		
@@ -78,7 +78,7 @@ class TurmasController extends AppController {
 		$docentes = $this->Turma->Docente->find('list');
         $disciplinas = array();
         $this->set('turma',$this->data);
-		$this->set(compact('turmatipoavaliacaos','anolectivos','estados','mediaTurma','anosemestrecurr', 'cursos', 'planoestudos', 'turnos', 'disciplinas', 'docentes','anocurricular','semestrecurricular'));
+		$this->set(compact('inscricaos','turmatipoavaliacaos','anolectivos','estados','mediaTurma','anosemestrecurr', 'cursos', 'planoestudos', 'turnos', 'disciplinas', 'docentes','anocurricular','semestrecurricular'));
 		}
 
 	/**
@@ -245,7 +245,7 @@ class TurmasController extends AppController {
 		
 		$this->loadModel('Planoestudoano');
 		$planoestudoanos = $this->Planoestudoano->find('first',array('conditions'=>array('planoestudo_id'=>$this->data['Planoestudo']['id'],'disciplina_id'=>$this->data['Turma']['disciplina_id'])));
-		var_dump($planoestudoanos);
+		
 		
 		$anocurricular = $planoestudoanos['Planoestudoano']['ano'];
 		$semestrecurricular = $planoestudoanos['Planoestudoano']['semestre'];

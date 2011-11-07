@@ -31,6 +31,7 @@
   */
 	App::import('Model','Config');
 	App::import('Model','User');
+	App::import('Model','Feriado');
 	
 	
 /**
@@ -100,8 +101,8 @@ class AppController extends Controller {
 
 	function beforeRender(){
 			
-		App::uses('Feriado','Model');
-		$this->set('dferiados',$this->Feriado->getFeriados());
+		$Feriado = new Feriado;
+		$this->set('dferiados',$Feriado->getFeriados());
 		
 	}
 

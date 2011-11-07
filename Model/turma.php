@@ -161,7 +161,7 @@ class Turma extends AppModel {
 						$turma['planoestudo_id']=$disciplina['p']['planoestudo_id'];
 						$turma['turno_id']=$t_k;
 						$turma['disciplina_id']=$disciplina['d']['id'];
-						$turma['estado']=1;
+						$turma['estadoturma_id']=1;
 						$nome = $disciplina['d']['name']." - ".$disciplina['pe']['name'];
 						$turma['name']=$nome;
 						
@@ -191,8 +191,9 @@ class Turma extends AppModel {
  * @access public
  * @link http://book.cakephp.org/view/1031/Saving-Your-Data
  * @Todo Colocar o link para a documentação aqui
+ * @Todo Filtrar para apenas mostrar as turmas em que o aluno pode se inscrever
  */
-        function getAllByAluno($aluno_id){
+        function getAllByAlunoForInscricao($aluno_id){
         	App::import('Model','Matricula');
 			App::import('Model','Aluno');
 			$Matricula = new Matricula;
@@ -200,12 +201,21 @@ class Turma extends AppModel {
 			
 			$matricula=$Matricula->findByAlunoId($aluno_id);
 			$Aluno->recursive=-1;
+			
 			$aluno = $Aluno->findById($aluno_id,'escola_id');
-			$turmas = $this->find('all', array('conditions'=>array('Turma.planoestudo_id'=>$matricula['Matricula']['planoestudo_id'],'Turma.estado'=>1,'Turma.escola_id'=>$aluno['Aluno']['escola_id'],'Turma.turno_id'=>$matricula['Matricula']['turno_id']),'fields'=>array('Turma.id','Disciplina.name')));
+			$turmas = $this->find('all', array('conditions'=>array('Turma.planoestudo_id'=>$matricula['Matricula']['planoestudo_id'],'Turma.estadoturma_id'=>1,'Turma.escola_id'=>$aluno['Aluno']['escola_id'],'Turma.turno_id'=>$matricula['Matricula']['turno_id']),'fields'=>array('Turma.id','Disciplina.name')));
+			
+			
 			
 			return $turmas;
 			
         }
+		
+		
+		
+		function getAllTurmasInscritas(){
+			
+		}
         function getAllTurmasActivasByPlanoEstudo($plano){
 			$this->recursive=0;
 			$turmas = $this->find('all',array('conditions'=>array('planoestudo_id'=>$plano,'estado'=>1),'fields'=>array('Turma.id','Disciplina.name')));

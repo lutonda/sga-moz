@@ -5,10 +5,9 @@ App::uses('AppModel', 'Model');
  *
  * @property Provincia $Provincia
  * @property Cidade $Cidade
-<<<<<<< HEAD
+
  * @property Month $Month
-=======
->>>>>>> 35801335a86a2e7e00116c8036e9e34f553dacfe
+
  */
 class Feriado extends AppModel {
 
@@ -33,7 +32,7 @@ class Feriado extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-<<<<<<< HEAD
+
 		),
 		'Month' => array(
 			'className' => 'Month',
@@ -49,8 +48,5 @@ class Feriado extends AppModel {
 		
 		return $feriados;
 	}
-=======
-		)
-	);
->>>>>>> 35801335a86a2e7e00116c8036e9e34f553dacfe
+
 }

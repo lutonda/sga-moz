@@ -93,7 +93,7 @@ $username = $this->Session->read('Auth.User.username');
 		<td class="accoes">
 	            <?php echo $this->Html->image("/img/login-icon.gif", array("alt" => "Brownies","title"=>"Visualizar",'url' => array('action' => 'view', $turma['Turma']['id']))); ?>
                     <?php
-					if($turma['Turma']['estado'] == 1 || $turma['Turma']['estado'] == 2 || $turma['Turma']['estado'] ==null)
+					if($turma['Turma']['estadoturma_id'] == 1 || $turma['Turma']['estadoturma_id'] == 2 || $turma['Turma']['estadoturma_id'] ==null)
 					echo $this->Html->image("/img/edit-icon.gif", array("alt" => "Brownies","title"=>"Editar",'url' => array('action' => 'edit', $turma['Turma']['id']))); ?>
                     <?php //echo $this->Html->image("/img/hr.gif", array("alt" => "Brownies","title"=>"Remover",'url' => array('action' => 'delete', $turma['Turma']['id']), null, sprintf(__('Tem a certeza que deseja eliminar # %s?', true), $turma['Turma']['id']))); ?>
 		</td>

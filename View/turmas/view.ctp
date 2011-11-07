@@ -127,7 +127,7 @@
 			</table>	
 		</fieldset>
 <fieldset>
-			<legend><?php echo __('Avaliações Registradas')?></legend>
+			<legend><?php echo __('Avaliações Agendadas')?></legend>
 
 					<div class="boxin">
 						<div class="content" id="box1-tabular"><!-- content box 1 for tab switching -->
@@ -209,7 +209,54 @@
 					</td>
 				</tr>
 			</table>	
-		</fieldset>	
+		</fieldset>
+		<fieldset>
+			<legend><?php echo __('Alunos Inscritos')?></legend>
+
+					<div class="boxin">
+						<div class="content" id="box1-tabular"><!-- content box 1 for tab switching -->
+							<form enctype="multipart/form-data" method="post" action="" class="plain">
+								<fieldset>
+									<table cellspacing="0">
+										<thead><!-- universal table heading -->
+											<tr>
+												<td class="tc first"><input type="checkbox" value="true" name="data-1-check-all" id="data-1-check-all"></td>
+											
+                        <th>Codigo</th>
+			<th>Nome</th>
+			<th>Estado</th>
+                    							
+											</tr>
+										</thead>
+										<tfoot><!-- table foot - what to do with selected items -->
+										</tfoot>
+										<tbody>
+	<?php
+	$i = 0;
+	foreach ($inscricaos as $inscricao):
+		$class = "first";
+		if ($i++ % 2 == 0) {
+			$class = ' class="even"';
+		}
+	?>
+	<tr<?php echo $class;?>>
+	<td class="tc first"><input type="checkbox" value="true" name="data-1-check-all" id="data-1-check-all"></td>
+		<td><?php echo $inscricao['Aluno']['codigo']; ?>&nbsp;</td>
+
+		<td><?php echo $inscricao['Aluno']['name']; ?>&nbsp;</td>
+		<td><?php echo $inscricao['Estadoinscricao']['name']; ?>&nbsp;</td>
+
+	</tr>
+<?php endforeach; ?>
+										</tbody>
+									</table>
+								</fieldset>
+						</div><!-- .content#box-1-holder -->
+
+					</div>
+			
+	
+		</fieldset>		
 		<fieldset>
 			<legend><?php echo __('Outros Detalhes')?></legend>
 			<table>

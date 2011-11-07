@@ -71,7 +71,6 @@ $username = $this->Session->read('Auth.User.username');
 		<td class="accoes">
 	            <?php echo $this->Html->image("/img/login-icon.gif", array("alt" => "Brownies","title"=>"Visualizar",'url' => array('action' => 'view', $disciplina['Disciplina']['id']))); ?>
                     <?php echo $this->Html->image("/img/edit-icon.gif", array("alt" => "Brownies","title"=>"Editar",'url' => array('action' => 'edit', $disciplina['Disciplina']['id']))); ?>
-                    <?php echo $this->Html->image("/img/hr.gif", array("alt" => "Brownies","title"=>"Remover",'url' => array('action' => 'delete',$disciplina['Disciplina']['id']), null, sprintf(__('Tem a certeza que deseja eliminar # %s?', true), $disciplina['Disciplina']['id']))); ?>
 		</td>
 
 	</tr>

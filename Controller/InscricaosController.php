@@ -113,7 +113,7 @@ class InscricaosController extends AppController {
 		$anoLectivo1 = $anoLectivo[0]['tal']['codigo'];
 
 		
-		$this->set(compact('Alunos', 't0010turmas', 'epocaavaliacaos', 'tg0020estadoinscricao','funcionarios','curso1','docente1','assistente1', 'plano1','turma1', 'turno1','anoCurricular1','semestreCurricular1','anoLectivo1'));
+		$this->set(compact('Alunos', 'turmas', 'epocaavaliacaos', 'tg0020estadoinscricao','funcionarios','curso1','docente1','assistente1', 'plano1','turma1', 'turno1','anoCurricular1','semestreCurricular1','anoLectivo1'));
 	}
 
 	function add() {
@@ -280,29 +280,45 @@ class InscricaosController extends AppController {
 		if(!empty($this->data)){
 			
 			//Primeiro Devemos actualizar a matricula
+			/*
+			 * @Todo Primeiro verificar se ainda nao esta matriculado
+			 */
 			$this->Matricula->recursive = -1;
 			$matricula = $this->Matricula->findByAlunoId($aluno_id);
 			$matricula_nova=array('Matricula'=>array('aluno_id' =>$matricula['Matricula']['aluno_id'],'curso_id'=>$matricula['Matricula']['curso_id'],'planoestudo_id'=>$matricula['Matricula']['planoestudo_id'],'data'=>date('Y-m-d'),'estadomatricula_id'=>1,'user_id'=>$this->Session->read('Auth.User.id'),'anolectivo_id'=>4,'turno_id'=>$matricula['Matricula']['turno_id']));
 			$this->Matricula->create();
 			$this->Matricula->save($matricula_nova);
+			
+			foreach($this->data['Inscricao'] as $inscricao){
+				if(isset($inscricao['turma_id'])){
+					$this->Inscricao->create();
+					$inscricao_save = array('Inscricao'=>array('aluno_id'=>$inscricao['aluno_id'],'turma_id'=>$inscricao['turma_id'],'estadoinscricao_id'=>$inscricao['estadoinscricao_id']));
+					$this->Inscricao->save($inscricao_save);
+				}
 				
-			if($this->Inscricao->saveAll($this->data['Inscricao'])){
+				
+			}	
+			
+			
 				$this->Session->setFlash(sprintf(__('O Aluno %s Foi inscrito com sucesso',true),$aluno['Aluno']['codigo']."-".$aluno['Aluno']['name']),'flashok');
 				$this->Pagamento->recursive = -1;
+				
+				/*
+				 * FIXME isso nao funciona 
+				 */
 				$this->Pagamento->gerarPagamentos(4,$aluno_id);
 				
 				$pagamento_inscricao = $this->Pagamento->find('first',array('conditions'=>array('Pagamento.aluno_id'=>$aluno_id,'Pagamento.tipopagamento_id'=>2)));
 				
 				$pagamento_inscricao['Pagamento']['estadopagamento_id']=2;
 				$this->Pagamento->save($pagamento_inscricao);
-				var_dump($pagamento_inscricao);
 				
-				//$this->redirect(array('controller'=>'alunos','action' => 'index'));				
-			}
+				$this->redirect(array('controller'=>'alunos','action'=>'index'));
 			
 		}
 		
-		$turmas = $this->Turma->getAllByAluno($aluno_id);
+		$turmas = $this->Turma->getAllByAlunoForInscricao($aluno_id);
+		
 		$this->set('aluno_id',$aluno_id);	
 		$this->set(compact('turmas'));
 		
